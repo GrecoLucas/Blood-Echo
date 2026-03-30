@@ -1,5 +1,4 @@
 ﻿
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 /*
@@ -28,6 +27,9 @@ public class ThirdPersonController : MonoBehaviour
     [Tooltip("Force that pulls the player down. Changing this value causes all movement, jumping and falling to be changed as well.")]
     public float gravity = 9.8f;
 
+    [Header("Stamina")]
+    [SerializeField] private Stamina stamina;
+
     float jumpElapsedTime = 0;
 
     // Player states
@@ -51,6 +53,9 @@ public class ThirdPersonController : MonoBehaviour
         cc = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
 
+        if (stamina == null)
+            stamina = GetComponent<Stamina>();
+
         // Message informing the user that they forgot to add an animator
         if (animator == null)
             Debug.LogWarning("Hey buddy, you don't have the Animator component in your player. Without it, the animations won't work.");
@@ -65,7 +70,19 @@ public class ThirdPersonController : MonoBehaviour
         inputHorizontal = Input.GetAxis("Horizontal");
         inputVertical = Input.GetAxis("Vertical");
         inputJump = Input.GetAxis("Jump") == 1f;
-        inputSprint = Input.GetAxis("Fire3") == 1f;
+        inputSprint = Input.GetAxis("Fire3") == 1f || Input.GetKey(KeyCode.LeftShift);
+
+        bool canSprint = stamina == null || stamina.HasStamina;
+
+        if (!canSprint)
+        {
+            inputSprint = false;
+            isSprinting = false;
+
+            if (animator != null)
+                animator.SetBool("sprint", false);
+        }
+
         // Unfortunately GetAxis does not work with GetKeyDown, so inputs must be taken individually
         inputCrouch = Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.JoystickButton1);
 
@@ -87,7 +104,7 @@ public class ThirdPersonController : MonoBehaviour
             animator.SetBool("run", cc.velocity.magnitude > minimumSpeed );
 
             // Sprint
-            isSprinting = cc.velocity.magnitude > minimumSpeed && inputSprint;
+            isSprinting = cc.velocity.magnitude > minimumSpeed && inputSprint && canSprint;
             animator.SetBool("sprint", isSprinting );
 
         }
