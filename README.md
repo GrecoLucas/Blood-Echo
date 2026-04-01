@@ -14,3 +14,10 @@ Prototype:
 
 Prototype 2:
 ![alt text](image-2.png)
+
+Prototype 2:
+
+<img width="1774" height="981" alt="image" src="https://github.com/user-attachments/assets/a51a6066-c449-40f6-80f0-c769f03e1fc4" />
+
+
+Press F to get weapon
