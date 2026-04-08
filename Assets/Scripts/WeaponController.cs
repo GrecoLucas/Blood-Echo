@@ -38,9 +38,19 @@ public class WeaponController : MonoBehaviour
     {
         IsArmed = !IsArmed;
         _animator.SetBool(ArmedHash, IsArmed);
-        SetWeaponVisuals(IsArmed);
     }
 
+    public void ShowWeaponOnBack()
+    {
+        if (greatswordInHand != null) greatswordInHand.SetActive(false);
+        if (greatswordOnBack != null) greatswordOnBack.SetActive(true);
+    }
+
+    public void ShowWeaponInHand()
+    {
+        if (greatswordInHand != null) greatswordInHand.SetActive(true);
+        if (greatswordOnBack != null) greatswordOnBack.SetActive(false);
+    }
     private void SetWeaponVisuals(bool armed)
     {
         if (greatswordInHand != null)
