@@ -97,6 +97,8 @@ namespace StarterAssets
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+        private int _animIDDodge;
+        private int _animIDDodgeArmed;
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -109,11 +111,21 @@ namespace StarterAssets
         [Header("Stats")]
         [SerializeField] private Stamina _stamina;
 
+        [Header("Dodge")]
+        [SerializeField] private float DodgeDistance = 2.5f;
+        [SerializeField] private float DodgeDuration = 0.35f;
+        [SerializeField] private float DodgeStaminaCost = 20f;
+        [SerializeField] private float DodgeCooldown = 0.6f;
+
         // Referência ao WeaponController
         private WeaponController _weaponController;
 
         private const float _threshold = 0.01f;
         private bool _hasAnimator;
+        private bool _isDodging;
+        private float _dodgeTimer;
+        private Vector3 _dodgeDirection;
+        private float _nextDodgeTime;
 
         private bool IsCurrentDeviceMouse
         {
@@ -166,6 +178,7 @@ namespace StarterAssets
             _hasAnimator = TryGetComponent(out _animator);
 
             HandleAttack();
+            HandleDodge();
             JumpAndGravity();
             GroundedCheck();
             Move();
@@ -183,6 +196,70 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+            _animIDDodge = Animator.StringToHash("Dodge");
+            _animIDDodgeArmed = Animator.StringToHash("Dodge 0");
+        }
+
+        private void HandleDodge()
+        {
+            if (!_hasAnimator || _isDodging) return;
+            if (Time.time < _nextDodgeTime) return;
+
+            bool dodgePressed = false;
+
+#if ENABLE_INPUT_SYSTEM
+            if (Keyboard.current != null)
+            {
+                dodgePressed = Keyboard.current.rKey.wasPressedThisFrame;
+            }
+#else
+            dodgePressed = Input.GetKeyDown(KeyCode.R);
+#endif
+
+            if (dodgePressed)
+            {
+                if (_stamina != null && !_stamina.TryUseStamina(DodgeStaminaCost))
+                {
+                    return;
+                }
+
+                _dodgeDirection = GetDodgeDirection();
+                int dodgeStateHash = (_weaponController != null && _weaponController.IsArmed)
+                    ? _animIDDodgeArmed
+                    : _animIDDodge;
+
+                _animator.CrossFadeInFixedTime(dodgeStateHash, 0.05f, 0, 0.0f);
+                _isDodging = true;
+                _dodgeTimer = DodgeDuration;
+                _nextDodgeTime = Time.time + DodgeCooldown;
+
+                if (_dodgeDirection.sqrMagnitude > 0.0001f)
+                {
+                    transform.rotation = Quaternion.LookRotation(_dodgeDirection, Vector3.up);
+                }
+            }
+        }
+
+        private Vector3 GetDodgeDirection()
+        {
+            if (_input != null && _input.move.sqrMagnitude > 0.01f && _mainCamera != null)
+            {
+                Vector3 cameraForward = _mainCamera.transform.forward;
+                Vector3 cameraRight = _mainCamera.transform.right;
+
+                cameraForward.y = 0f;
+                cameraRight.y = 0f;
+                cameraForward.Normalize();
+                cameraRight.Normalize();
+
+                Vector3 moveDirection = cameraForward * _input.move.y + cameraRight * _input.move.x;
+                if (moveDirection.sqrMagnitude > 0.0001f)
+                {
+                    return moveDirection.normalized;
+                }
+            }
+
+            return transform.forward;
         }
 
         private void HandleAttack()
@@ -236,6 +313,29 @@ namespace StarterAssets
 
         private void Move()
         {
+            if (_isDodging)
+            {
+                float dodgeSpeed = DodgeDistance / Mathf.Max(DodgeDuration, 0.0001f);
+                Vector3 dodgeMotion = _dodgeDirection.normalized * (dodgeSpeed * Time.deltaTime) +
+                                      new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime;
+
+                _controller.Move(dodgeMotion);
+
+                _dodgeTimer -= Time.deltaTime;
+                if (_dodgeTimer <= 0.0f)
+                {
+                    _isDodging = false;
+                }
+
+                if (_hasAnimator)
+                {
+                    _animator.SetFloat(_animIDSpeed, 0f);
+                    _animator.SetFloat(_animIDMotionSpeed, 0f);
+                }
+
+                return;
+            }
+
             bool canSprint = _stamina == null || _stamina.HasStamina;
             float targetSpeed = (_input.sprint && canSprint) ? SprintSpeed : MoveSpeed;
 
