@@ -4,10 +4,9 @@ using StarterAssets; // <- Adicionado para conseguirmos "conversar" com o contro
 using UnityEngine.InputSystem;
 #endif
 
-public class BonfireInteracao : MonoBehaviour
+public class Menu : MonoBehaviour
 {
     [Header("Interface")]
-    [Tooltip("Arraste o Panel do seu menu de fogueira aqui")]
     public GameObject menuFogueira;
 
     private bool jogadorPerto = false;
@@ -76,7 +75,7 @@ public class BonfireInteracao : MonoBehaviour
             jogadorPerto = true;
             // Pega as configurações de controle do jogador silenciosamente
             playerInputs = other.GetComponent<StarterAssetsInputs>();
-            Debug.Log("Pressione 'E' para descansar na fogueira.");
+            Debug.Log("Pressione 'E'");
         }
     }
 
