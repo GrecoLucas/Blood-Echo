@@ -166,7 +166,6 @@ public class EnemyAI : MonoBehaviour
         {
             animator.SetTrigger("Attack1"); 
             tempoUltimoAtaque = Time.time;
-            Debug.Log("Inimigo atacou o player!");
         }
     }
 

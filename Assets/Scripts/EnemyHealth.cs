@@ -33,7 +33,6 @@ public class EnemyHealth : MonoBehaviour
         if (isDead) return;
 
         isDead = true;
-        Debug.Log($"{name} morreu.");
 
         EnemyAI enemyAI = GetComponent<EnemyAI>();
         if (enemyAI != null)

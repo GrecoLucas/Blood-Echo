@@ -43,21 +43,18 @@ public class DamageDealer : MonoBehaviour
             {
                 player.TakeDamage(damage);
                 hasHit.Add(player.gameObject);
-                Debug.Log($"[DANO] Inimigo deu {damage} de dano no Player");
             }
         }
     }
     // Chamado via Animation Event
     public void StartDealingDamage() 
     {
-        Debug.Log($"[DamageDealer] StartDealingDamage -> owner={owner}");
         canDealDamage = true;
         hasHit.Clear(); // Limpa a lista para o novo golpe
     }
 
     public void EndDealingDamage() 
     {
-        Debug.Log($"[DamageDealer] EndDealingDamage -> owner={owner}");
         canDealDamage = false;
     }
 }

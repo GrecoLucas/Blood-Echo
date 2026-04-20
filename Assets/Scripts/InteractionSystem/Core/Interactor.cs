@@ -23,9 +23,7 @@ public class Interactor : MonoBehaviour
         // O símbolo '~' antes de ignoreLayer diz ao Unity: 
         // "Acerte em TUDO, EXCETO no que estiver na ignoreLayer"
         if (Physics.Raycast(ray, out hit, distance, ~ignoreLayer))
-        {
-            Debug.Log("O raio atravessou o player e bateu em: " + hit.collider.name);
-            
+        {            
             interactable = hit.collider.GetComponent<IInteractable>();
 
             if (interactable != null)
@@ -49,14 +47,11 @@ public class Interactor : MonoBehaviour
                 interactionPrompt.SetActive(true); // Mostra o prompt de interação
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    Debug.Log("O Unity detectou a tecla E!");
-                    Debug.Log("Interagível detectada! Executando interação...");
                     interactable.Interact(this);
                 }
 
             } else {
                 interactionPrompt.SetActive(true);  // Esconde o prompt de interação
-                Debug.Log("Objeto detectado, mas não interagível no momento.");
             }
         } else
         {

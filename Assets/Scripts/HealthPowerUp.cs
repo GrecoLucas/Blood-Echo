@@ -15,12 +15,7 @@ public class HealthPowerUp : PowerUpEffect
             else
             {
                 health.TakeDamage(amount); // Aplica dano ao jogador
-                Debug.Log($"Player levou {amount} pontos de dano!");
             }
-        }
-        else
-        {
-            Debug.LogError("PlayerHealth component nao encontrado no jogador. Certifique-se de que o script PlayerHealth esteja anexado ao jogador.");
         }
     }
 }

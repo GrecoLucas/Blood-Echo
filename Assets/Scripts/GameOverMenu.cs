@@ -18,19 +18,11 @@ public class GameOverMenu : MonoBehaviour
         {
             gameOverPanel.SetActive(false);
         }
-        else
-        {
-            Debug.LogWarning("GameOverMenu: gameOverPanel nao foi atribuido no Inspector.");
-        }
 
         if (tryAgainButton != null)
         {
             tryAgainButton.onClick.RemoveListener(TryAgain);
             tryAgainButton.onClick.AddListener(TryAgain);
-        }
-        else
-        {
-            Debug.LogWarning("GameOverMenu: tryAgainButton nao foi atribuido no Inspector.");
         }
     }
 
@@ -41,10 +33,6 @@ public class GameOverMenu : MonoBehaviour
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(true);
-        }
-        else
-        {
-            Debug.LogError("GameOverMenu: sem painel de Game Over. Atribui gameOverPanel no Inspector.");
         }
 
         Time.timeScale = 0f;

@@ -75,7 +75,6 @@ public class Menu : MonoBehaviour
             jogadorPerto = true;
             // Pega as configurações de controle do jogador silenciosamente
             playerInputs = other.GetComponent<StarterAssetsInputs>();
-            Debug.Log("Pressione 'E'");
         }
     }
 

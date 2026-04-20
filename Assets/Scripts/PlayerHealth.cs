@@ -54,7 +54,6 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isDead) return;
 
-        Debug.Log($"Player healed {amount} health!");
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
@@ -74,10 +73,6 @@ public class PlayerHealth : MonoBehaviour
         if (gameOverMenu != null)
         {
             gameOverMenu.ShowGameOver();
-        }
-        else
-        {
-            Debug.LogError("GameOverMenu nao encontrado. Adiciona o script na cena ou liga o campo gameOverMenu no PlayerHealth.");
         }
     }
 }

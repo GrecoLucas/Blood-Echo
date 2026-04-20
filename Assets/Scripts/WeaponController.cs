@@ -23,7 +23,6 @@ public class WeaponController : MonoBehaviour
         ResolvePlayerDamageDealer();
 
         string damageDealerName = playerDamageDealer != null ? playerDamageDealer.name : "NULL";
-        Debug.Log($"[WeaponController] Awake -> IsArmed={IsArmed}, playerDamageDealer={damageDealerName}");
     }
 
     private void Start()
@@ -31,7 +30,6 @@ public class WeaponController : MonoBehaviour
         // Começa desarmado: espada nas costas visível, na mão invisível
         IsArmed = false;
         SetWeaponVisuals(false);
-        Debug.Log("[WeaponController] Start -> arma guardada, visuals atualizados.");
     }
 
     private void Update()
@@ -39,7 +37,6 @@ public class WeaponController : MonoBehaviour
         // F para sacar / guardar a espada
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log($"[WeaponController] Input F detetado -> antes do toggle IsArmed={IsArmed}");
             ToggleWeapon();
         }
     }
@@ -48,11 +45,9 @@ public class WeaponController : MonoBehaviour
     {
         IsArmed = !IsArmed;
         _animator.SetBool(ArmedHash, IsArmed);
-        Debug.Log($"[WeaponController] ToggleWeapon -> IsArmed={IsArmed}");
 
         if (!IsArmed && playerDamageDealer != null)
         {
-            Debug.Log("[WeaponController] Arma guardada -> a parar dano ativo.");
             playerDamageDealer.EndDealingDamage();
         }
     }
@@ -82,11 +77,9 @@ public class WeaponController : MonoBehaviour
     {
         if (!IsArmed)
         {
-            Debug.LogWarning("[WeaponController] TriggerAttack ignorado porque o player está desarmado.");
             return;
         }
 
-        Debug.Log("[WeaponController] TriggerAttack -> a disparar animação Attack1.");
         _animator.SetTrigger(Attack1Hash);
     }
 
@@ -95,13 +88,9 @@ public class WeaponController : MonoBehaviour
     {
         if (playerDamageDealer != null)
         {
-            Debug.Log("[WeaponController] StartDealingDamage -> evento de animação recebido.");
             playerDamageDealer.StartDealingDamage();
         }
-        else
-        {
-            Debug.LogWarning("[WeaponController] StartDealingDamage chamado mas playerDamageDealer é NULL.");
-        }
+
     }
 
     // Chamado via Animation Event no ataque do player
@@ -109,12 +98,7 @@ public class WeaponController : MonoBehaviour
     {
         if (playerDamageDealer != null)
         {
-            Debug.Log("[WeaponController] EndDealingDamage -> evento de animação recebido.");
             playerDamageDealer.EndDealingDamage();
-        }
-        else
-        {
-            Debug.LogWarning("[WeaponController] EndDealingDamage chamado mas playerDamageDealer é NULL.");
         }
     }
 
@@ -138,13 +122,8 @@ public class WeaponController : MonoBehaviour
         {
             if (playerDamageDealer.owner != DamageDealer.DamageOwner.Player)
             {
-                Debug.LogWarning($"[WeaponController] Forcing {playerDamageDealer.name} owner to Player for player attacks.");
                 playerDamageDealer.owner = DamageDealer.DamageOwner.Player;
             }
-        }
-        else
-        {
-            Debug.LogWarning("[WeaponController] Nenhum DamageDealer encontrado na espada do player.");
         }
     }
 }

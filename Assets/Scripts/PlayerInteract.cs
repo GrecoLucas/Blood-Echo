@@ -24,7 +24,6 @@ public class PlayerInteract : MonoBehaviour
             // "Acerte em TUDO, EXCETO no que estiver na ignoreLayer"
             if (Physics.Raycast(ray, out hit, distance, ~ignoreLayer))
             {
-                Debug.Log("O raio atravessou o player e bateu em: " + hit.collider.name);
 
                 Door door = hit.collider.GetComponentInParent<Door>();
 
