@@ -9299,6 +9299,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2625801658216031803, guid: 9c3c50b49e2f6064aae0377ac612b18d, type: 3}
   m_PrefabInstance: {fileID: 390028442}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &264906979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 264906980}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &264906980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264906979}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.7, y: 2.19292, z: -20.89}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &266488916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9903,6 +9934,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.6677475, y: 4.9000673, z: 10.442995}
   m_Center: {x: 17.045376, y: 0.45003432, z: -10.255567}
+--- !u!114 &285107323 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5166974003694012948, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+  m_PrefabInstance: {fileID: 544030041}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
 --- !u!1001 &287796719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9964,6 +10006,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e0a458ee6cf2ab4e896c436f94c5b3c, type: 3}
+--- !u!1 &290868088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 290868089}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (14)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &290868089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290868088}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.51, y: 2.19292, z: -21.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &289127401 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1894756732947708850, guid: 0ab7abb5fe8454e49affe81bca1bd747, type: 3}
@@ -10319,6 +10392,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6dcfb3204c6f7d345b777d4fb6437efc, type: 3}
   m_PrefabInstance: {fileID: 1964073027}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &299226575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 299226576}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &299226576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299226575}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.7, y: 2.19292, z: -32.62}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &298468666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7627498853995055813, guid: 8580caaa51b0a4a4096eed36d777a036, type: 3}
@@ -12631,6 +12735,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fd5730651233094ba529cb4a686312a, type: 3}
+--- !u!1 &360375583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7940938847468903293, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+  m_PrefabInstance: {fileID: 544030041}
 --- !u!1001 &360085145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17306,6 +17414,30 @@ PrefabInstance:
       propertyPath: raioDeteccao
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: pontosPatrulha.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1796495269}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[1]'
+      value: 
+      objectReference: {fileID: 623126708}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[2]'
+      value: 
+      objectReference: {fileID: 621693529}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1925094239}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1465066919}
     - target: {fileID: 7940938847468903293, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -17313,7 +17445,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7940938847468903293, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1552687062}
+    - targetCorrespondingSourceObject: {fileID: 7940938847468903293, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1552687061}
+    - targetCorrespondingSourceObject: {fileID: 7940938847468903293, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1552687066}
   m_SourcePrefab: {fileID: 100100000, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
 --- !u!1001 &546917132
 PrefabInstance:
@@ -19064,6 +19205,99 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3134139477652001582, guid: 7ee99d84e0e95624dbd1b8e0d0e0f1a5, type: 3}
   m_PrefabInstance: {fileID: 1518402210}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &621693528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 621693529}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &621693529
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621693528}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.21, y: 2.19292, z: 3.21}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &622367898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 622367899}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (18)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &622367899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622367898}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.16, y: 2.19292, z: -17.55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &623126707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 623126708}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &623126708
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623126707}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.09, y: 2.19292, z: -2.74}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &623820232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21940,6 +22174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 688725065}
   - component: {fileID: 688725066}
+  - component: {fileID: 688725067}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -21980,9 +22215,21 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 4
+--- !u!114 &688725067
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688725064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  damage: 30
+  owner: 1
 --- !u!1001 &689351404
 PrefabInstance:
-  m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
@@ -22039,7 +22286,6 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: ca92cad5fc837c44181f97e67e9cc297, type: 3}
 --- !u!1001 &689571428
 PrefabInstance:
-  m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
@@ -23697,7 +23943,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a774989d24c2ed24ba4475823067ad82, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1543559158}
   m_SourcePrefab: {fileID: 100100000, guid: a774989d24c2ed24ba4475823067ad82, type: 3}
 --- !u!1001 &727565090
 PrefabInstance:
@@ -24299,6 +24548,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a03ab4b398d4be2419fb1eb53e6aef65, type: 3}
+--- !u!1 &748868579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 748868580}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (16)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &748868580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748868579}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.69, y: 2.19292, z: -33.39}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &751056509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29148,6 +29428,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 657987f19f0767d4f81541198f8e3eff, type: 3}
+--- !u!1 &922965760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 922965761}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &922965761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922965760}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23.78, y: 2.19292, z: -20.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &927598519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30529,6 +30840,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6933851857055861984, guid: a03ab4b398d4be2419fb1eb53e6aef65, type: 3}
   m_PrefabInstance: {fileID: 316998625}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &964585574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 964585575}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &964585575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964585574}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -31.36, y: 2.19292, z: -32.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &971104390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 404161338637558399, guid: a49867cd0f86af544ab152db0fb78965, type: 3}
@@ -33281,9 +33623,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 612532283}
     - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: damageDealer
+      value: 
+      objectReference: {fileID: 285107323}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
       propertyPath: raioDeteccao
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: pontosPatrulha.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[0]'
+      value: 
+      objectReference: {fileID: 299226576}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[1]'
+      value: 
+      objectReference: {fileID: 264906980}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[2]'
+      value: 
+      objectReference: {fileID: 922965761}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[3]'
+      value: 
+      objectReference: {fileID: 964585575}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1836467700}
     - target: {fileID: 7940938847468903293, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -33291,7 +33661,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7940938847468903293, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2103839688}
+    - targetCorrespondingSourceObject: {fileID: 7940938847468903293, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2103839687}
+    - targetCorrespondingSourceObject: {fileID: 7940938847468903293, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2103839692}
   m_SourcePrefab: {fileID: 100100000, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
 --- !u!4 &1042044494 stripped
 Transform:
@@ -37035,6 +37414,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1110472861141613419, guid: 1fd5730651233094ba529cb4a686312a, type: 3}
   m_PrefabInstance: {fileID: 1018908996}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1126982195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1126982196}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (13)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1126982196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126982195}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.04, y: 2.19292, z: -21.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1127000721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9051238300485817969, guid: 2f6c4572e07a60b43b00e1c4f489a806, type: 3}
@@ -39782,6 +40192,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1790604010}
+    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1790604017}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
 --- !u!1001 &1205221364
 PrefabInstance:
@@ -46242,8 +46655,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameOverMenu
   gameOverPanel: {fileID: 1376461372}
   tryAgainButton: {fileID: 1297217671}
-  gameOverPanelName: GameOverPanel
-  tryAgainButtonName: TryAgainButton
   playerInputs: {fileID: 0}
 --- !u!4 &1376552156
 Transform:
@@ -47565,6 +47976,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a5e6e148be2b0b44b0258733231d4b7, type: 3}
+--- !u!1 &1415602425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1415602426}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1415602426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415602425}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -31.89, y: 2.19292, z: -15.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1415733201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49089,6 +49531,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6933851857055861984, guid: a03ab4b398d4be2419fb1eb53e6aef65, type: 3}
   m_PrefabInstance: {fileID: 973430503}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1465066918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1465066919}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1465066919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465066918}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23.7, y: 2.19292, z: -13.43}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1465702248 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9051238300485817969, guid: 2f6c4572e07a60b43b00e1c4f489a806, type: 3}
@@ -51174,6 +51647,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a774989d24c2ed24ba4475823067ad82, type: 3}
   m_PrefabInstance: {fileID: 727300990}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &1543559158
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820997743}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.16864088
+  m_Height: 1.9403262
+  m_Direction: 1
+  m_Center: {x: -0.00016288464, y: 0.6145007, z: 0.000000073771034}
 --- !u!1001 &1544383510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51650,6 +52146,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 416405717289854758, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
   m_PrefabInstance: {fileID: 544030041}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1552687061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360375583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  damage: 10
+  owner: 0
+--- !u!114 &1552687062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360375583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88dbc957f03e0514a935df6923e127e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 50
+  currentHealth: 50
+  destroyOnDeath: 1
+  destroyDelay: 1.5
+--- !u!136 &1552687066
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360375583}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1554422898 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7037373293948207752, guid: b19b395331c7b5d4eaeac8abfdae5cf0, type: 3}
@@ -53770,6 +54319,11 @@ Transform:
   - {fileID: 1435314986}
   m_Father: {fileID: 1398265755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1606305772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7940938847468903293, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+  m_PrefabInstance: {fileID: 1617967295}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1608281329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54019,6 +54573,46 @@ PrefabInstance:
       propertyPath: raioDeteccao
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: pontosPatrulha.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2001665159}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1415602426}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2032901247}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1126982196}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[4]'
+      value: 
+      objectReference: {fileID: 290868089}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1888202168}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[6]'
+      value: 
+      objectReference: {fileID: 748868580}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[7]'
+      value: 
+      objectReference: {fileID: 1790378995}
+    - target: {fileID: 3663384944535353874, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[8]'
+      value: 
+      objectReference: {fileID: 622367899}
     - target: {fileID: 7940938847468903293, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -54026,7 +54620,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7940938847468903293, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1655688567}
+    - targetCorrespondingSourceObject: {fileID: 7940938847468903293, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1655688566}
+    - targetCorrespondingSourceObject: {fileID: 7940938847468903293, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1655688571}
   m_SourcePrefab: {fileID: 100100000, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
 --- !u!1001 &1621808661
 PrefabInstance:
@@ -55224,6 +55827,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 416405717289854758, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
   m_PrefabInstance: {fileID: 1617967295}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1655688566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606305772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  damage: 10
+  owner: 0
+--- !u!114 &1655688567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606305772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88dbc957f03e0514a935df6923e127e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 50
+  currentHealth: 50
+  destroyOnDeath: 1
+  destroyDelay: 1.5
+--- !u!136 &1655688571
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606305772}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1655864562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59397,6 +60053,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784301728}
   m_Mesh: {fileID: 4300004, guid: b46259b262101f3409567ebbc98c8247, type: 3}
+--- !u!1 &1790378994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1790378995}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (17)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1790378995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790378994}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.11, y: 2.19292, z: -23.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1784882403 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7627498853995055813, guid: 8580caaa51b0a4a4096eed36d777a036, type: 3}
@@ -59483,6 +60170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponController
   greatswordInHand: {fileID: 820997743}
   greatswordOnBack: {fileID: 1975250057}
+  playerDamageDealer: {fileID: 1790604017}
 --- !u!114 &1790604009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59526,6 +60214,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1790604017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790603995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  damage: 100
+  owner: 0
 --- !u!1001 &1792523743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59783,6 +60485,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2625801658216031803, guid: 9c3c50b49e2f6064aae0377ac612b18d, type: 3}
   m_PrefabInstance: {fileID: 1385138086}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1796495268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1796495269}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1796495269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796495268}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.55, y: 2.19292, z: -16.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1798443500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4425768411978368759, guid: 7a5e6e148be2b0b44b0258733231d4b7, type: 3}
@@ -61159,6 +61892,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9051238300485817969, guid: 2f6c4572e07a60b43b00e1c4f489a806, type: 3}
   m_PrefabInstance: {fileID: 183469635}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1836467699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1836467700}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1836467700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836467699}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -31.78, y: 2.19292, z: -16.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1839452243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62715,6 +63479,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1110472861141613419, guid: 1fd5730651233094ba529cb4a686312a, type: 3}
   m_PrefabInstance: {fileID: 1003559620}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1888202167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1888202168}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (15)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1888202168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888202167}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.51, y: 2.19292, z: -30.81}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1889149613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4425768411978368759, guid: 7a5e6e148be2b0b44b0258733231d4b7, type: 3}
@@ -63726,6 +64521,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a5e6e148be2b0b44b0258733231d4b7, type: 3}
+--- !u!1 &1925094238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1925094239}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1925094239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925094238}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -31.74, y: 2.19292, z: 2.34}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1926752912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66172,6 +66998,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9051238300485817969, guid: 2f6c4572e07a60b43b00e1c4f489a806, type: 3}
   m_PrefabInstance: {fileID: 2000585313}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2001665158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2001665159}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2001665159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001665158}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23.7, y: 2.19292, z: -6.78}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2001837323 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7627498853995055813, guid: 8580caaa51b0a4a4096eed36d777a036, type: 3}
@@ -66740,6 +67597,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6910234438346726933, guid: f814df19d21485748b7b576ba2a3195d, type: 3}
   m_PrefabInstance: {fileID: 1283966285}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2032901246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2032901247}
+  m_Layer: 0
+  m_Name: Ponto_Patrulha (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2032901247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032901246}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.82, y: 2.19292, z: -21.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2030262704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69643,6 +70531,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6dcfb3204c6f7d345b777d4fb6437efc, type: 3}
   m_PrefabInstance: {fileID: 715775806}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2103839683 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7940938847468903293, guid: 42248ab424680cb41a097f82e94b8f70, type: 3}
+  m_PrefabInstance: {fileID: 1039778228}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2103839687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103839683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  damage: 10
+  owner: 0
+--- !u!114 &2103839688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103839683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88dbc957f03e0514a935df6923e127e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 50
+  currentHealth: 50
+  destroyOnDeath: 1
+  destroyDelay: 1.5
+--- !u!136 &2103839692
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103839683}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2103131034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70871,3 +71817,22 @@ SceneRoots:
   - {fileID: 1385994653}
   - {fileID: 244462803}
   - {fileID: 1376552156}
+  - {fileID: 299226576}
+  - {fileID: 1836467700}
+  - {fileID: 1796495269}
+  - {fileID: 623126708}
+  - {fileID: 621693529}
+  - {fileID: 1925094239}
+  - {fileID: 1465066919}
+  - {fileID: 2001665159}
+  - {fileID: 1415602426}
+  - {fileID: 2032901247}
+  - {fileID: 1126982196}
+  - {fileID: 290868089}
+  - {fileID: 1888202168}
+  - {fileID: 748868580}
+  - {fileID: 1790378995}
+  - {fileID: 622367899}
+  - {fileID: 264906980}
+  - {fileID: 922965761}
+  - {fileID: 964585575}
