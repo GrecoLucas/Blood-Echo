@@ -126,7 +126,7 @@ namespace StarterAssets
         private float _dodgeTimer;
         private Vector3 _dodgeDirection;
         private float _nextDodgeTime;
-
+        public bool IsInvincible => _isDodging;
         private bool IsCurrentDeviceMouse
         {
             get

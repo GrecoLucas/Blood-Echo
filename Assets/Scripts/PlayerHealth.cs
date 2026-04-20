@@ -1,17 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using StarterAssets;
 public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth = 100f;
     public float currentHealth;
     public Slider healthSlider; // Arraste seu Heathbar aqui
     public GameOverMenu gameOverMenu;
-
-    private bool isDead;
+    private ThirdPersonController _controller;    private bool isDead;
 
     void Start()
     {
+        _controller = GetComponent<ThirdPersonController>();
         if (gameOverMenu == null)
         {
             gameOverMenu = FindFirstObjectByType<GameOverMenu>();
@@ -28,6 +28,12 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float amount)
     {
         if (isDead) return;
+
+        if (_controller != null && _controller.IsInvincible) 
+        {
+            Debug.Log("Esquivou! Dano ignorado por I-Frames.");
+            return;
+        }
 
         Debug.Log($"Player took {amount} damage!");
         currentHealth -= amount;
