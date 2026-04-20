@@ -31,44 +31,29 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         if (isDead) return;
-
+    
         isDead = true;
-
+    
+        // Desativa a lógica e o agente
         EnemyAI enemyAI = GetComponent<EnemyAI>();
-        if (enemyAI != null)
-        {
-            enemyAI.enabled = false;
-        }
-
+        if (enemyAI != null) enemyAI.enabled = false;
+    
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         if (agent != null)
         {
             agent.isStopped = true;
             agent.enabled = false;
         }
-
-        DamageDealer[] damageDealers = GetComponentsInChildren<DamageDealer>(true);
-        foreach (DamageDealer dealer in damageDealers)
-        {
-            if (dealer != null)
-            {
-                dealer.EndDealingDamage();
-                dealer.enabled = false;
-            }
-        }
-
-        Collider[] colliders = GetComponentsInChildren<Collider>(true);
-        foreach (Collider col in colliders)
-        {
-            if (col != null)
-            {
-                col.enabled = false;
-            }
-        }
-
+    
+        // DESAPARECER NA HORA: Desativa o objeto visualmente
+        // Isso faz com que ele suma da tela imediatamente, mesmo antes do Destroy
+        gameObject.SetActive(false); 
+    
         if (destroyOnDeath)
         {
-            Destroy(gameObject, destroyDelay);
+            // Agora o delay pode ser 0 ou qualquer valor, 
+            // pois o objeto já está invisível e desativado
+            Destroy(gameObject, 0f); 
         }
     }
 }
