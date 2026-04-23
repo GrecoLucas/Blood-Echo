@@ -14,6 +14,10 @@ public class WeaponController : MonoBehaviour
     private static readonly int ArmedHash = Animator.StringToHash("Armed");
     private static readonly int Attack1Hash = Animator.StringToHash("Attack1");
 
+    // Adicione estes Hashes no topo com os outros
+    private static readonly int DrawHash = Animator.StringToHash("Draw");
+    private static readonly int SheathHash = Animator.StringToHash("Sheath");
+ 
     public bool IsArmed { get; private set; }
 
     private void Awake()
@@ -44,12 +48,24 @@ public class WeaponController : MonoBehaviour
     private void ToggleWeapon()
     {
         IsArmed = !IsArmed;
-        _animator.SetBool(ArmedHash, IsArmed);
-
-        if (!IsArmed && playerDamageDealer != null)
+        
+        // Dispara o Trigger específico para a camada UpperBody
+        if (IsArmed)
         {
-            playerDamageDealer.EndDealingDamage();
+            _animator.SetTrigger(DrawHash);
         }
+        else
+        {
+            _animator.SetTrigger(SheathHash);
+            
+            if (playerDamageDealer != null)
+            {
+                playerDamageDealer.EndDealingDamage();
+            }
+        }
+    
+        // Mantém o Armed bool para a Base Layer trocar a pose das pernas
+        _animator.SetBool(ArmedHash, IsArmed);
     }
 
     public void ShowWeaponOnBack()
