@@ -13108,14 +13108,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Potions
   playerHealth: {fileID: 1790604009}
   healAmount: 25
+  potionCount: 4
+  playerAnimator: {fileID: 1790604023}
   potionNumberText: {fileID: 1404245094}
   healingObject1: {fileID: 1767951176}
   healingObject2: {fileID: 1333835724}
   healingObject3: {fileID: 1691517583}
   healingObject4: {fileID: 138130434}
   emptyObject: {fileID: 1020283082}
-  useKey: 104
-  potionCount: 4
 --- !u!1001 &432506960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55402,6 +55402,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
   damage: 25
   owner: 0
+--- !u!95 &1790604023 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6982812146204527121, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+  m_PrefabInstance: {fileID: 1204707422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1792523743
 PrefabInstance:
   m_ObjectHideFlags: 0

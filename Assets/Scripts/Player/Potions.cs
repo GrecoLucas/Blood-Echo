@@ -5,7 +5,10 @@ public class Potions : MonoBehaviour
 {
     [Header("Configurações de Cura")]
     public PlayerHealth playerHealth; 
-    public float healAmount = 50f;    
+    public float healAmount = 50f;   
+    public int potionCount = 4;
+    [Header("Animator")]
+    public Animator playerAnimator;
 
     [Header("Referências da UI")]
     public GameObject potionNumberText;
@@ -14,15 +17,19 @@ public class Potions : MonoBehaviour
     public GameObject healingObject3;  
     public GameObject healingObject4;   
     public GameObject emptyObject;    
-    [Header("Tecla de Atalho")]
-    public KeyCode useKey = KeyCode.H; 
-    public int potionCount = 4; 
+    private KeyCode useKey = KeyCode.H; 
+    private static readonly int DrinkTrigger = Animator.StringToHash("Drink");
 
     TMP_Text potionNumberTMP;
     UnityEngine.UI.Text potionNumberLegacy;
 
     void Start()
     {
+        if (playerAnimator == null)
+        {
+            playerAnimator = GetComponent<Animator>();
+        }
+
         if (potionNumberText != null)
         {
             potionNumberTMP = potionNumberText.GetComponent<TMP_Text>();
@@ -47,6 +54,11 @@ public class Potions : MonoBehaviour
         {
             if (playerHealth.currentHealth < playerHealth.maxHealth)
             {
+                if (playerAnimator != null)
+                {
+                    playerAnimator.SetTrigger(DrinkTrigger);
+                }
+
                 playerHealth.Heal(healAmount);
 
                 potionCount--;
