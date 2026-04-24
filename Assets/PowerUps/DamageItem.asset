@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93cd25b796deb6b44906456efd12abea, type: 3}
   m_Name: DamageItem
   m_EditorClassIdentifier: Assembly-CSharp::HealthPowerUp
-  amount: 0
-  isHealing: 1
+  amount: 20
+  isHealing: 0
