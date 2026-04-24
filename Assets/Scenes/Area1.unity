@@ -8738,7 +8738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 264906980}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (1)
+  m_Name: Enemy(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9435,7 +9435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 290868089}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (14)
+  m_Name: Enemy_2(4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9764,7 +9764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 299226576}
   m_Layer: 0
-  m_Name: Ponto_Patrulha
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18028,7 +18028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 621693529}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (7)
+  m_Name: Enemy_1(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18059,7 +18059,7 @@ GameObject:
   m_Component:
   - component: {fileID: 622367899}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (18)
+  m_Name: Enemy_2(8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18090,7 +18090,7 @@ GameObject:
   m_Component:
   - component: {fileID: 623126708}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (6)
+  m_Name: Enemy_1(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23151,7 +23151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 748868580}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (16)
+  m_Name: Enemy_2(6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27499,7 +27499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 922965761}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (2)
+  m_Name: Enemy(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28949,7 +28949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 964585575}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (3)
+  m_Name: Enemy(3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34994,7 +34994,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1126982196}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (13)
+  m_Name: Enemy_2(3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44644,7 +44644,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1415602426}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (11)
+  m_Name: Enemy_2(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45923,7 +45923,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1465066919}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (9)
+  m_Name: Enemy_1(4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48556,6 +48556,46 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 612532283}
+    - target: {fileID: 3663384944535353874, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
+      propertyPath: pontosPatrulha.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663384944535353874, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[0]'
+      value: 
+      objectReference: {fileID: 299226576}
+    - target: {fileID: 3663384944535353874, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[1]'
+      value: 
+      objectReference: {fileID: 264906980}
+    - target: {fileID: 3663384944535353874, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[2]'
+      value: 
+      objectReference: {fileID: 922965761}
+    - target: {fileID: 3663384944535353874, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[3]'
+      value: 
+      objectReference: {fileID: 964585575}
+    - target: {fileID: 3663384944535353874, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1836467700}
+    - target: {fileID: 3663384944535353874, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1796495269}
+    - target: {fileID: 3663384944535353874, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[6]'
+      value: 
+      objectReference: {fileID: 623126708}
+    - target: {fileID: 3663384944535353874, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[7]'
+      value: 
+      objectReference: {fileID: 621693529}
+    - target: {fileID: 3663384944535353874, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
+      propertyPath: 'pontosPatrulha.Array.data[8]'
+      value: 
+      objectReference: {fileID: 1925094239}
     - target: {fileID: 7778428154050130886, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -55742,7 +55782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1790378995}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (17)
+  m_Name: Enemy_2(7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56118,7 +56158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1796495269}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (5)
+  m_Name: Enemy_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57393,7 +57433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1836467700}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (4)
+  m_Name: Enemy(4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58787,7 +58827,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1888202168}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (15)
+  m_Name: Enemy_2(5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59778,6 +59818,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 299226576}
+  - {fileID: 264906980}
+  - {fileID: 922965761}
+  - {fileID: 964585575}
   - {fileID: 1836467700}
   - {fileID: 1796495269}
   - {fileID: 623126708}
@@ -59793,9 +59836,6 @@ Transform:
   - {fileID: 748868580}
   - {fileID: 1790378995}
   - {fileID: 622367899}
-  - {fileID: 264906980}
-  - {fileID: 922965761}
-  - {fileID: 964585575}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1925094238
@@ -59808,7 +59848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1925094239}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (8)
+  m_Name: Enemy_1(3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62010,7 +62050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2001665159}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (10)
+  m_Name: Enemy_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62527,7 +62567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2032901247}
   m_Layer: 0
-  m_Name: Ponto_Patrulha (12)
+  m_Name: Enemy_2(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62729,9 +62769,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 695607156}
   - {fileID: 1552687057}
   - {fileID: 1655688562}
-  - {fileID: 695607156}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2040220529
