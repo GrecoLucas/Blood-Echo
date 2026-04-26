@@ -44,18 +44,18 @@ public class Interactor : MonoBehaviour
         {
             if (interactable.CanInteract())
             {
-                interactionPrompt.SetActive(true); // Mostra o prompt de interação
+                //interactionPrompt.SetActive(true); // Mostra o prompt de interação
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     interactable.Interact(this);
                 }
 
             } else {
-                interactionPrompt.SetActive(true);  // Esconde o prompt de interação
+                //interactionPrompt.SetActive(true);  // Esconde o prompt de interação
             }
         } else
         {
-            interactionPrompt.SetActive(false); // Esconde o prompt de interação
+            //interactionPrompt.SetActive(false); // Esconde o prompt de interação
         }
 
     }

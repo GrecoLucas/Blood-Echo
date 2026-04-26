@@ -1,5 +1,9 @@
 using UnityEngine;
 using TMPro;
+using StarterAssets;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 public class NoteController : MonoBehaviour, IInteractable
 {
@@ -17,14 +21,16 @@ public class NoteController : MonoBehaviour, IInteractable
     }
 
     private void ShowNote(){
-            // Show the note UI
-            noteTextComponent.text = noteContent;
-            noteCanvas.SetActive(true);
-            // Disable player movement
-            if (playerController != null)
-            {
-                playerController.enabled = false;
-            }
+        // Show the note UI
+        noteTextComponent.text = noteContent;
+        noteCanvas.SetActive(true);
+        Time.timeScale = 0f;
+        // Disable player movement
+        if (playerController != null)
+        {
+            playerController.LockCameraPosition = true;
+
+        }
     }
 
     private void DisableNote(){
@@ -32,13 +38,13 @@ public class NoteController : MonoBehaviour, IInteractable
             noteCanvas.SetActive(false);
             noteTextComponent.text = null;
             isOpen = false;
-
+            Time.timeScale = 1f;
             // Enable player movement
             if (playerController != null)
             {
-                playerController.enabled = true;
+                playerController.LockCameraPosition = false;
             }
-            return;
+            
     }
 
 

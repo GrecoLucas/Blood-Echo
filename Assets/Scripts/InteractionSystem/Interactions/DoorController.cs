@@ -5,7 +5,7 @@ public class DoorController : MonoBehaviour, IInteractable
     public Transform doorMesh;
     public float openAngle = 90f;
     public float speed = 3f;
-    private bool isLocked = true;
+    public bool isLocked = true;
 
     private bool isOpen = false;
     private Quaternion closedRot;
