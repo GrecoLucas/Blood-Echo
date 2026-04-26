@@ -8,6 +8,7 @@ public class BonfireController : MonoBehaviour, IInteractable
 {
     public Transform bonefireMesh;
     public GameObject menuFogueira;
+    public GameObject exitCanvas;
     public KeyCode closeKey;
     // Variável para guardar os controles do jogador e pedir o mouse emprestado
     private StarterAssetsInputs playerInputs; 
@@ -15,6 +16,7 @@ public class BonfireController : MonoBehaviour, IInteractable
 
     private void ShowMenu(){
         menuFogueira.SetActive(true);
+        exitCanvas.SetActive(true);
         Time.timeScale = 0f; // Pausa o jogo
         
         // Pede para o StarterAssets parar de controlar a câmera e soltar o mouse
@@ -31,6 +33,7 @@ public class BonfireController : MonoBehaviour, IInteractable
     private void DisableMenu(){
         isMenuOpen = false;
         menuFogueira.SetActive(false);
+        exitCanvas.SetActive(false);
         Time.timeScale = 1f; // Volta o jogo
         
         // Devolve o controle da câmera e esconde o mouse

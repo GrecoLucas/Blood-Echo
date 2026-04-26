@@ -10,6 +10,7 @@ public class NoteController : MonoBehaviour, IInteractable
     public Transform noteMesh;
     public KeyCode closeKey;
     public GameObject noteCanvas;
+    public GameObject exitCanvas;
     public TMP_Text noteTextComponent;
     public string noteContent;
     public StarterAssets.ThirdPersonController playerController; // Reference to the player's movement script
@@ -24,6 +25,7 @@ public class NoteController : MonoBehaviour, IInteractable
         // Show the note UI
         noteTextComponent.text = noteContent;
         noteCanvas.SetActive(true);
+        exitCanvas.SetActive(true);
         Time.timeScale = 0f;
         // Disable player movement
         if (playerController != null)
@@ -36,6 +38,7 @@ public class NoteController : MonoBehaviour, IInteractable
     private void DisableNote(){
             // Hide the note UI
             noteCanvas.SetActive(false);
+            exitCanvas.SetActive(false);
             noteTextComponent.text = null;
             isOpen = false;
             Time.timeScale = 1f;
