@@ -106,7 +106,6 @@ public class WeaponController : MonoBehaviour
         {
             playerDamageDealer.StartDealingDamage();
         }
-
     }
 
     // Chamado via Animation Event no ataque do player

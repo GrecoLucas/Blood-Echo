@@ -18461,6 +18461,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1897931655730797702, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
+      propertyPath: hitSparkPrefab
+      value: 
+      objectReference: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
     - target: {fileID: 3663384944535353874, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: player
       value: 
@@ -18485,6 +18489,10 @@ PrefabInstance:
       propertyPath: 'pontosPatrulha.Array.data[4]'
       value: 
       objectReference: {fileID: 1465066919}
+    - target: {fileID: 5166974003694012948, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
+      propertyPath: hitSparkPrefab
+      value: 
+      objectReference: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
     - target: {fileID: 7778428154050130886, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -25580,6 +25588,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a774989d24c2ed24ba4475823067ad82, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1543559159}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a774989d24c2ed24ba4475823067ad82, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1543559162}
   m_SourcePrefab: {fileID: 100100000, guid: a774989d24c2ed24ba4475823067ad82, type: 3}
 --- !u!1001 &727565090
 PrefabInstance:
@@ -41407,9 +41418,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1790604010}
-    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1790604017}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
 --- !u!1001 &1205221364
 PrefabInstance:
@@ -53143,6 +53151,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.33728176, y: 1.9403262, z: 0.15960264}
   m_Center: {x: -0.00016669933, y: 0.6145007, z: 0.000000073771034}
+--- !u!114 &1543559162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820997743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  hitSparkPrefab: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
+  damage: 10
+  owner: 1
 --- !u!1001 &1544383510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53810,6 +53833,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1897931655730797702, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
+      propertyPath: hitSparkPrefab
+      value: 
+      objectReference: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
     - target: {fileID: 3663384944535353874, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: player
       value: 
@@ -53854,6 +53881,10 @@ PrefabInstance:
       propertyPath: 'pontosPatrulha.Array.data[8]'
       value: 
       objectReference: {fileID: 1925094239}
+    - target: {fileID: 5166974003694012948, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
+      propertyPath: hitSparkPrefab
+      value: 
+      objectReference: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
     - target: {fileID: 7778428154050130886, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -56139,6 +56170,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5166974003694012948, guid: 7bfe001c528df96439ff846ff96cf148, type: 3}
+      propertyPath: hitSparkPrefab
+      value: 
+      objectReference: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
+    - target: {fileID: 5698980901195910931, guid: 7bfe001c528df96439ff846ff96cf148, type: 3}
+      propertyPath: hitSparkPrefab
+      value: 
+      objectReference: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
     - target: {fileID: 7940938847468903293, guid: 7bfe001c528df96439ff846ff96cf148, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -61946,7 +61985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponController
   greatswordInHand: {fileID: 820997743}
   greatswordOnBack: {fileID: 1975250057}
-  playerDamageDealer: {fileID: 1790604017}
+  playerDamageDealer: {fileID: 1543559162}
 --- !u!114 &1790604009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61990,20 +62029,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1790604017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1790603995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
-  damage: 25
-  owner: 0
 --- !u!114 &1790604019 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 135756642000475821, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}

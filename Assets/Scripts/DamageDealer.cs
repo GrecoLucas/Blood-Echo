@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
+    [Header("Effects")]
+    [SerializeField] private GameObject hitSparkPrefab;
     public enum DamageOwner
     {
         Enemy,
@@ -31,7 +33,7 @@ public class DamageDealer : MonoBehaviour
             {
                 enemy.TakeDamage(damage);
                 hasHit.Add(enemy.gameObject);
-                Debug.Log($"[SUCESSO] Player deu {damage} de dano em {enemy.name}");
+                SpawnHitSpark(other);
             }
         }
         // 3. Se o DONO é o ENEMY, ele quer acertar o PLAYER
@@ -43,6 +45,7 @@ public class DamageDealer : MonoBehaviour
             {
                 player.TakeDamage(damage);
                 hasHit.Add(player.gameObject);
+                SpawnHitSpark(other);
             }
         }
     }
@@ -56,5 +59,15 @@ public class DamageDealer : MonoBehaviour
     public void EndDealingDamage() 
     {
         canDealDamage = false;
+    }
+    private void SpawnHitSpark(Collider other)
+    {
+        if (hitSparkPrefab == null) return;
+
+        Vector3 contactPoint = other.ClosestPoint(transform.position);
+
+        GameObject spark = Instantiate(hitSparkPrefab, contactPoint, Quaternion.identity);
+
+        spark.transform.forward = contactPoint - other.bounds.center;
     }
 }
