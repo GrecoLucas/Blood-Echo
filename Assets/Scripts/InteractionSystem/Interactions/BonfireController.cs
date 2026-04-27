@@ -13,7 +13,11 @@ public class BonfireController : MonoBehaviour, IInteractable
     // Variável para guardar os controles do jogador e pedir o mouse emprestado
     private StarterAssetsInputs playerInputs; 
     private bool isMenuOpen = false;
-
+    [Header("Bonfire VFX")]
+    public GameObject fireObject;
+    public bool isDefaultBonfire = false; // Marque como TRUE apenas na fogueira inicial da fase
+    [Header("Spawn Point")]
+    public Transform playerSp;
     private void ShowMenu(){
         menuFogueira.SetActive(true);
         exitCanvas.SetActive(true);
@@ -56,7 +60,27 @@ public class BonfireController : MonoBehaviour, IInteractable
     public void Interact(Interactor interactor)
     {
         isMenuOpen = true;
+        ActivateThisBonfire();
+
+        if(GameManager.Instance != null)
+        {
+            Vector3 spawnPos = playerSp != null ? playerSp.position : transform.position;
+            GameManager.Instance.RestAtBonfire(spawnPos);
+        }
+
         ShowMenu();
+    }
+    private void ActivateThisBonfire()
+    {
+        // Desativa o fogo de todas as fogueiras na cena
+        BonfireController[] allBonfires = FindObjectsByType<BonfireController>(FindObjectsSortMode.None);
+        foreach (var b in allBonfires)
+        {
+            if (b.fireObject != null) b.fireObject.SetActive(false);
+        }
+
+        // Ativa apenas o fogo desta
+        if (fireObject != null) fireObject.SetActive(true);
     }
     // Update is called once per frame
     void Update()
@@ -67,5 +91,40 @@ public class BonfireController : MonoBehaviour, IInteractable
                  DisableMenu();
             }
         }  
+    }
+
+    private void Start()
+    {
+        if (GameManager.Instance != null)
+        {
+            if (GameManager.Instance.lastBonfirePosition != Vector3.zero)
+            {
+                float distancia = Vector3.Distance(GameManager.Instance.lastBonfirePosition, playerSp.position);
+
+                // Se a distância for muito pequena (quase zero), é a mesma fogueira
+                if (distancia < 0.1f)
+                {
+                    if (fireObject != null) fireObject.SetActive(true);
+                    return; // Encontramos a ativa, não precisamos checar o 'isDefault'
+                }
+                else
+                {
+                    // Se o GameManager já tem uma posição salva e não é esta, apagamos o fogo
+                    if (fireObject != null) fireObject.SetActive(false);
+                    return;
+                }
+            }
+        }
+
+        // usamos a lógica da fogueira default que você já tinha
+        if (fireObject != null)
+        {
+            fireObject.SetActive(isDefaultBonfire);
+        }
+
+        if (isDefaultBonfire && GameManager.Instance != null && playerSp != null)
+        {
+            GameManager.Instance.lastBonfirePosition = playerSp.position;
+        }
     }
 }

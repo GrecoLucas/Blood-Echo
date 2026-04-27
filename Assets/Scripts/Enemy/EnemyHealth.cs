@@ -51,8 +51,6 @@ public class EnemyHealth : MonoBehaviour
     
         if (destroyOnDeath)
         {
-            // Agora o delay pode ser 0 ou qualquer valor, 
-            // pois o objeto já está invisível e desativado
             Destroy(gameObject, 0f); 
         }
     }
