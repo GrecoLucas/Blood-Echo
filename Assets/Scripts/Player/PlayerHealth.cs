@@ -6,8 +6,10 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
     public Slider healthSlider; // Arraste seu Heathbar aqui
+    public Slider maxHealthSlider;
     public GameOverMenu gameOverMenu;
-    private ThirdPersonController _controller;    private bool isDead;
+    private ThirdPersonController _controller;    
+    private bool isDead;
 
     void Start()
     {
@@ -22,6 +24,11 @@ public class PlayerHealth : MonoBehaviour
         {
             healthSlider.maxValue = maxHealth;
             healthSlider.value = currentHealth;
+        }
+        if (maxHealthSlider != null)
+        {
+            maxHealthSlider.maxValue = 300f;
+            maxHealthSlider.value = maxHealth;
         }
     }
 
@@ -74,5 +81,16 @@ public class PlayerHealth : MonoBehaviour
         {
             gameOverMenu.ShowGameOver();
         }
+    }
+
+    public void IncreaseMaxHealth(float amount)
+    {
+        
+        float newMaxHealth = maxHealth + amount;
+        // currentHealth += amount; // heal the added amount too
+        
+        // Tell the UI to update
+        FindAnyObjectByType<HealthBarUI>().UpdateHealthBar(maxHealth, newMaxHealth);
+        maxHealth = newMaxHealth;
     }
 }

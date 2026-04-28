@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93cd25b796deb6b44906456efd12abea, type: 3}
-  m_Name: DamageItem
+  m_Name: PermHealthIncreaseItem
   m_EditorClassIdentifier: Assembly-CSharp::HealthPowerUp
-  amount: 20
-  powerUpType: 1
+  amount: 100
+  powerUpType: 2
