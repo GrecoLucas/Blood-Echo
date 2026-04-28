@@ -2797,6 +2797,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 66791647}
+  - component: {fileID: 66791648}
   m_Layer: 0
   m_Name: Lights
   m_TagString: Untagged
@@ -2820,6 +2821,46 @@ Transform:
   - {fileID: 646147353}
   m_Father: {fileID: 1398265755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &66791648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66791646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9578e6ca55cd46d429776b2cb9af09f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HorrorLightController
+  lights: []
+  minIntensity: 0
+  maxIntensity: 1.5
+  flashIntensityMultiplier: 3
+  initialDelayMin: 0
+  initialDelayMax: 1.5
+  stableDurationMin: 0.8
+  stableDurationMax: 2.2
+  stableJitterAmount: 0.06
+  stableJitterIntervalMin: 0.05
+  stableJitterIntervalMax: 0.2
+  useHardOff: 1
+  instantOff: 0
+  fadeToOffMin: 0.04
+  fadeToOffMax: 0.2
+  offHoldMin: 0.25
+  offHoldMax: 1.4
+  flickerPulsesMin: 3
+  flickerPulsesMax: 8
+  flickerPulseDurationMin: 0.02
+  flickerPulseDurationMax: 0.08
+  flickerPauseMin: 0.01
+  flickerPauseMax: 0.06
+  recoverDurationMin: 0.3
+  recoverDurationMax: 1.2
+  randomizeColor: 0
+  minColor: {r: 0, g: 0, b: 0, a: 1}
+  maxColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &69638263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18183,7 +18224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -0.000017166138}
+  m_AnchoredPosition: {x: 0, y: -0.000017166138}
   m_SizeDelta: {x: 460, y: -10}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!1001 &567879739
@@ -55893,6 +55934,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1604722075}
+  - component: {fileID: 1604722076}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
@@ -56105,6 +56147,46 @@ Transform:
   - {fileID: 1435314986}
   m_Father: {fileID: 1398265755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1604722076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604722074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9578e6ca55cd46d429776b2cb9af09f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HorrorLightController
+  lights: []
+  minIntensity: 0
+  maxIntensity: 1.5
+  flashIntensityMultiplier: 3
+  initialDelayMin: 0
+  initialDelayMax: 1.5
+  stableDurationMin: 0.8
+  stableDurationMax: 2.2
+  stableJitterAmount: 0.06
+  stableJitterIntervalMin: 0.05
+  stableJitterIntervalMax: 0.2
+  useHardOff: 1
+  instantOff: 0
+  fadeToOffMin: 0.04
+  fadeToOffMax: 0.2
+  offHoldMin: 0.25
+  offHoldMax: 1.4
+  flickerPulsesMin: 3
+  flickerPulsesMax: 8
+  flickerPulseDurationMin: 0.02
+  flickerPulseDurationMax: 0.08
+  flickerPauseMin: 0.01
+  flickerPauseMax: 0.06
+  recoverDurationMin: 0.3
+  recoverDurationMax: 1.2
+  randomizeColor: 0
+  minColor: {r: 0, g: 0, b: 0, a: 1}
+  maxColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1608281329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58683,8 +58765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741b25fae2a880c4bba8e5d74af2ef6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stamina
-  maxStamina: 100
-  currentStamina: 100
+  maxStamina: 1e+16
+  currentStamina: 1e+16
   drainPerSecond: 20
   regenPerSecond: 15
   regenDelay: 1
@@ -58736,9 +58818,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1e+16
   m_WholeNumbers: 1
-  m_Value: 100
+  m_Value: 1e+16
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
