@@ -9,10 +9,12 @@ public class EnemyHealth : MonoBehaviour
     public float destroyDelay = 1.5f;
 
     private bool isDead;
+    private Animator animator;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        animator = GetComponent<Animator>();
     }
 
     public void TakeDamage(float amount)
@@ -28,30 +30,28 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    private void Die()
-    {
-        if (isDead) return;
-    
-        isDead = true;
-    
-        // Desativa a lógica e o agente
-        EnemyAI enemyAI = GetComponent<EnemyAI>();
-        if (enemyAI != null) enemyAI.enabled = false;
-    
-        NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        if (agent != null)
-        {
-            agent.isStopped = true;
-            agent.enabled = false;
-        }
-    
-        // DESAPARECER NA HORA: Desativa o objeto visualmente
-        // Isso faz com que ele suma da tela imediatamente, mesmo antes do Destroy
-        gameObject.SetActive(false); 
-    
-        if (destroyOnDeath)
-        {
-            Destroy(gameObject, 0f); 
-        }
+    private void Die(){
+            if (isDead) return;
+            isDead = true;
+
+            EnemyAI enemyAI = GetComponent<EnemyAI>();
+            if (enemyAI != null) enemyAI.enabled = false;
+
+            NavMeshAgent agent = GetComponent<NavMeshAgent>();
+            if (agent != null)
+            {
+                agent.isStopped = true;
+                agent.enabled = false;
+            }
+
+            Collider col = GetComponent<Collider>();
+            if (col != null) col.enabled = false;
+
+            if (animator != null)
+                animator.SetTrigger("Die");
+
+            // Destrói após a animação terminar
+            if (destroyOnDeath)
+                Destroy(gameObject, destroyDelay);
     }
 }
