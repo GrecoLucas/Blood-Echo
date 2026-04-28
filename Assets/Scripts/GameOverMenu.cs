@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameOverMenu : MonoBehaviour
 {
+    public static GameOverMenu Instance; // Singleton para fácil acesso
+
     [Header("Interface")]
     public GameObject gameOverPanel;
     public Button tryAgainButton;
@@ -14,10 +16,10 @@ public class GameOverMenu : MonoBehaviour
 
     void Awake()
     {
-        if (gameOverPanel != null)
-        {
-            gameOverPanel.SetActive(false);
-        }
+        // Configuração do Singleton
+        if (Instance == null) Instance = this;
+
+        if (gameOverPanel != null) gameOverPanel.SetActive(false);
 
         if (tryAgainButton != null)
         {
@@ -26,16 +28,19 @@ public class GameOverMenu : MonoBehaviour
         }
     }
 
-    
-
     public void ShowGameOver()
     {
-        if (gameOverPanel != null)
-        {
-            gameOverPanel.SetActive(true);
+        // Se o painel não existir, o jogo não pausa para não travar
+        if (gameOverPanel == null) {
+            Debug.LogError("ERRO: O painel de GameOver não foi arrastado no Inspector!");
+            return;
         }
 
-        Time.timeScale = 0f;
+        gameOverPanel.SetActive(true);
+        Time.timeScale = 0f; // Pausa DEPOIS de mostrar o painel
+
+        // Tentamos encontrar os inputs caso a referência tenha se perdido no reload
+        if (playerInputs == null) playerInputs = FindFirstObjectByType<StarterAssetsInputs>();
 
         if (playerInputs != null)
         {
@@ -49,7 +54,16 @@ public class GameOverMenu : MonoBehaviour
 
     public void TryAgain()
     {
+        // 1. Volta o tempo ao normal
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    
+        // 2. Esconde o menu
+        if (gameOverPanel != null) gameOverPanel.SetActive(false);
+    
+        // 3. Chama o respawn manual no GameManager
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.RespawnPlayer();
+        }
     }
 }

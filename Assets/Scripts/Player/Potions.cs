@@ -6,6 +6,7 @@ public class Potions : MonoBehaviour
     [Header("Configurações de Cura")]
     public PlayerHealth playerHealth; 
     public float healAmount = 50f;   
+    public int maxPotions = 4;
     public int potionCount = 4;
     [Header("Animator")]
     public Animator playerAnimator;
@@ -79,9 +80,9 @@ public class Potions : MonoBehaviour
         if (potionNumberTMP != null) {potionNumberTMP.text = potionCount.ToString();}
     }
 
-    void restorePotions()
+    public void RestorePotions()
     {
-        potionCount = 4;
+        potionCount = maxPotions;
         UpdatePotionVisual();
     }
 }

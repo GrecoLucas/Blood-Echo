@@ -70,16 +70,38 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void Die()
+private void Die()
+{
+    Debug.Log("O Jogador Morreu!");
+
+    // Em vez de usar a variável 'gameOverMenu' que pode estar nula,
+    // usamos o Singleton que criamos anteriormente.
+    if (GameOverMenu.Instance != null)
     {
-        if (isDead) return;
-
-        isDead = true;
-        Debug.Log("O Jogador Morreu!");
-
-        if (gameOverMenu != null)
+        GameOverMenu.Instance.ShowGameOver();
+    }
+    else
+    {
+        // Caso o Singleton ainda não tenha sido iniciado por algum motivo
+        GameOverMenu menu = FindFirstObjectByType<GameOverMenu>();
+        if (menu != null)
         {
-            gameOverMenu.ShowGameOver();
+            menu.ShowGameOver();
+        }
+        else
+        {
+            Debug.LogError("ERRO: Não encontrei nenhum GameOverMenu na cena!");
+        }
+    }
+}
+    public void ResetHealth() 
+    {
+        currentHealth = maxHealth;
+        isDead = false;
+
+        if (healthSlider != null)
+        {
+            healthSlider.value = currentHealth;
         }
     }
 
