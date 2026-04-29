@@ -69,5 +69,6 @@ public class DamageDealer : MonoBehaviour
         GameObject spark = Instantiate(hitSparkPrefab, contactPoint, Quaternion.identity);
 
         spark.transform.forward = contactPoint - other.bounds.center;
+        Destroy(spark, 2f);
     }
 }
