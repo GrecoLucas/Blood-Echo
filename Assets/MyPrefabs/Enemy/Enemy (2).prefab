@@ -1163,7 +1163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
-  hitSparkPrefab: {fileID: 0}
+  hitSparkPrefab: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
   damage: 10
   owner: 0
 --- !u!1 &3274574977989813954
@@ -3084,7 +3084,7 @@ Transform:
   m_GameObject: {fileID: 7940938847468903293}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.8198408, z: -0, w: 0.57259166}
-  m_LocalPosition: {x: -12.17, y: 0.331, z: -3.08}
+  m_LocalPosition: {x: -11.68, y: 0.331, z: -3.435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3195,7 +3195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
-  hitSparkPrefab: {fileID: 0}
+  hitSparkPrefab: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
   damage: 10
   owner: 0
 --- !u!136 &8489396513072558852
