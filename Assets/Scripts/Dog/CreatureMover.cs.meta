@@ -14,5 +14,5 @@ AssetOrigin:
   productId: 260727
   packageName: Animals FREE - Animated Low Poly 3D Models
   packageVersion: 2.3
-  assetPath: Assets/ithappy/Animals_FREE/Scripts/CreatureMover.cs
+  assetPath: Assets/Scripts/Dog/CreatureMover.cs
   uploadId: 785724

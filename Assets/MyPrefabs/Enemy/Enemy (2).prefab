@@ -1149,8 +1149,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.074812375, y: 0.6341739, z: 0.024841184}
-  m_Center: {x: -0.0038385005, y: 0.46873435, z: 0.0013255038}
+  m_Size: {x: 0.074812375, y: 0.89189214, z: 0.024841184}
+  m_Center: {x: -0.0038377435, y: 0.4402472, z: 0.0013254265}
 --- !u!114 &5166974003694012948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,6 +1163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  hitSparkPrefab: {fileID: 0}
   damage: 10
   owner: 0
 --- !u!1 &3274574977989813954
@@ -3194,6 +3195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  hitSparkPrefab: {fileID: 0}
   damage: 10
   owner: 0
 --- !u!136 &8489396513072558852
