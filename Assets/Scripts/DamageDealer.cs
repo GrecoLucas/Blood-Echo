@@ -71,4 +71,8 @@ public class DamageDealer : MonoBehaviour
         spark.transform.forward = contactPoint - other.bounds.center;
         Destroy(spark, 2f);
     }
+    public void AddDamageBonus(float bonus)
+    {
+        damage += bonus;
+    }
 }

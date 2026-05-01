@@ -481,5 +481,12 @@ namespace StarterAssets
                     LandingAudio.Play();
             }
         }
+    
+        public void AddSprintSpeedBonus(float bonus)
+        {
+            SprintSpeed += bonus;
+        }
     }
+
+
 }
