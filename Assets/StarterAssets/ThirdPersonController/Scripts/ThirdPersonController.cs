@@ -107,6 +107,7 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
+        private bool hasHeavyAttack = false;
 
         [Header("Stats")]
         [SerializeField] private Stamina _stamina;
@@ -145,6 +146,12 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+            var inventory = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Inventory>();
+            if (inventory != null)
+            {
+                hasHeavyAttack = inventory.HasHeavyAttack;
+            }
+
         }
 
         private void Start()
@@ -272,7 +279,12 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM
             if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
             {
-                _weaponController.TriggerAttack();
+                if (hasHeavyAttack && Keyboard.current != null && Keyboard.current.leftShiftKey.isPressed)
+                {
+                    _weaponController.TriggerHeavyAttack();
+                } else {
+                    _weaponController.TriggerAttack();
+                }
             }
 #else
             if (Input.GetMouseButtonDown(0))

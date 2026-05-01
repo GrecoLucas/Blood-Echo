@@ -13,6 +13,7 @@ public class DamageDealer : MonoBehaviour
     public float damage = 10f;
     public DamageOwner owner = DamageOwner.Enemy;
     private bool canDealDamage = false;
+    private bool heavyDamage = false;
 
     // Esta lista evita que o mesmo golpe dê dano várias vezes no mesmo frame
     private System.Collections.Generic.List<GameObject> hasHit = new System.Collections.Generic.List<GameObject>();
@@ -31,9 +32,17 @@ public class DamageDealer : MonoBehaviour
             // Se bateu em algo que tem vida e ainda não batemos nesse golpe
             if (enemy != null && !hasHit.Contains(enemy.gameObject))
             {
+                if (heavyDamage)
+                {
+                    enemy.TakeDamage(damage * 2); // Dano pesado causa o dobro
+                    hasHit.Add(enemy.gameObject);
+                    SpawnHitSpark(other);
+                }            
+                else {               
                 enemy.TakeDamage(damage);
                 hasHit.Add(enemy.gameObject);
                 SpawnHitSpark(other);
+                }
             }
         }
         // 3. Se o DONO é o ENEMY, ele quer acertar o PLAYER
@@ -50,8 +59,12 @@ public class DamageDealer : MonoBehaviour
         }
     }
     // Chamado via Animation Event
-    public void StartDealingDamage() 
+    public void StartDealingDamage(bool heavy = false) 
     {
+        if (heavy)
+        {
+            heavyDamage = true;
+        }
         canDealDamage = true;
         hasHit.Clear(); // Limpa a lista para o novo golpe
     }
@@ -59,6 +72,7 @@ public class DamageDealer : MonoBehaviour
     public void EndDealingDamage() 
     {
         canDealDamage = false;
+        heavyDamage = false;
     }
     private void SpawnHitSpark(Collider other)
     {

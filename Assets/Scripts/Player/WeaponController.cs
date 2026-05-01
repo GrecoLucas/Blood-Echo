@@ -13,6 +13,7 @@ public class WeaponController : MonoBehaviour
     private Animator _animator;
     private static readonly int ArmedHash = Animator.StringToHash("Armed");
     private static readonly int Attack1Hash = Animator.StringToHash("Attack1");
+    private static readonly int HeavyAttackHash = Animator.StringToHash("HeavyAttack");
 
     // Adicione estes Hashes no topo com os outros
     private static readonly int DrawHash = Animator.StringToHash("Draw");
@@ -97,6 +98,33 @@ public class WeaponController : MonoBehaviour
         }
 
         _animator.SetTrigger(Attack1Hash);
+    }
+    // Chamado pelo ThirdPersonController
+    public void TriggerHeavyAttack()
+    {
+        if (!IsArmed)
+        {
+            return;
+        }
+
+        _animator.SetTrigger(HeavyAttackHash);
+    }
+    
+    // Chamado via Animation Event no ataque do player
+    public void StartDealingHeavyDamage()
+    {
+        if (playerDamageDealer != null)
+        {
+            playerDamageDealer.StartDealingDamage(true);
+        }
+    }
+        // Chamado via Animation Event no ataque do player
+        public void EndDealingHeavyDamage()
+    {
+        if (playerDamageDealer != null)
+        {
+            playerDamageDealer.EndDealingDamage();
+        }
     }
 
     // Chamado via Animation Event no ataque do player
