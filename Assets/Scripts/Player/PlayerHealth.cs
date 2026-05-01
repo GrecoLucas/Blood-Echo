@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("PlayerHealth: Iniciando com " + currentHealth + " de vida.");
         _controller = GetComponent<ThirdPersonController>();
         if (gameOverMenu == null)
         {
@@ -22,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         if (healthSlider != null)
         {
-            healthSlider.maxValue = maxHealth;
+            healthSlider.maxValue = 300f; //maxHealth;
             healthSlider.value = currentHealth;
         }
         if (maxHealthSlider != null)
