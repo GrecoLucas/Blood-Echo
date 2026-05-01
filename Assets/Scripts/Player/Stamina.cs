@@ -16,7 +16,7 @@ public class Stamina : MonoBehaviour
 	[Header("UI References")]
 	[SerializeField] private Slider staminaSlider;
 	[SerializeField] private TMPro.TMP_Text staminaText;
-
+	[SerializeField] private Slider maxStaminaSlider;
 	private float lastDrainTime;
 
 	public float CurrentStamina => currentStamina;
@@ -28,7 +28,20 @@ public class Stamina : MonoBehaviour
 		TryAutoBind();
 		maxStamina = Mathf.Max(1f, maxStamina);
 		currentStamina = Mathf.Clamp(currentStamina, 0f, maxStamina);
+
+		if (staminaSlider != null)
+		{
+			staminaSlider.maxValue = 300f;
+			staminaSlider.value = currentStamina;
+			Debug.Log($"StaminaBarUI: Updated stamina bar. Current: {currentStamina}, Max: {maxStamina}, FillAmount: {staminaSlider.value}");
+		}
+		if (maxStaminaSlider != null)
+        {
+            maxStaminaSlider.maxValue = 300f;
+            maxStaminaSlider.value = maxStamina;
+        }
 		UpdateUI();
+
 	}
 
 	private void OnValidate()
@@ -55,7 +68,9 @@ public class Stamina : MonoBehaviour
 
 		if (Time.time - lastDrainTime >= regenDelay && currentStamina < maxStamina)
 		{
+			Debug.Log($"{name} ({GetInstanceID()}): Regenerating stamina: {currentStamina}/{maxStamina}");
 			currentStamina = Mathf.Clamp(currentStamina + regenPerSecond * Time.deltaTime, 0f, maxStamina);
+			Debug.Log($"{name} ({GetInstanceID()}): Regenerated stamina: {currentStamina}/{maxStamina}");
 			UpdateUI();
 		}
 	}
@@ -95,14 +110,20 @@ public class Stamina : MonoBehaviour
 	{
 		if (staminaSlider != null)
 		{
-			staminaSlider.maxValue = maxStamina;
+			//staminaSlider.maxValue = 300f;
 			staminaSlider.value = currentStamina;
+			//Debug.Log($"StaminaBarUI: Updated stamina bar. Current: {currentStamina}, Max: {maxStamina}, FillAmount: {staminaSlider.value}");
 		}
 
 		if (staminaText != null)
 		{
 			staminaText.text = $"{Mathf.CeilToInt(currentStamina)}/{Mathf.CeilToInt(maxStamina)}";
 		}
+		if (maxStaminaSlider != null)
+        {
+            //maxStaminaSlider.maxValue = 300f;
+            maxStaminaSlider.value = maxStamina;
+        }
 	}
 
 	private void TryAutoBind()
@@ -116,4 +137,18 @@ public class Stamina : MonoBehaviour
 			}
 		}
 	}
+	    public void IncreaseMaxStamina(float amount)
+    {
+			Debug.Log($"Increasing max stamina by {amount}. Current max: {maxStamina}");
+			float newMaxStamina = maxStamina + amount;
+			// currentStamina += amount; // heal the added amount too
+			
+			// Tell the UI to update
+			FindAnyObjectByType<StaminaBarUI>().UpdateStaminaBar(newMaxStamina);
+			//SetMaxStamina(newMaxStamina,true);
+			maxStamina = newMaxStamina;
+			Debug.Log($"New max stamina: {maxStamina}");
+			//UpdateUI();
+			
+    }
 }

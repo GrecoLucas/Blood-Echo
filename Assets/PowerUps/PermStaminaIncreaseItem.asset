@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84b63c69b3d089946adbdd7379ebb816, type: 3}
-  m_Name: DamageItem
-  m_EditorClassIdentifier: Assembly-CSharp::DamagePowerUp
-  DamageIncrease: 30
+  m_Script: {fileID: 11500000, guid: 1ecebdb0d76150f4fa25f288a1daf668, type: 3}
+  m_Name: PermStaminaIncreaseItem
+  m_EditorClassIdentifier: Assembly-CSharp::StaminaPowerUp
+  amount: 10
+  powerUpType: 1

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c22e1b335a37143a24dabe603e1390, type: 3}
   m_Name: SprintIncreaseItem
   m_EditorClassIdentifier: Assembly-CSharp::SprintPowerUp
-  SprintSpeedIncrease: 1
+  SprintSpeedIncrease: 4
