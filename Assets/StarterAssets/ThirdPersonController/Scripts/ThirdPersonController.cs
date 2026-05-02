@@ -107,6 +107,7 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
+        private float heavyAttackTimer = 0.0f;
 
         [Header("Stats")]
         [SerializeField] private Stamina _stamina;
@@ -116,6 +117,8 @@ namespace StarterAssets
         [SerializeField] private float DodgeDuration = 0.35f;
         [SerializeField] private float DodgeStaminaCost = 20f;
         [SerializeField] private float DodgeCooldown = 0.6f;
+        [Header("Heavy Attack")]
+        [SerializeField] private float HeavyAttackCooldown = 0.6f;
 
         // Referência ao WeaponController
         private WeaponController _weaponController;
@@ -151,6 +154,7 @@ namespace StarterAssets
             {
                 Debug.LogError("ThirdPersonController: Inventory component not found on Player object.");
             }
+            heavyAttackTimer = 0.0f;
 
         }
 
@@ -189,8 +193,16 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            CooldownUpdate();
         }
 
+        private void CooldownUpdate()
+        {
+            if (heavyAttackTimer > 0.0f)
+            {
+                heavyAttackTimer -= Time.fixedDeltaTime;
+            }
+        }
         private void LateUpdate()
         {
             CameraRotation();
@@ -279,9 +291,10 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM
             if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
             {
-                if (_inventory != null && _inventory.HasHeavyAttack && Keyboard.current != null && Keyboard.current.leftShiftKey.isPressed)
+                if (heavyAttackTimer <= 0f && _inventory != null && _inventory.HasHeavyAttack && Keyboard.current != null && Keyboard.current.leftShiftKey.isPressed)
                 {
                     _weaponController.TriggerHeavyAttack();
+                    heavyAttackTimer = HeavyAttackCooldown;
                 } else {
                     _weaponController.TriggerAttack();
                 }
