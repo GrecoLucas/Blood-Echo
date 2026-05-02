@@ -107,7 +107,6 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
-        private bool hasHeavyAttack = false;
 
         [Header("Stats")]
         [SerializeField] private Stamina _stamina;
@@ -127,6 +126,7 @@ namespace StarterAssets
         private float _dodgeTimer;
         private Vector3 _dodgeDirection;
         private float _nextDodgeTime;
+        private Inventory _inventory;
         public bool IsInvincible => _isDodging;
         private bool IsCurrentDeviceMouse
         {
@@ -146,10 +146,10 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
-            var inventory = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Inventory>();
-            if (inventory != null)
+            _inventory = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Inventory>();
+            if (_inventory == null)
             {
-                hasHeavyAttack = inventory.HasHeavyAttack;
+                Debug.LogError("ThirdPersonController: Inventory component not found on Player object.");
             }
 
         }
@@ -279,7 +279,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM
             if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
             {
-                if (hasHeavyAttack && Keyboard.current != null && Keyboard.current.leftShiftKey.isPressed)
+                if (_inventory != null && _inventory.HasHeavyAttack && Keyboard.current != null && Keyboard.current.leftShiftKey.isPressed)
                 {
                     _weaponController.TriggerHeavyAttack();
                 } else {

@@ -5,8 +5,9 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory Instance; // easy access from anywhere
     public List<PowerUpEffect> items = new List<PowerUpEffect>();
+    private bool hasHeavyAttack;
+    public bool HasHeavyAttack => hasHeavyAttack;
 
-    public bool HasHeavyAttack = false;
     private void Awake()
     {
         // Singleton so any script can call Inventory.Instance
@@ -15,7 +16,7 @@ public class Inventory : MonoBehaviour
     }
     public void AddHeavyAttack()
     {
-        HasHeavyAttack = true;
+        hasHeavyAttack = true;
         
     }
 
