@@ -88,7 +88,21 @@ public class LockOnSystem : MonoBehaviour
             else
             {
                 Vector3 targetFocusPoint = currentTarget.position + Vector3.up * lockOnTargetHeightOffset;
-
+                Collider targetCol = null;
+                foreach (var col in currentTarget.GetComponentsInChildren<Collider>())
+                {
+                    if (!col.isTrigger)
+                    {
+                        targetCol = col;
+                        break;
+                    }
+                }
+                if (targetCol == null) targetCol = currentTarget.GetComponentInChildren<Collider>();
+                if (targetCol != null)
+                {
+                    // Use the same height as other enemies (from pivot), but center it on the collider's X/Z
+                    targetFocusPoint = new Vector3(targetCol.bounds.center.x, currentTarget.position.y + lockOnTargetHeightOffset, targetCol.bounds.center.z);
+                }
                 if (cameraTarget != null && playerController != null)
                 {
                     // Calculate direction from camera to target

@@ -17,6 +17,11 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+        int enemyLayerIndex = LayerMask.NameToLayer("Enemies");
+        if (enemyLayerIndex != -1)
+        {
+            gameObject.layer = enemyLayerIndex;
+        }
     }
 
     public void TakeDamage(float amount)
