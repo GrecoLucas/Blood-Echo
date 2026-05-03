@@ -234,19 +234,11 @@ namespace StarterAssets
             if (!_hasAnimator || _isDodging) return;
             if (Time.time < _nextDodgeTime) return;
 
-            bool dodgePressed = false;
-
-#if ENABLE_INPUT_SYSTEM
-            if (Keyboard.current != null)
+            // Usa o Input System unificado (teclado R / gamepad R1)
+            if (_input.dodge)
             {
-                dodgePressed = Keyboard.current.rKey.wasPressedThisFrame;
-            }
-#else
-            dodgePressed = Input.GetKeyDown(KeyCode.R);
-#endif
+                _input.dodge = false; // Consome o input
 
-            if (dodgePressed)
-            {
                 if (_stamina != null && !_stamina.TryUseStamina(DodgeStaminaCost))
                 {
                     return;
@@ -298,27 +290,28 @@ namespace StarterAssets
             // Só permite atacar se o WeaponController reportar que está armado
             if (_weaponController == null || !_weaponController.IsArmed) return;
 
-#if ENABLE_INPUT_SYSTEM
-            if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+            // Ataque pesado (R2 no gamepad / Mouse+Ctrl no teclado)
+            if (_input.heavyAttack)
             {
-                if (heavyAttackTimer <= 0f && _inventory != null && _inventory.HasHeavyAttack && Keyboard.current != null && Keyboard.current.leftCtrlKey.isPressed)
+                _input.heavyAttack = false; // Consome o input
+                if (heavyAttackTimer <= 0f && _inventory != null && _inventory.HasHeavyAttack)
                 {
                     _weaponController.TriggerHeavyAttack();
                     heavyAttackTimer = HeavyAttackCooldown;
-                } else {
-                    _weaponController.TriggerAttack();
+                    _isAttacking = true;
+                    _attackFallbackTimer = AttackFallbackDuration;
                 }
-                _isAttacking = true;
-                _attackFallbackTimer = AttackFallbackDuration;
+                return;
             }
-#else
-            if (Input.GetMouseButtonDown(0))
+
+            // Ataque leve (L2 no gamepad / Mouse esquerdo no teclado)
+            if (_input.lightAttack)
             {
+                _input.lightAttack = false; // Consome o input
                 _weaponController.TriggerAttack();
                 _isAttacking = true;
                 _attackFallbackTimer = AttackFallbackDuration;
             }
-#endif
         }
 
         private void UpdateAttackState()
