@@ -169,7 +169,7 @@ AnimatorStateMachine:
     m_Position: {x: 0, y: 490, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5635303411909050592}
-    m_Position: {x: 1190, y: 160, z: 0}
+    m_Position: {x: 1200, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4401415265414640415}
     m_Position: {x: 940, y: 350, z: 0}
@@ -597,7 +597,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dodge 0
+  m_Name: DodgeArmed
   m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
