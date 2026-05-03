@@ -118,7 +118,7 @@ namespace StarterAssets
         [SerializeField] private float DodgeStaminaCost = 20f;
         [SerializeField] private float DodgeCooldown = 0.6f;
         [Header("Heavy Attack")]
-        [SerializeField] private float HeavyAttackCooldown = 0.6f;
+        public float HeavyAttackCooldown;
 
         // Referência ao WeaponController
         private WeaponController _weaponController;
@@ -131,6 +131,7 @@ namespace StarterAssets
         private float _nextDodgeTime;
         private Inventory _inventory;
         public bool IsInvincible => _isDodging;
+        public float HeavyAttackTimer => heavyAttackTimer;
         private bool IsCurrentDeviceMouse
         {
             get
@@ -291,7 +292,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM
             if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
             {
-                if (heavyAttackTimer <= 0f && _inventory != null && _inventory.HasHeavyAttack && Keyboard.current != null && Keyboard.current.leftShiftKey.isPressed)
+                if (heavyAttackTimer <= 0f && _inventory != null && _inventory.HasHeavyAttack && Keyboard.current != null && Keyboard.current.leftCtrlKey.isPressed)
                 {
                     _weaponController.TriggerHeavyAttack();
                     heavyAttackTimer = HeavyAttackCooldown;
