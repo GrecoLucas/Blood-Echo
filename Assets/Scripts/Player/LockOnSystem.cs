@@ -27,6 +27,7 @@ public class LockOnSystem : MonoBehaviour
     private bool isLockedOn = false;
     private PlayerInteract playerInteract;
     private Quaternion originalCameraTargetRotation;
+    private StarterAssetsInputs _input;
 
     void Start()
     {
@@ -38,11 +39,31 @@ public class LockOnSystem : MonoBehaviour
 
         if (cameraTarget == null && playerController != null && playerController.CinemachineCameraTarget != null)
             cameraTarget = playerController.CinemachineCameraTarget.transform;
+
+        if (playerTransform != null)
+            _input = playerTransform.GetComponent<StarterAssetsInputs>();
     }
 
     void Update()
     {
-        if ((Keyboard.current != null && Keyboard.current.lKey.wasPressedThisFrame) || (Mouse.current != null && Mouse.current.middleButton.wasPressedThisFrame))
+        bool lockOnPressed = false;
+
+        // Input System unificado (teclado L / mouse middle / gamepad R3)
+        if (_input != null && _input.lockOn)
+        {
+            _input.lockOn = false; // Consome o input
+            lockOnPressed = true;
+        }
+        // Fallback para Input direto
+        else if (_input == null)
+        {
+            if ((Keyboard.current != null && Keyboard.current.lKey.wasPressedThisFrame) || (Mouse.current != null && Mouse.current.middleButton.wasPressedThisFrame))
+            {
+                lockOnPressed = true;
+            }
+        }
+
+        if (lockOnPressed)
         {
             if (isLockedOn)
             {

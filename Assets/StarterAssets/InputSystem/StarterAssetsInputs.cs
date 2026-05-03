@@ -12,6 +12,13 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool interact;
+		public bool dodge;
+		public bool equipWeapon;
+		public bool lightAttack;
+		public bool heavyAttack;
+		public bool heal;
+		public bool lockOn;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -43,6 +50,41 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnInteract(InputValue value)
+		{
+			InteractInput(value.isPressed);
+		}
+
+		public void OnDodge(InputValue value)
+		{
+			DodgeInput(value.isPressed);
+		}
+
+		public void OnEquipWeapon(InputValue value)
+		{
+			EquipWeaponInput(value.isPressed);
+		}
+
+		public void OnLightAttack(InputValue value)
+		{
+			LightAttackInput(value.isPressed);
+		}
+
+		public void OnHeavyAttack(InputValue value)
+		{
+			HeavyAttackInput(value.isPressed);
+		}
+
+		public void OnHeal(InputValue value)
+		{
+			HealInput(value.isPressed);
+		}
+
+		public void OnLockOn(InputValue value)
+		{
+			LockOnInput(value.isPressed);
+		}
 #endif
 
 
@@ -64,6 +106,41 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
+		}
+
+		public void InteractInput(bool newInteractState)
+		{
+			interact = newInteractState;
+		}
+
+		public void DodgeInput(bool newDodgeState)
+		{
+			dodge = newDodgeState;
+		}
+
+		public void EquipWeaponInput(bool newEquipWeaponState)
+		{
+			equipWeapon = newEquipWeaponState;
+		}
+
+		public void LightAttackInput(bool newLightAttackState)
+		{
+			lightAttack = newLightAttackState;
+		}
+
+		public void HeavyAttackInput(bool newHeavyAttackState)
+		{
+			heavyAttack = newHeavyAttackState;
+		}
+
+		public void HealInput(bool newHealState)
+		{
+			heal = newHealState;
+		}
+
+		public void LockOnInput(bool newLockOnState)
+		{
+			lockOn = newLockOnState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)
