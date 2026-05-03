@@ -337,6 +337,14 @@ namespace StarterAssets
                 _cinemachineTargetYaw, 0.0f);
         }
 
+        public void SetCameraRotation(float yaw, float pitch)
+        {
+            _cinemachineTargetYaw = ClampAngle(yaw, float.MinValue, float.MaxValue);
+            _cinemachineTargetPitch = ClampAngle(pitch, BottomClamp, TopClamp);
+            CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
+                _cinemachineTargetYaw, 0.0f);
+        }
+
         private void Move()
         {
             if (_isDodging)

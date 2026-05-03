@@ -6,6 +6,20 @@ public class PlayerInteract : MonoBehaviour
     // No Inspector, vamos escolher o que o raio deve ignorar (o jogador)
     public LayerMask ignoreLayer; 
 
+    private Vector3 customDirection;
+    private bool useCustomDirection;
+
+    public void SetDirection(Vector3 dir)
+    {
+        customDirection = dir;
+        useCustomDirection = true;
+    }
+
+    public void ResetDirection()
+    {
+        useCustomDirection = false;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -13,7 +27,8 @@ public class PlayerInteract : MonoBehaviour
             Debug.Log("O Unity detectou a tecla E!");
 
             // Criamos o raio a partir da câmera
-            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            Vector3 direction = useCustomDirection ? customDirection : Camera.main.transform.forward;
+            Ray ray = new Ray(Camera.main.transform.position, direction);
             
             // Desenha o raio no editor (Cena) para teste
             Debug.DrawRay(ray.origin, ray.direction * distance, Color.red, 2f);
