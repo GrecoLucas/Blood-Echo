@@ -29,15 +29,43 @@ public class EnemyAI : MonoBehaviour
     private bool emEsperaPatrulha;
     private float fimEsperaPatrulha;
     private bool patrulhaInicializada;
+    private Vector3 posicaoInicial;
+    private Quaternion rotacaoInicial;
+    private bool playerJaEstavaMorto; // Para garantir que o TP só aconteça uma vez
+
+    void Start()
+    {
+        posicaoInicial = transform.position;
+        rotacaoInicial = transform.rotation;
+        if (agent == null) agent = GetComponent<NavMeshAgent>();
+    }
 
     void Update()
     {
         if (player == null) return;
 
+        // Verifica se o jogador tem o script de vida e se está morto
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+        bool playerMorto = playerHealth != null && playerHealth.currentHealth <= 0;
+
         float distanciaParaPlayer = Vector3.Distance(transform.position, player.position);
 
-        // 1. Lógica de Detecção: Ele só age se o player estiver dentro do raio
-        if (distanciaParaPlayer <= raioDeteccao)
+        // Lógica de Teleporte Automático: Se o player morreu e ainda não demos TP
+        if (playerMorto)
+        {
+            if (!playerJaEstavaMorto)
+            {
+                TeleportToOrigin();
+                playerJaEstavaMorto = true;
+            }
+        }
+        else
+        {
+            playerJaEstavaMorto = false;
+        }
+
+        // 1. Lógica de Detecção: Ele só age se o player estiver dentro do raio e VIVO
+        if (distanciaParaPlayer <= raioDeteccao && !playerMorto)
         {
             patrulhaInicializada = false;
             emEsperaPatrulha = false;
@@ -188,4 +216,13 @@ public class EnemyAI : MonoBehaviour
     {
         if(damageDealer != null) damageDealer.EndDealingDamage();
     }
-}
+    public void TeleportToOrigin()
+    {
+        if (agent != null) agent.enabled = false;
+        transform.position = posicaoInicial;
+        transform.rotation = rotacaoInicial;
+        if (agent != null) agent.enabled = true;
+        patrulhaInicializada = false;
+        emEsperaPatrulha = false;
+    }
+}

@@ -15,11 +15,24 @@ public class BossZoneTrigger : MonoBehaviour
             barrier.SetActive(false);
     }
 
+    private PlayerHealth playerHealth;
+
+    private void Update()
+    {
+        // Se o jogador estiver morto, esconde a UI e libera a barreira
+        if (playerHealth != null && playerHealth.currentHealth <= 0)
+        {
+            HideBossUI();
+            playerHealth = null; // Reseta para evitar chamadas repetidas
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // Verifica se o objeto que entrou tem a tag Player
         if (other.CompareTag("Player"))
         {
+            playerHealth = other.GetComponent<PlayerHealth>();
             ShowBossUI();
         }
     }
@@ -51,6 +64,11 @@ public class BossZoneTrigger : MonoBehaviour
         if (bossUIContainer != null)
         {
             bossUIContainer.SetActive(false);
+        }
+
+        if (barrier != null)
+        {
+            barrier.SetActive(false); // Libera o jogador ao esconder a UI
         }
     }
 }
