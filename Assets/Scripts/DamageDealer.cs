@@ -58,13 +58,18 @@ public class DamageDealer : MonoBehaviour
             }
         }
     }
-    // Chamado via Animation Event
-    public void StartDealingDamage(bool heavy = false) 
+    // Chamado via Animation Event para ataque normal
+    public void StartDealingDamage() 
     {
-        if (heavy)
-        {
-            heavyDamage = true;
-        }
+        heavyDamage = false;
+        canDealDamage = true;
+        hasHit.Clear(); // Limpa a lista para o novo golpe
+    }
+
+    // Chamado via Animation Event para ataque pesado
+    public void StartDealingHeavyDamage() 
+    {
+        heavyDamage = true;
         canDealDamage = true;
         hasHit.Clear(); // Limpa a lista para o novo golpe
     }
