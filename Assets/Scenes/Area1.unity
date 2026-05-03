@@ -27783,6 +27783,13 @@ MonoBehaviour:
   playerController: {fileID: 1204707423}
   cameraTarget: {fileID: 249303215}
   smoothSpeed: 10
+  lockOnTargetHeightOffset: -0.5
+  lockOnCameraYawOffset: 0
+  lockOnCameraPitchOffset: -0.4
+  dynamicPitchByDistance: 1
+  pitchOffsetNear: -1
+  pitchOffsetFar: 1
+  lockCameraWhileLockedOn: 1
   lockOnIndicator: {fileID: 981791906}
 --- !u!1001 &689351404
 PrefabInstance:
@@ -76409,8 +76416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfebcfcd5b645354f9fbc79e7e7c8d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  maxHealth: 100
-  currentHealth: 100
+  maxHealth: 222222220
+  currentHealth: 2.2222221e+10
   healthSlider: {fileID: 1340652731}
   maxHealthSlider: {fileID: 762833551}
   gameOverMenu: {fileID: 1539421747}
