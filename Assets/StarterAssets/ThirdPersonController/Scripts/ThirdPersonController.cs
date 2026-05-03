@@ -130,6 +130,7 @@ namespace StarterAssets
         private const float _threshold = 0.01f;
         private bool _hasAnimator;
         private bool _isDodging;
+        private bool _isLockedOn;
         private bool _isAttacking;
         private float _dodgeTimer;
         private float _attackFallbackTimer;
@@ -138,6 +139,7 @@ namespace StarterAssets
         private Inventory _inventory;
         public bool IsInvincible => _isDodging;
         public float HeavyAttackTimer => heavyAttackTimer;
+            public bool IsLockedOn { get => _isLockedOn; set => _isLockedOn = value; }
         private bool IsCurrentDeviceMouse
         {
             get
@@ -365,6 +367,13 @@ namespace StarterAssets
             _cinemachineTargetPitch = ClampAngle(pitch, BottomClamp, TopClamp);
             CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
                 _cinemachineTargetYaw, 0.0f);
+        }
+
+        public void OnLockOnCancelled()
+        {
+            IsLockedOn = false;
+            if (_input != null)
+                _input.sprint = false;
         }
 
         private void Move()
