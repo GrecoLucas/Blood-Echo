@@ -117,6 +117,10 @@ namespace StarterAssets
         [SerializeField] private float DodgeDuration = 0.35f;
         [SerializeField] private float DodgeStaminaCost = 20f;
         [SerializeField] private float DodgeCooldown = 0.6f;
+
+        [Header("Attack")]
+        [SerializeField] private float AttackFallbackDuration = 1.0f;
+
         [Header("Heavy Attack")]
         public float HeavyAttackCooldown;
 
@@ -126,7 +130,9 @@ namespace StarterAssets
         private const float _threshold = 0.01f;
         private bool _hasAnimator;
         private bool _isDodging;
+        private bool _isAttacking;
         private float _dodgeTimer;
+        private float _attackFallbackTimer;
         private Vector3 _dodgeDirection;
         private float _nextDodgeTime;
         private Inventory _inventory;
@@ -190,6 +196,7 @@ namespace StarterAssets
             _hasAnimator = TryGetComponent(out _animator);
 
             HandleAttack();
+            UpdateAttackState();
             HandleDodge();
             JumpAndGravity();
             GroundedCheck();
@@ -299,13 +306,28 @@ namespace StarterAssets
                 } else {
                     _weaponController.TriggerAttack();
                 }
+                _isAttacking = true;
+                _attackFallbackTimer = AttackFallbackDuration;
             }
 #else
             if (Input.GetMouseButtonDown(0))
             {
                 _weaponController.TriggerAttack();
+                _isAttacking = true;
+                _attackFallbackTimer = AttackFallbackDuration;
             }
 #endif
+        }
+
+        private void UpdateAttackState()
+        {
+            if (!_isAttacking) return;
+
+            _attackFallbackTimer -= Time.deltaTime;
+            if (_attackFallbackTimer <= 0f)
+            {
+                _isAttacking = false;
+            }
         }
 
         private void GroundedCheck()
@@ -367,6 +389,13 @@ namespace StarterAssets
                     _animator.SetFloat(_animIDMotionSpeed, 0f);
                 }
 
+                return;
+            }
+
+            // Trava movimento horizontal durante ataque para evitar deslizamento
+            if (_isAttacking)
+            {
+                _controller.Move(new Vector3(0f, _verticalVelocity, 0f) * Time.deltaTime);
                 return;
             }
 
@@ -519,6 +548,13 @@ namespace StarterAssets
         public void AddSprintSpeedBonus(float bonus)
         {
             SprintSpeed += bonus;
+        }
+
+        // Chame este método via Animation Event no final de cada clip de ataque
+        public void OnAttackEnd()
+        {
+            _isAttacking = false;
+            _attackFallbackTimer = 0f;
         }
     }
 
