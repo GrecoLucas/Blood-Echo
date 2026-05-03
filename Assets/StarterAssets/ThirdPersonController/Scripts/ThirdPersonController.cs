@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
@@ -555,6 +555,9 @@ namespace StarterAssets
         {
             _isAttacking = false;
             _attackFallbackTimer = 0f;
+            // Reseta sprint para evitar que fique preso
+            if (_input != null)
+                _input.sprint = false;
         }
     }
 
