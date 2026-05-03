@@ -12,6 +12,7 @@ public class DoorController : MonoBehaviour, IInteractable
     private bool isOpen = false;
     private Quaternion closedRot;
     private Quaternion openRot;
+    private bool _keyConsumed = false;
 
     public bool CanInteract()
     {
@@ -42,6 +43,15 @@ public class DoorController : MonoBehaviour, IInteractable
     {
         isOpen = !isOpen; 
         
+        if (isOpen && !_keyConsumed)
+        {
+            _keyConsumed = true;
+            var inventory = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Inventory>();
+            if (inventory != null)
+                inventory.RemoveKey();
+            Debug.Log("Porta aberta! Chave adicionada ao inventário.");
+        }
+
         // O NavMeshLink agora funciona estritamente baseado no abrir/fechar
         if (navLink != null)
         {
