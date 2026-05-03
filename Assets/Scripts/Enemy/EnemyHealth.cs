@@ -11,6 +11,8 @@ public class EnemyHealth : MonoBehaviour
     private bool isDead;
     private Animator animator;
 
+    public bool IsDead => isDead;
+
     private void Start()
     {
         currentHealth = maxHealth;
