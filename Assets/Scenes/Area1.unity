@@ -1494,6 +1494,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+--- !u!1 &26623442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 26623443}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &26623443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26623442}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2046596074}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &30749742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20028,13 +20059,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 227314501471187058, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5941663792361930250, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 26623443}
     - targetCorrespondingSourceObject: {fileID: 6087996215380790417, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
       insertIndex: -1
       addedObject: {fileID: 460871169}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6900220138521153821, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1046107925}
   m_SourcePrefab: {fileID: 100100000, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
 --- !u!1001 &513314329
 PrefabInstance:
@@ -31157,7 +31195,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1597552478412097203, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
   m_PrefabInstance: {fileID: 508126338}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1046107920}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88dbc957f03e0514a935df6923e127e8, type: 3}
@@ -43378,6 +43416,47 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ee99d84e0e95624dbd1b8e0d0e0f1a5, type: 3}
+--- !u!1 &1046107920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6900220138521153821, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+  m_PrefabInstance: {fileID: 508126338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &1046107923 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 6683551647450939405, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+  m_PrefabInstance: {fileID: 508126338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1046107924 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1056969102029777450, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+  m_PrefabInstance: {fileID: 508126338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1046107925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046107920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32268a8ccb58f474d83ec7fdf7c2d9de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossAI
+  agent: {fileID: 1046107923}
+  player: {fileID: 612532283}
+  animator: {fileID: 1046107924}
+  damageDealer: {fileID: 1279143376}
+  raioDeteccao: 15
+  distanciaAtaqueMelee: 2.5
+  cooldownAtaqueMelee: 1.5
+  projectilePrefab: {fileID: 8489324632347209288, guid: 59002bdd8eca54e4da6488b52c0a756e, type: 3}
+  shootPoint: {fileID: 26623443}
+  rangeAttackDistance: 15
+  rangeAttackCooldown: 4
+  pontosPatrulha: []
+  tempoEsperaPatrulha: 2
+  distanciaChegadaPatrulha: 0.5
 --- !u!4 &1047946781 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6670234744341657123, guid: c79d59d66358e0f45a098f4b8a82f8be, type: 3}
@@ -88253,6 +88332,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c79d59d66358e0f45a098f4b8a82f8be, type: 3}
+--- !u!4 &2046596074 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5941663792361930250, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+  m_PrefabInstance: {fileID: 508126338}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2046940199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 861289256453113627, guid: 16979cbe6bcd9774f9181f170bd60e95, type: 3}
