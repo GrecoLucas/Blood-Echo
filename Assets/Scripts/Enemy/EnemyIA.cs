@@ -225,4 +225,4 @@ public class EnemyAI : MonoBehaviour
         patrulhaInicializada = false;
         emEsperaPatrulha = false;
     }
-}
+}
