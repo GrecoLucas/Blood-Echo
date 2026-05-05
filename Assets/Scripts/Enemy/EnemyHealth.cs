@@ -44,6 +44,9 @@ public class EnemyHealth : MonoBehaviour
             EnemyAI enemyAI = GetComponent<EnemyAI>();
             if (enemyAI != null) enemyAI.enabled = false;
 
+            BossAI bossAI = GetComponent<BossAI>();
+            if (bossAI != null) bossAI.enabled = false;
+
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             if (agent != null)
             {

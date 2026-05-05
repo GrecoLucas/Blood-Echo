@@ -39,10 +39,6 @@ public class EnemyProjectile : MonoBehaviour
                 dealtDamage = true;
                 player.TakeDamage(damage);
 
-                if (impactEffectPrefab != null) {
-                    Instantiate(impactEffectPrefab, transform.position, Quaternion.identity);
-                }
-
                 Debug.Log("Projétil acertou o Player!");
             }
             Destroy(gameObject);

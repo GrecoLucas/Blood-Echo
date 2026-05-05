@@ -2198,9 +2198,9 @@ GameObject:
   - component: {fileID: 3762263447362334022}
   - component: {fileID: 1056969102029777450}
   - component: {fileID: 6683551647450939405}
-  - component: {fileID: 227314501471187058}
   - component: {fileID: 1597552478412097203}
   - component: {fileID: 4879910340173627856}
+  - component: {fileID: 8476621101326818925}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -2268,33 +2268,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 2
---- !u!114 &227314501471187058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6900220138521153821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ff0b2243b98664ab3a7847cb08da0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyFollow
-  agent: {fileID: 6683551647450939405}
-  player: {fileID: 0}
-  animator: {fileID: 1056969102029777450}
-  damageDealer: {fileID: 1761211710231285509}
-  raioDeteccao: 30
-  distanciaAtaque: 2
-  cooldownAtaque: 1.5
-  pontosPatrulha:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  tempoEsperaPatrulha: 2
-  distanciaChegadaPatrulha: 0.5
 --- !u!114 &1597552478412097203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2334,6 +2307,29 @@ CapsuleCollider:
   m_Height: 3.9719675
   m_Direction: 1
   m_Center: {x: 0.042287827, y: 1.4859837, z: 0.044013977}
+--- !u!114 &8476621101326818925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6900220138521153821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32268a8ccb58f474d83ec7fdf7c2d9de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossAI
+  agent: {fileID: 0}
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  damageDealer: {fileID: 0}
+  raioDeteccao: 15
+  distanciaAtaqueMelee: 2.5
+  cooldownAtaqueMelee: 1.5
+  projectilePrefab: {fileID: 0}
+  shootPoint: {fileID: 0}
+  rangeAttackDistance: 15
+  rangeAttackCooldown: 4
 --- !u!1 &6904673417488847149
 GameObject:
   m_ObjectHideFlags: 0

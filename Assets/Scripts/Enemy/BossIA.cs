@@ -24,18 +24,10 @@ public class BossAI : MonoBehaviour
     public float rangeAttackCooldown = 4f;
     private float lastRangeAttackTime;
 
-    [Header("Configurações de Patrulha")]
-    public Transform[] pontosPatrulha;
-    public float tempoEsperaPatrulha = 2.0f;
-    public float distanciaChegadaPatrulha = 0.5f;
-
-    private int indicePontoPatrulha;
-    private bool emEsperaPatrulha;
-    private float fimEsperaPatrulha;
-    private bool patrulhaInicializada;
     private Vector3 posicaoInicial;
     private Quaternion rotacaoInicial;
     private bool playerJaEstavaMorto;
+    private bool proximoAtaqueMeleeEh1 = true;
 
     void Start()
     {
@@ -48,6 +40,10 @@ public class BossAI : MonoBehaviour
     void Update()
     {
         if (player == null) return;
+
+        // Se o boss estiver morto, não faz nada
+        EnemyHealth myHealth = GetComponent<EnemyHealth>();
+        if (myHealth != null && myHealth.IsDead) return;
 
         // Verifica status do player
         PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
@@ -63,7 +59,7 @@ public class BossAI : MonoBehaviour
                 TeleportToOrigin();
                 playerJaEstavaMorto = true;
             }
-            PatrulharPorPontos();
+            if (agent != null) agent.isStopped = true;
             return;
         }
         else
@@ -74,9 +70,6 @@ public class BossAI : MonoBehaviour
         // Lógica de I.A. Principal
         if (distanciaParaPlayer <= raioDeteccao)
         {
-            patrulhaInicializada = false;
-            emEsperaPatrulha = false;
-
             // Se estiver fora de alcance de qualquer ataque, persegue
             if (distanciaParaPlayer > distanciaAtaqueMelee && distanciaParaPlayer > rangeAttackDistance)
             {
@@ -91,7 +84,8 @@ public class BossAI : MonoBehaviour
         }
         else
         {
-            PatrulharPorPontos();
+            // Se o player sair do raio de detecção, o boss para
+            if (agent != null) agent.isStopped = true;
         }
 
         // Sincroniza animação de movimento
@@ -105,7 +99,16 @@ public class BossAI : MonoBehaviour
         {
             if (Time.time >= tempoUltimoAtaqueMelee + cooldownAtaqueMelee)
             {
-                animator.SetTrigger("Attack1"); 
+                if (proximoAtaqueMeleeEh1)
+                {
+                    animator.SetTrigger("Attack1");
+                }
+                else
+                {
+                    animator.SetTrigger("Attack2");
+                }
+
+                proximoAtaqueMeleeEh1 = !proximoAtaqueMeleeEh1;
                 tempoUltimoAtaqueMelee = Time.time;
             }
         }
@@ -153,66 +156,7 @@ public class BossAI : MonoBehaviour
         }
     }
 
-    #region Lógica de Base (Movimento e Patrulha)
-    void PatrulharPorPontos()
-    {
-        if (agent == null || !agent.isOnNavMesh || pontosPatrulha == null || pontosPatrulha.Length == 0)
-        {
-            if (agent != null) agent.isStopped = true;
-            return;
-        }
-
-        if (!patrulhaInicializada)
-        {
-            indicePontoPatrulha = EncontrarPontoPatrulhaMaisProximo();
-            DefinirDestinoPatrulhaAtual();
-            patrulhaInicializada = true;
-            return;
-        }
-
-        if (emEsperaPatrulha)
-        {
-            agent.isStopped = true;
-            if (Time.time >= fimEsperaPatrulha)
-            {
-                emEsperaPatrulha = false;
-                indicePontoPatrulha = (indicePontoPatrulha + 1) % pontosPatrulha.Length;
-                DefinirDestinoPatrulhaAtual();
-            }
-            return;
-        }
-
-        agent.isStopped = false;
-        bool chegouAoDestino = !agent.pathPending && agent.remainingDistance <= (agent.stoppingDistance + distanciaChegadaPatrulha);
-        if (chegouAoDestino)
-        {
-            emEsperaPatrulha = true;
-            fimEsperaPatrulha = Time.time + tempoEsperaPatrulha;
-        }
-    }
-
-    void DefinirDestinoPatrulhaAtual()
-    {
-        if (pontosPatrulha[indicePontoPatrulha] != null)
-        {
-            agent.isStopped = false;
-            agent.SetDestination(pontosPatrulha[indicePontoPatrulha].position);
-        }
-    }
-
-    int EncontrarPontoPatrulhaMaisProximo()
-    {
-        int melhorIndice = 0;
-        float menorDistancia = float.MaxValue;
-        for (int i = 0; i < pontosPatrulha.Length; i++)
-        {
-            if (pontosPatrulha[i] == null) continue;
-            float distancia = Vector3.SqrMagnitude(transform.position - pontosPatrulha[i].position);
-            if (distancia < menorDistancia) { menorDistancia = distancia; melhorIndice = i; }
-        }
-        return melhorIndice;
-    }
-
+    #region Lógica de Base (Movimento)
     void PararERotacionar()
     {
         agent.isStopped = true; 
@@ -231,8 +175,6 @@ public class BossAI : MonoBehaviour
         transform.position = posicaoInicial;
         transform.rotation = rotacaoInicial;
         if (agent != null) agent.enabled = true;
-        patrulhaInicializada = false;
-        emEsperaPatrulha = false;
     }
 
     public void StartDealingDamage() { if(damageDealer != null) damageDealer.StartDealingDamage(); }

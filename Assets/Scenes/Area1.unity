@@ -20009,11 +20009,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1597552478412097203, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
       propertyPath: maxHealth
-      value: 400
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1597552478412097203, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
       propertyPath: currentHealth
-      value: 400
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597552478412097203, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+      propertyPath: destroyOnDeath
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3762263447362334022, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20059,6 +20063,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 8476621101326818925, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 1046107923}
+    - target: {fileID: 8476621101326818925, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 612532283}
+    - target: {fileID: 8476621101326818925, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1046107924}
+    - target: {fileID: 8476621101326818925, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+      propertyPath: shootPoint
+      value: 
+      objectReference: {fileID: 26623443}
+    - target: {fileID: 8476621101326818925, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+      propertyPath: damageDealer
+      value: 
+      objectReference: {fileID: 1279143376}
+    - target: {fileID: 8476621101326818925, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+      propertyPath: raioDeteccao
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476621101326818925, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 8489324632347209288, guid: 59002bdd8eca54e4da6488b52c0a756e, type: 3}
+    - target: {fileID: 8476621101326818925, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+      propertyPath: cooldownAtaqueMelee
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476621101326818925, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+      propertyPath: rangeAttackCooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476621101326818925, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+      propertyPath: rangeAttackDistance
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476621101326818925, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+      propertyPath: distanciaAtaqueMelee
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 227314501471187058, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
     m_RemovedGameObjects: []
@@ -20069,10 +20117,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6087996215380790417, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
       insertIndex: -1
       addedObject: {fileID: 460871169}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6900220138521153821, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1046107925}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
 --- !u!1001 &513314329
 PrefabInstance:
@@ -31195,7 +31240,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1597552478412097203, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
   m_PrefabInstance: {fileID: 508126338}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046107920}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88dbc957f03e0514a935df6923e127e8, type: 3}
@@ -43416,11 +43461,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ee99d84e0e95624dbd1b8e0d0e0f1a5, type: 3}
---- !u!1 &1046107920 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6900220138521153821, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
-  m_PrefabInstance: {fileID: 508126338}
-  m_PrefabAsset: {fileID: 0}
 --- !u!195 &1046107923 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 6683551647450939405, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
@@ -43431,32 +43471,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 1056969102029777450, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
   m_PrefabInstance: {fileID: 508126338}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1046107925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046107920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32268a8ccb58f474d83ec7fdf7c2d9de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BossAI
-  agent: {fileID: 1046107923}
-  player: {fileID: 612532283}
-  animator: {fileID: 1046107924}
-  damageDealer: {fileID: 1279143376}
-  raioDeteccao: 15
-  distanciaAtaqueMelee: 2.5
-  cooldownAtaqueMelee: 1.5
-  projectilePrefab: {fileID: 8489324632347209288, guid: 59002bdd8eca54e4da6488b52c0a756e, type: 3}
-  shootPoint: {fileID: 26623443}
-  rangeAttackDistance: 15
-  rangeAttackCooldown: 4
-  pontosPatrulha: []
-  tempoEsperaPatrulha: 2
-  distanciaChegadaPatrulha: 0.5
 --- !u!4 &1047946781 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6670234744341657123, guid: c79d59d66358e0f45a098f4b8a82f8be, type: 3}
@@ -47663,7 +47677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
   hitSparkPrefab: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
-  damage: 10
+  damage: 20
   owner: 1
 --- !u!1001 &1129696353
 PrefabInstance:
