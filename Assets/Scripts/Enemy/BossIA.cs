@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -23,11 +24,12 @@ public class BossAI : MonoBehaviour
     public float rangeAttackDistance = 15f;
     public float rangeAttackCooldown = 4f;
     private float lastRangeAttackTime;
-
     private Vector3 posicaoInicial;
     private Quaternion rotacaoInicial;
     private bool playerJaEstavaMorto;
     private bool proximoAtaqueMeleeEh1 = true;
+    private bool isStunned;
+    private Coroutine stunRoutine;
 
     void Start()
     {
@@ -39,8 +41,8 @@ public class BossAI : MonoBehaviour
 
     void Update()
     {
+        if (isStunned) return;
         if (player == null) return;
-
         // Se o boss estiver morto, não faz nada
         EnemyHealth myHealth = GetComponent<EnemyHealth>();
         if (myHealth != null && myHealth.IsDead) return;
@@ -179,6 +181,35 @@ public class BossAI : MonoBehaviour
 
     public void StartDealingDamage() { if(damageDealer != null) damageDealer.StartDealingDamage(); }
     public void EndDealingDamage() { if(damageDealer != null) damageDealer.EndDealingDamage(); }
+    public void OnStun(float duration)
+    {
+        if (stunRoutine != null) StopCoroutine(stunRoutine);
+        stunRoutine = StartCoroutine(StunForSeconds(duration));
+    }
+    private IEnumerator StunForSeconds(float duration)
+    {
+        isStunned = true;
+
+        if (agent != null) agent.isStopped = true; // Para o movimento físico
+
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", 0f);
+            animator.SetBool("IsStunned", true); // ATIVA O BOOL NO ANIMATOR
+        }
+
+        yield return new WaitForSeconds(duration); // Espera o tempo exato
+
+        if (animator != null)
+        {
+            animator.SetBool("IsStunned", false); // DESATIVA O BOOL
+        }
+
+        if (agent != null) agent.isStopped = false; // Retoma movimento
+
+        isStunned = false;
+        stunRoutine = null;
+    }
     #endregion
 
     private void OnDrawGizmosSelected()

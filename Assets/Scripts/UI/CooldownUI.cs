@@ -12,7 +12,6 @@ public class CoolDownUI : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("CooldownUI: Starting Cooldown UI.");
         
         _controller = GameObject.FindGameObjectWithTag("Player")?.GetComponent<ThirdPersonController>();
         if (_controller == null)
@@ -31,14 +30,11 @@ public class CoolDownUI : MonoBehaviour
     {
         if (_inventory == null)
         {
-            Debug.LogError("CooldownUI: Inventory not found on Player object.");
             return;
         }
-        Debug.Log($"CooldownUI: Inventory found. HasHeavyAttack: {_inventory.HasHeavyAttack}");
         // only show when player has heavy attack unlocked
         if (!_inventory.HasHeavyAttack)
         {
-            Debug.Log("CooldownUI: Player does not have heavy attack. Hiding cooldown UI.");
             return;
         }
 

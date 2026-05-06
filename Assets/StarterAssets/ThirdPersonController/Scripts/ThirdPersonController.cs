@@ -11,6 +11,10 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        [Header("Parry Settings")]
+        public float ParryWindowDuration = 0.3f; 
+        private float _parryActiveTimer;
+        private int _animIDParry;
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -126,7 +130,7 @@ namespace StarterAssets
 
         // Referência ao WeaponController
         private WeaponController _weaponController;
-
+        public bool IsParrying => _parryActiveTimer > 0 && _weaponController != null && _weaponController.IsArmed;
         private const float _threshold = 0.01f;
         private bool _hasAnimator;
         private bool _isDodging;
@@ -188,7 +192,7 @@ namespace StarterAssets
                 _stamina = GetComponent<Stamina>();
             if (_stamina == null)
                 _stamina = FindObjectOfType<Stamina>();
-
+            _animIDParry = Animator.StringToHash("Parry");
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
         }
@@ -197,6 +201,16 @@ namespace StarterAssets
         {
             _hasAnimator = TryGetComponent(out _animator);
 
+            if (_parryActiveTimer > 0f)
+            {
+                _parryActiveTimer -= Time.deltaTime;
+                if (_parryActiveTimer < 0f)
+                {
+                    _parryActiveTimer = 0f;
+                }
+            }
+
+            HandleParry();
             HandleAttack();
             UpdateAttackState();
             HandleDodge();
@@ -206,6 +220,16 @@ namespace StarterAssets
             CooldownUpdate();
         }
 
+        private void HandleParry()
+        {
+        if (Input.GetKeyDown(KeyCode.B) && _weaponController != null && _weaponController.IsArmed)            
+        {
+                _isAttacking = false; // Interrompe o ataque atual para dar o parry
+                _animator.SetTrigger(_animIDParry);
+                _parryActiveTimer = ParryWindowDuration;
+            }
+        }
+        
         private void CooldownUpdate()
         {
             if (heavyAttackTimer > 0.0f)
