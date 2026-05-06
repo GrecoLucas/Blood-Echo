@@ -15,6 +15,8 @@ public class LockOnSystem : MonoBehaviour
     private Transform currentTarget;
     private bool isLockedOn = false;
     private PlayerInteract playerInteract;
+    private Animator playerAnimator;
+    private StarterAssetsInputs playerInput;
     private Quaternion originalCameraTargetRotation;
 
     void Start()
@@ -22,6 +24,8 @@ public class LockOnSystem : MonoBehaviour
         if (playerTransform != null)
         {
             playerInteract = playerTransform.GetComponent<PlayerInteract>();
+            playerAnimator = playerTransform.GetComponent<Animator>();
+            playerInput = playerTransform.GetComponent<StarterAssetsInputs>();
         }
         if (playerController == null && playerTransform != null)
         {
@@ -92,6 +96,13 @@ public class LockOnSystem : MonoBehaviour
                     Vector3 directionToTargetFromPlayer = (currentTarget.position - playerTransform.position).normalized;
                     playerInteract.SetDirection(directionToTargetFromPlayer);
                 }
+
+                // Update Animator with movement input for strafe animations
+                if (playerAnimator != null && playerInput != null)
+                {
+                    playerAnimator.SetFloat("MoveX", playerInput.move.x);
+                    playerAnimator.SetFloat("MoveY", playerInput.move.y);
+                }
             }
         }
     }
@@ -128,6 +139,10 @@ public class LockOnSystem : MonoBehaviour
             {
                 currentTarget = nearest;
                 isLockedOn = true;
+                if (playerAnimator != null)
+                {
+                    playerAnimator.SetBool("LockedOn", true);
+                }
                 
                 // Update indicator
                 if (lockOnIndicator != null)
@@ -199,6 +214,10 @@ public class LockOnSystem : MonoBehaviour
         
         isLockedOn = false;
         currentTarget = null;
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetBool("LockedOn", false);
+        }
         if (playerController != null)
         {
             playerController.LockCameraPosition = false;
