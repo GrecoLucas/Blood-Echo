@@ -68,7 +68,27 @@ public class NpcController : MonoBehaviour, IInteractable
 
     void Update()
     {
-        if (isOpen && Input.GetKeyDown(closeKey))
+        bool closePressed = false;
+
+        if (isOpen)
+        {
+#if ENABLE_INPUT_SYSTEM
+            if (Keyboard.current != null && (Keyboard.current.tabKey.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame))
+            {
+                closePressed = true;
+            }
+            if (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame)
+            {
+                closePressed = true;
+            }
+#endif
+            if (Input.GetKeyDown(closeKey))
+            {
+                closePressed = true;
+            }
+        }
+
+        if (closePressed)
         {
             DisableNpcMenu();
         }

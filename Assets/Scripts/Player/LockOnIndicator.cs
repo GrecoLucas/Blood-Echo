@@ -26,6 +26,26 @@ public class LockOnIndicator : MonoBehaviour
 
         // Position above enemy
         Vector3 targetPos = targetEnemy.position + Vector3.up * heightOffset;
+        Collider targetCol = null;
+        foreach (var col in targetEnemy.GetComponentsInChildren<Collider>())
+        {
+            if (!col.isTrigger)
+            {
+                targetCol = col;
+                break;
+            }
+        }
+        if (targetCol == null) targetCol = targetEnemy.GetComponentInChildren<Collider>();
+        if (targetCol != null)
+        {
+            // Use the same height as other enemies (from pivot), but center it on the collider's X/Z
+            targetPos = new Vector3(targetCol.bounds.center.x, targetEnemy.position.y + heightOffset, targetCol.bounds.center.z);
+        }
+        else
+        {
+            targetPos = targetEnemy.position + Vector3.up * heightOffset;
+        }
+        
         transform.position = targetPos;
 
         // Bob up and down

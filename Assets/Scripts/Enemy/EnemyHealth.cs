@@ -17,6 +17,11 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+        int enemyLayerIndex = LayerMask.NameToLayer("Enemies");
+        if (enemyLayerIndex != -1)
+        {
+            gameObject.layer = enemyLayerIndex;
+        }
     }
 
     public void TakeDamage(float amount)
@@ -38,6 +43,9 @@ public class EnemyHealth : MonoBehaviour
 
             EnemyAI enemyAI = GetComponent<EnemyAI>();
             if (enemyAI != null) enemyAI.enabled = false;
+
+            BossAI bossAI = GetComponent<BossAI>();
+            if (bossAI != null) bossAI.enabled = false;
 
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             if (agent != null)

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using StarterAssets;
 
 public class Stamina : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Stamina : MonoBehaviour
 	[SerializeField] private TMPro.TMP_Text staminaText;
 	[SerializeField] private Slider maxStaminaSlider;
 	private float lastDrainTime;
+	private StarterAssetsInputs _input;
 
 	public float CurrentStamina => currentStamina;
 	public float MaxStamina => maxStamina;
@@ -28,6 +30,7 @@ public class Stamina : MonoBehaviour
 		TryAutoBind();
 		maxStamina = Mathf.Max(1f, maxStamina);
 		currentStamina = Mathf.Clamp(currentStamina, 0f, maxStamina);
+		_input = GetComponent<StarterAssetsInputs>();
 
 		if (staminaSlider != null)
 		{
@@ -54,9 +57,18 @@ public class Stamina : MonoBehaviour
 
 	private void Update()
 	{
-		bool sprinting = useFire3Input
-			? Input.GetAxis("Fire3") == 1f || Input.GetKey(KeyCode.LeftShift)
-			: Input.GetKey(KeyCode.LeftShift);
+		// Detecta sprint via Input System (gamepad Circle) ou Input antigo (LeftShift/Fire3)
+		bool sprinting = false;
+		if (_input != null)
+		{
+			sprinting = _input.sprint;
+		}
+		else
+		{
+			sprinting = useFire3Input
+				? Input.GetAxis("Fire3") == 1f || Input.GetKey(KeyCode.LeftShift)
+				: Input.GetKey(KeyCode.LeftShift);
+		}
 
 		if (sprinting && currentStamina > 0f)
 		{

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
@@ -11,6 +11,10 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        [Header("Parry Settings")]
+        public float ParryWindowDuration = 0.3f; 
+        private float _parryActiveTimer;
+        private int _animIDParry;
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -117,21 +121,29 @@ namespace StarterAssets
         [SerializeField] private float DodgeDuration = 0.35f;
         [SerializeField] private float DodgeStaminaCost = 20f;
         [SerializeField] private float DodgeCooldown = 0.6f;
+
+        [Header("Attack")]
+        [SerializeField] private float AttackFallbackDuration = 1.0f;
+
         [Header("Heavy Attack")]
         public float HeavyAttackCooldown;
 
         // Referência ao WeaponController
         private WeaponController _weaponController;
-
+        public bool IsParrying => _parryActiveTimer > 0 && _weaponController != null && _weaponController.IsArmed;
         private const float _threshold = 0.01f;
         private bool _hasAnimator;
         private bool _isDodging;
+        private bool _isLockedOn;
+        private bool _isAttacking;
         private float _dodgeTimer;
+        private float _attackFallbackTimer;
         private Vector3 _dodgeDirection;
         private float _nextDodgeTime;
         private Inventory _inventory;
         public bool IsInvincible => _isDodging;
         public float HeavyAttackTimer => heavyAttackTimer;
+            public bool IsLockedOn { get => _isLockedOn; set => _isLockedOn = value; }
         private bool IsCurrentDeviceMouse
         {
             get
@@ -180,7 +192,7 @@ namespace StarterAssets
                 _stamina = GetComponent<Stamina>();
             if (_stamina == null)
                 _stamina = FindObjectOfType<Stamina>();
-
+            _animIDParry = Animator.StringToHash("Parry");
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
         }
@@ -189,7 +201,18 @@ namespace StarterAssets
         {
             _hasAnimator = TryGetComponent(out _animator);
 
+            if (_parryActiveTimer > 0f)
+            {
+                _parryActiveTimer -= Time.deltaTime;
+                if (_parryActiveTimer < 0f)
+                {
+                    _parryActiveTimer = 0f;
+                }
+            }
+
+            HandleParry();
             HandleAttack();
+            UpdateAttackState();
             HandleDodge();
             JumpAndGravity();
             GroundedCheck();
@@ -197,6 +220,16 @@ namespace StarterAssets
             CooldownUpdate();
         }
 
+        private void HandleParry()
+        {
+        if (Input.GetKeyDown(KeyCode.B) && _weaponController != null && _weaponController.IsArmed)            
+        {
+                _isAttacking = false; // Interrompe o ataque atual para dar o parry
+                _animator.SetTrigger(_animIDParry);
+                _parryActiveTimer = ParryWindowDuration;
+            }
+        }
+        
         private void CooldownUpdate()
         {
             if (heavyAttackTimer > 0.0f)
@@ -225,19 +258,11 @@ namespace StarterAssets
             if (!_hasAnimator || _isDodging) return;
             if (Time.time < _nextDodgeTime) return;
 
-            bool dodgePressed = false;
-
-#if ENABLE_INPUT_SYSTEM
-            if (Keyboard.current != null)
+            // Usa o Input System unificado (teclado R / gamepad R1)
+            if (_input.dodge)
             {
-                dodgePressed = Keyboard.current.rKey.wasPressedThisFrame;
-            }
-#else
-            dodgePressed = Input.GetKeyDown(KeyCode.R);
-#endif
+                _input.dodge = false; // Consome o input
 
-            if (dodgePressed)
-            {
                 if (_stamina != null && !_stamina.TryUseStamina(DodgeStaminaCost))
                 {
                     return;
@@ -289,23 +314,39 @@ namespace StarterAssets
             // Só permite atacar se o WeaponController reportar que está armado
             if (_weaponController == null || !_weaponController.IsArmed) return;
 
-#if ENABLE_INPUT_SYSTEM
-            if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+            // Ataque pesado (R2 no gamepad / Mouse+Ctrl no teclado)
+            if (_input.heavyAttack)
             {
-                if (heavyAttackTimer <= 0f && _inventory != null && _inventory.HasHeavyAttack && Keyboard.current != null && Keyboard.current.leftCtrlKey.isPressed)
+                _input.heavyAttack = false; // Consome o input
+                if (heavyAttackTimer <= 0f && _inventory != null && _inventory.HasHeavyAttack)
                 {
                     _weaponController.TriggerHeavyAttack();
                     heavyAttackTimer = HeavyAttackCooldown;
-                } else {
-                    _weaponController.TriggerAttack();
+                    _isAttacking = true;
+                    _attackFallbackTimer = AttackFallbackDuration;
                 }
+                return;
             }
-#else
-            if (Input.GetMouseButtonDown(0))
+
+            // Ataque leve (L2 no gamepad / Mouse esquerdo no teclado)
+            if (_input.lightAttack)
             {
+                _input.lightAttack = false; // Consome o input
                 _weaponController.TriggerAttack();
+                _isAttacking = true;
+                _attackFallbackTimer = AttackFallbackDuration;
             }
-#endif
+        }
+
+        private void UpdateAttackState()
+        {
+            if (!_isAttacking) return;
+
+            _attackFallbackTimer -= Time.deltaTime;
+            if (_attackFallbackTimer <= 0f)
+            {
+                _isAttacking = false;
+            }
         }
 
         private void GroundedCheck()
@@ -345,6 +386,13 @@ namespace StarterAssets
                 _cinemachineTargetYaw, 0.0f);
         }
 
+        public void OnLockOnCancelled()
+        {
+            IsLockedOn = false;
+            if (_input != null)
+                _input.sprint = false;
+        }
+
         private void Move()
         {
             if (_isDodging)
@@ -367,6 +415,13 @@ namespace StarterAssets
                     _animator.SetFloat(_animIDMotionSpeed, 0f);
                 }
 
+                return;
+            }
+
+            // Trava movimento horizontal durante ataque para evitar deslizamento
+            if (_isAttacking)
+            {
+                _controller.Move(new Vector3(0f, _verticalVelocity, 0f) * Time.deltaTime);
                 return;
             }
 
@@ -519,6 +574,16 @@ namespace StarterAssets
         public void AddSprintSpeedBonus(float bonus)
         {
             SprintSpeed += bonus;
+        }
+
+        // Chame este método via Animation Event no final de cada clip de ataque
+        public void OnAttackEnd()
+        {
+            _isAttacking = false;
+            _attackFallbackTimer = 0f;
+            // Reseta sprint para evitar que fique preso
+            if (_input != null)
+                _input.sprint = false;
         }
     }
 

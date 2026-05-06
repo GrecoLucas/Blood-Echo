@@ -1,4 +1,8 @@
 using UnityEngine;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
+using StarterAssets;
 
 public class WeaponController : MonoBehaviour
 {
@@ -18,6 +22,8 @@ public class WeaponController : MonoBehaviour
     // Adicione estes Hashes no topo com os outros
     private static readonly int DrawHash = Animator.StringToHash("Draw");
     private static readonly int SheathHash = Animator.StringToHash("Sheath");
+
+    private StarterAssetsInputs _input;
  
     public bool IsArmed { get; private set; }
 
@@ -35,12 +41,19 @@ public class WeaponController : MonoBehaviour
         // Começa desarmado: espada nas costas visível, na mão invisível
         IsArmed = false;
         SetWeaponVisuals(false);
+        _input = GetComponent<StarterAssetsInputs>();
     }
 
     private void Update()
     {
-        // F para sacar / guardar a espada
-        if (Input.GetKeyDown(KeyCode.F))
+        // Input System unificado (teclado F / gamepad L1)
+        if (_input != null && _input.equipWeapon)
+        {
+            _input.equipWeapon = false; // Consome o input
+            ToggleWeapon();
+        }
+        // Fallback para Input antigo
+        else if (_input == null && Input.GetKeyDown(KeyCode.F))
         {
             ToggleWeapon();
         }
@@ -115,7 +128,7 @@ public class WeaponController : MonoBehaviour
     {
         if (playerDamageDealer != null)
         {
-            playerDamageDealer.StartDealingDamage(true);
+            playerDamageDealer.StartDealingHeavyDamage();
         }
     }
         // Chamado via Animation Event no ataque do player

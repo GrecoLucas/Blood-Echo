@@ -7,6 +7,8 @@ public class Inventory : MonoBehaviour
     public List<PowerUpEffect> items = new List<PowerUpEffect>();
     private bool hasHeavyAttack;
     public bool HasHeavyAttack => hasHeavyAttack;
+    private bool hasKey;
+    public bool HasKey => hasKey;
 
     private void Awake()
     {
@@ -17,6 +19,16 @@ public class Inventory : MonoBehaviour
     public void AddHeavyAttack()
     {
         hasHeavyAttack = true;
+        
+    }
+    public void AddKey()
+    {
+        hasKey = true;
+        
+    }
+    public void RemoveKey()
+    {
+        hasKey = false;
         
     }
 

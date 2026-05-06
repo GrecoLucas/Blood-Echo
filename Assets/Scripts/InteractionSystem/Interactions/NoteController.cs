@@ -61,12 +61,29 @@ public class NoteController : MonoBehaviour, IInteractable
     {
         if (isOpen)
         {
-            
-            if ( Input.GetKeyDown(closeKey)){
+            bool closePressed = false;
+
+#if ENABLE_INPUT_SYSTEM
+            if (Keyboard.current != null && (Keyboard.current.tabKey.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame))
+            {
+                closePressed = true;
+            }
+            if (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame)
+            {
+                closePressed = true;
+            }
+#endif
+            // Fallback para o closeKey definido no Inspector
+            if (Input.GetKeyDown(closeKey))
+            {
+                closePressed = true;
+            }
+
+            if (closePressed)
+            {
                  DisableNote();
             }
         }
-
     }
 
 

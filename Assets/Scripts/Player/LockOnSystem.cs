@@ -10,6 +10,17 @@ public class LockOnSystem : MonoBehaviour
     [SerializeField] private ThirdPersonController playerController;
     [SerializeField] private Transform cameraTarget;
     [SerializeField] private float smoothSpeed = 2f;
+    [SerializeField] private float lockOnTargetHeightOffset = 0.4f;
+    [SerializeField] private float lockOnCameraYawOffset = 0f;
+    [SerializeField] private float lockOnCameraPitchOffset = -0.4f;
+    [Header("Dynamic Pitch")]
+    [Tooltip("When enabled, pitch offset will interpolate between Near and Far values based on target distance.")]
+    [SerializeField] private bool dynamicPitchByDistance = true;
+    [Tooltip("Pitch offset applied when the target is very close (e.g. -1).")]
+    [SerializeField] private float pitchOffsetNear = -1f;
+    [Tooltip("Pitch offset applied when the target is at detectionRange (e.g. 1).")]
+    [SerializeField] private float pitchOffsetFar = 1f;
+    [SerializeField] private bool lockCameraWhileLockedOn = true;
     [SerializeField] private Transform lockOnIndicator;
 
     private Transform currentTarget;
@@ -18,6 +29,7 @@ public class LockOnSystem : MonoBehaviour
     private Animator playerAnimator;
     private StarterAssetsInputs playerInput;
     private Quaternion originalCameraTargetRotation;
+    private StarterAssetsInputs _input;
 
     void Start()
     {
@@ -26,24 +38,40 @@ public class LockOnSystem : MonoBehaviour
             playerInteract = playerTransform.GetComponent<PlayerInteract>();
             playerAnimator = playerTransform.GetComponent<Animator>();
             playerInput = playerTransform.GetComponent<StarterAssetsInputs>();
+
         }
+        
+
         if (playerController == null && playerTransform != null)
-        {
             playerController = playerTransform.GetComponent<ThirdPersonController>();
-        }
+
         if (cameraTarget == null && playerController != null && playerController.CinemachineCameraTarget != null)
-        {
             cameraTarget = playerController.CinemachineCameraTarget.transform;
-        }
-        if (cameraTarget != null)
-        {
-            originalCameraTargetRotation = cameraTarget.rotation;
-        }
+
+        if (playerTransform != null)
+            _input = playerTransform.GetComponent<StarterAssetsInputs>();
     }
 
     void Update()
     {
-        if ((Keyboard.current != null && Keyboard.current.lKey.wasPressedThisFrame) || (Mouse.current != null && Mouse.current.middleButton.wasPressedThisFrame))
+        bool lockOnPressed = false;
+
+        // Input System unificado (teclado L / mouse middle / gamepad R3)
+        if (_input != null && _input.lockOn)
+        {
+            _input.lockOn = false; // Consome o input
+            lockOnPressed = true;
+        }
+        // Fallback para Input direto
+        else if (_input == null)
+        {
+            if ((Keyboard.current != null && Keyboard.current.lKey.wasPressedThisFrame) || (Mouse.current != null && Mouse.current.middleButton.wasPressedThisFrame))
+            {
+                lockOnPressed = true;
+            }
+        }
+
+        if (lockOnPressed)
         {
             if (isLockedOn)
             {
@@ -63,13 +91,30 @@ public class LockOnSystem : MonoBehaviour
             if (currentTarget == null || !IsTargetValid())
             {
                 CancelLockOn();
+                   return;
             }
             else
             {
+                Vector3 targetFocusPoint = currentTarget.position + Vector3.up * lockOnTargetHeightOffset;
+                Collider targetCol = null;
+                foreach (var col in currentTarget.GetComponentsInChildren<Collider>())
+                {
+                    if (!col.isTrigger)
+                    {
+                        targetCol = col;
+                        break;
+                    }
+                }
+                if (targetCol == null) targetCol = currentTarget.GetComponentInChildren<Collider>();
+                if (targetCol != null)
+                {
+                    // Use the same height as other enemies (from pivot), but center it on the collider's X/Z
+                    targetFocusPoint = new Vector3(targetCol.bounds.center.x, currentTarget.position.y + lockOnTargetHeightOffset, targetCol.bounds.center.z);
+                }
                 if (cameraTarget != null && playerController != null)
                 {
                     // Calculate direction from camera to target
-                    Vector3 directionToTarget = (currentTarget.position - cameraTarget.position).normalized;
+                    Vector3 directionToTarget = (targetFocusPoint - cameraTarget.position).normalized;
                     
                     // Create target rotation using LookRotation
                     Quaternion targetRotation = Quaternion.LookRotation(directionToTarget, Vector3.up);
@@ -82,8 +127,18 @@ public class LockOnSystem : MonoBehaviour
                     
                     // Extract yaw and pitch from the smoothed rotation
                     Vector3 eulerAngles = smoothedRotation.eulerAngles;
-                    float yaw = eulerAngles.y;
-                    float pitch = eulerAngles.x;
+                    float yaw = eulerAngles.y + lockOnCameraYawOffset;
+
+                    float chosenPitchOffset = lockOnCameraPitchOffset;
+                    if (dynamicPitchByDistance && currentTarget != null && playerTransform != null)
+                    {
+                        float dist = Vector3.Distance(playerTransform.position, currentTarget.position);
+                        float t = Mathf.InverseLerp(0f, detectionRange, dist);
+                        // interpolate from near (-1) to far (1)
+                        chosenPitchOffset = Mathf.Lerp(pitchOffsetNear, pitchOffsetFar, t);
+                    }
+
+                    float pitch = eulerAngles.x + chosenPitchOffset;
                     
                     // Normalize pitch for proper clamping
                     if (pitch > 180) pitch -= 360;
@@ -93,7 +148,7 @@ public class LockOnSystem : MonoBehaviour
 
                 if (playerInteract != null)
                 {
-                    Vector3 directionToTargetFromPlayer = (currentTarget.position - playerTransform.position).normalized;
+                    Vector3 directionToTargetFromPlayer = (targetFocusPoint - playerTransform.position).normalized;
                     playerInteract.SetDirection(directionToTargetFromPlayer);
                 }
 
@@ -101,7 +156,22 @@ public class LockOnSystem : MonoBehaviour
                 if (playerAnimator != null && playerInput != null)
                 {
                     playerAnimator.SetFloat("MoveX", playerInput.move.x);
-                    playerAnimator.SetFloat("MoveY", playerInput.move.y);
+                    playerAnimator.SetFloat("MoveY", playerInput.move.y);}
+                // Vira o jogador para o inimigo (apenas no eixo Y)
+                Vector3 dirToEnemy = targetFocusPoint - playerTransform.position;
+                dirToEnemy.y = 0f;
+                if (dirToEnemy.sqrMagnitude > 0.001f)
+                {
+                    Quaternion targetPlayerRotation = Quaternion.LookRotation(dirToEnemy);
+                    playerTransform.rotation = Quaternion.Slerp(
+                        playerTransform.rotation,
+                        targetPlayerRotation,
+                        smoothSpeed * Time.deltaTime);
+                }
+
+                if (lockCameraWhileLockedOn && playerController != null)
+                {
+                    playerController.LockCameraPosition = true;
                 }
             }
         }
@@ -143,6 +213,15 @@ public class LockOnSystem : MonoBehaviour
                 {
                     playerAnimator.SetBool("LockedOn", true);
                 }
+                // Salva rotação no momento da ativação (não no Start)
+                if (cameraTarget != null)
+                    originalCameraTargetRotation = cameraTarget.rotation;
+
+                if (playerController != null)
+                {
+                    if (lockCameraWhileLockedOn)
+                        playerController.LockCameraPosition = true;
+                }
                 
                 // Update indicator
                 if (lockOnIndicator != null)
@@ -155,6 +234,11 @@ public class LockOnSystem : MonoBehaviour
                 }
             }
         }
+           else
+           {
+               isLockedOn = false;
+               currentTarget = null;
+           }
     }
 
     private void SwitchToNextTarget()
@@ -201,35 +285,28 @@ public class LockOnSystem : MonoBehaviour
     }
 
     private void CancelLockOn()
-    {        
-        // Clear indicator
+    {
         if (lockOnIndicator != null)
         {
             LockOnIndicator indicator = lockOnIndicator.GetComponent<LockOnIndicator>();
             if (indicator != null)
-            {
                 indicator.ClearTarget();
-            }
         }
-        
+
         isLockedOn = false;
         currentTarget = null;
         if (playerAnimator != null)
         {
             playerAnimator.SetBool("LockedOn", false);
         }
+
         if (playerController != null)
         {
             playerController.LockCameraPosition = false;
         }
-        if (cameraTarget != null)
-        {
-            cameraTarget.rotation = originalCameraTargetRotation;
-        }
+
         if (playerInteract != null)
-        {
             playerInteract.ResetDirection();
-        }
     }
 
     private bool IsTargetValid()
