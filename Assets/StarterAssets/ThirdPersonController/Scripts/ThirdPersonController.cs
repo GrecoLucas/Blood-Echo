@@ -126,7 +126,7 @@ namespace StarterAssets
         [SerializeField] private float DodgeCooldown = 0.6f;
 
         [Header("Attack")]
-        [SerializeField] private float AttackFallbackDuration = 1.0f;
+        [SerializeField] private float AttackFallbackDuration = 0.4f;
 
         [Header("Heavy Attack")]
         public float HeavyAttackCooldown;
@@ -225,8 +225,11 @@ namespace StarterAssets
 
         private void HandleParry()
         {
-        if (Input.GetKeyDown(KeyCode.B) && _weaponController != null && _weaponController.IsArmed)            
-        {
+            // Teclado: V / Controle: L1 (Joystick1Button4)
+            bool parryInput = Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.Joystick1Button4);
+            
+            if (parryInput && _weaponController != null && _weaponController.IsArmed)
+            {
                 _isAttacking = false; // Interrompe o ataque atual para dar o parry
                 _animator.SetTrigger(_animIDParry);
                 _parryActiveTimer = ParryWindowDuration;
