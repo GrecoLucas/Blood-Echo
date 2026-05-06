@@ -15,6 +15,9 @@ namespace StarterAssets
         public float ParryWindowDuration = 0.3f; 
         private float _parryActiveTimer;
         private int _animIDParry;
+        [Header("Parry VFX")]
+        [SerializeField] private GameObject parryVFXPrefab;
+        [SerializeField] private Transform parryVFXAnchor;
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -585,7 +588,13 @@ namespace StarterAssets
             if (_input != null)
                 _input.sprint = false;
         }
+        public void PlayParryVFX()
+        {
+            if (parryVFXPrefab != null && parryVFXAnchor != null)
+            {
+                GameObject vfx = Instantiate(parryVFXPrefab, parryVFXAnchor.position, parryVFXAnchor.rotation, parryVFXAnchor);
+                Destroy(vfx, 2f); 
+            }
+        }
     }
-
-
 }

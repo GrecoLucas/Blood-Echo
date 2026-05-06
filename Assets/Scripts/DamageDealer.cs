@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using StarterAssets;
 
 public class DamageDealer : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class DamageDealer : MonoBehaviour
                 // VERIFICAÇÃO DE PARRY
                 if (canBeParried && playerController.IsParrying)
                 {
-                    Debug.Log("Parry com sucesso!");
+                    playerController.PlayParryVFX();                    
                     ApplyStunToOwner(); 
                     hasHit.Add(playerHealth.gameObject);
                     return; 

@@ -27457,7 +27457,7 @@ PrefabInstance:
       objectReference: {fileID: 411595092}
     - target: {fileID: 2346675586235442995, guid: a1b74c3771984824ab7f083b10d35631, type: 3}
       propertyPath: isDefaultBonfire
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5820504326507924981, guid: a1b74c3771984824ab7f083b10d35631, type: 3}
       propertyPath: m_LocalScale.x
@@ -37855,7 +37855,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4340599289181688, guid: 9b376b0b4a1ec6444908fc66296cf756, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1401159719}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1818320722072996, guid: 9b376b0b4a1ec6444908fc66296cf756, type: 3}
       insertIndex: -1
@@ -48620,7 +48623,7 @@ PrefabInstance:
       objectReference: {fileID: 411595092}
     - target: {fileID: 2346675586235442995, guid: a1b74c3771984824ab7f083b10d35631, type: 3}
       propertyPath: isDefaultBonfire
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5820504326507924981, guid: a1b74c3771984824ab7f083b10d35631, type: 3}
       propertyPath: m_LocalScale.x
@@ -51304,6 +51307,14 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: parryVFXAnchor
+      value: 
+      objectReference: {fileID: 1401159719}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: parryVFXPrefab
+      value: 
+      objectReference: {fileID: 8067796994747886454, guid: 2774678d5cec9104ea6f5ff4169874b2, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: FootstepAudioVolume
       value: 0.3
       objectReference: {fileID: 0}
@@ -51315,6 +51326,10 @@ PrefabInstance:
       propertyPath: ParryWindowDuration
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: playerWeaponTransform
+      value: 
+      objectReference: {fileID: 1129620975}
     - target: {fileID: 4523139366846529165, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -61642,6 +61657,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8580caaa51b0a4a4096eed36d777a036, type: 3}
+--- !u!1 &1401159718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1401159719}
+  m_Layer: 0
+  m_Name: ParryVFXPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1401159719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401159718}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.546, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1129620975}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1401723435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3134139477652001582, guid: 7ee99d84e0e95624dbd1b8e0d0e0f1a5, type: 3}
