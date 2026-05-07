@@ -9,6 +9,10 @@ public class Inventory : MonoBehaviour
     public bool HasHeavyAttack => hasHeavyAttack;
     private bool hasKey;
     public bool HasKey => hasKey;
+    private bool hasMeat;
+    public bool HasMeat => hasMeat;
+    private bool hasGreenPotion;
+    public bool HasGreenPotion => hasGreenPotion;
 
     private void Awake()
     {
@@ -45,5 +49,23 @@ public class Inventory : MonoBehaviour
     public bool HasItem(PowerUpEffect item)
     {
         return items.Contains(item);
+    }
+    public void AddMeat()
+    {
+        hasMeat = true;
+    }
+
+    public void RemoveMeat()
+    {
+        hasMeat = false;
+    }
+    public void AddGreenPotion()
+    {
+        hasGreenPotion = true;
+    }
+
+    public void RemoveGreenPotion()
+    {
+        hasGreenPotion = false;
     }
 }
