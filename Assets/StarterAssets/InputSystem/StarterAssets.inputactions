@@ -329,7 +329,7 @@
                 {
                     "name": "",
                     "id": "a1b2c3d4-3002-4000-8000-000000000002",
-                    "path": "<Gamepad>/leftShoulder",
+                    "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",

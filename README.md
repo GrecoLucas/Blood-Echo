@@ -11,7 +11,8 @@
 | **○ (Circle)** | Correr (Consome Stamina) |
 | **□ (Square)** | Interagir (Portas, NPCs, Itens) - *Suporte por Proximidade* |
 | **△ (Triangle)** | Curar (Usar Poção) |
-| **L1** | Sacar / Guardar Arma |
+| **L1** | Parry |
+| **Seta para cima / D-Pad Up** | Sacar / Guardar Arma |
 | **R1** | Esquiva / Rolamento |
 | **L2** | Ataque Leve |
 | **R2** | Ataque Pesado |
@@ -26,6 +27,7 @@
 | **Shift Esq.** | Correr |
 | **E** | Interagir |
 | **H** | Curar |
+| **V** | Parry |
 | **F** | Sacar / Guardar Arma |
 | **R** | Esquiva / Rolamento |
 | **Botão Esq. Mouse** | Ataque Leve |

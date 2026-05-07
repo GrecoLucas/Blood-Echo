@@ -15,6 +15,9 @@ namespace StarterAssets
         public float ParryWindowDuration = 0.3f; 
         private float _parryActiveTimer;
         private int _animIDParry;
+        [Header("Parry VFX")]
+        [SerializeField] private GameObject parryVFXPrefab;
+        [SerializeField] private Transform parryVFXAnchor;
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -123,7 +126,7 @@ namespace StarterAssets
         [SerializeField] private float DodgeCooldown = 0.6f;
 
         [Header("Attack")]
-        [SerializeField] private float AttackFallbackDuration = 1.0f;
+        [SerializeField] private float AttackFallbackDuration = 0.4f;
 
         [Header("Heavy Attack")]
         public float HeavyAttackCooldown;
@@ -222,8 +225,11 @@ namespace StarterAssets
 
         private void HandleParry()
         {
-        if (Input.GetKeyDown(KeyCode.B) && _weaponController != null && _weaponController.IsArmed)            
-        {
+            // Teclado: V / Controle: L1 (Joystick1Button4)
+            bool parryInput = Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.Joystick1Button4);
+            
+            if (parryInput && _weaponController != null && _weaponController.IsArmed)
+            {
                 _isAttacking = false; // Interrompe o ataque atual para dar o parry
                 _animator.SetTrigger(_animIDParry);
                 _parryActiveTimer = ParryWindowDuration;
@@ -585,7 +591,13 @@ namespace StarterAssets
             if (_input != null)
                 _input.sprint = false;
         }
+        public void PlayParryVFX()
+        {
+            if (parryVFXPrefab != null && parryVFXAnchor != null)
+            {
+                GameObject vfx = Instantiate(parryVFXPrefab, parryVFXAnchor.position, parryVFXAnchor.rotation, parryVFXAnchor);
+                Destroy(vfx, 2f); 
+            }
+        }
     }
-
-
 }
