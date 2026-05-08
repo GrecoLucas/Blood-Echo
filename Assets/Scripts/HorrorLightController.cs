@@ -9,49 +9,56 @@ public class HorrorLightController : MonoBehaviour
     public Light[] lights;
 
     [Header("Intensity")]
-    public float minIntensity = 0f;
-    public float maxIntensity = 1.5f;
+    public float minIntensity = 0.8f;       // Fire never goes dark
+    public float maxIntensity = 1.4f;       // Subtle upper bound
     [Tooltip("Intensity multiplier used for strong flashes")]
-    public float flashIntensityMultiplier = 3f;
+    public float flashIntensityMultiplier = 1.2f;   // No dramatic flashes for fire
 
     [Header("Desync Between Lights")]
     public float initialDelayMin = 0f;
-    public float initialDelayMax = 1.5f;
+    public float initialDelayMax = 0.4f;    // Small desync so flames feel independent
 
     [Header("Stable Phase")]
-    public float stableDurationMin = 0.8f;
-    public float stableDurationMax = 2.2f;
-    public float stableJitterAmount = 0.06f;
-    public float stableJitterIntervalMin = 0.05f;
-    public float stableJitterIntervalMax = 0.2f;
+    public float stableDurationMin = 0.1f;  // Fire rarely holds perfectly still
+    public float stableDurationMax = 0.4f;
+    public float stableJitterAmount = 0.15f;            // Frequent small intensity shifts
+    public float stableJitterIntervalMin = 0.03f;       // Fast jitter = flickering flame
+    public float stableJitterIntervalMax = 0.09f;
 
     [Header("Off Phase")]
-    public bool useHardOff = true;
+    public bool useHardOff = false;         // Fire never cuts out hard
     public bool instantOff = false;
-    public float fadeToOffMin = 0.04f;
-    public float fadeToOffMax = 0.2f;
-    public float offHoldMin = 0.25f;
-    public float offHoldMax = 1.4f;
+    public float fadeToOffMin = 0.05f;
+    public float fadeToOffMax = 0.1f;
+    public float offHoldMin = 0.0f;         // Fire doesn't hold at zero
+    public float offHoldMax = 0.05f;
 
     [Header("Flicker Phase")]
-    public int flickerPulsesMin = 3;
-    public int flickerPulsesMax = 8;
-    public float flickerPulseDurationMin = 0.02f;
-    public float flickerPulseDurationMax = 0.08f;
+    public int flickerPulsesMin = 2;
+    public int flickerPulsesMax = 4;
+    public float flickerPulseDurationMin = 0.03f;
+    public float flickerPulseDurationMax = 0.07f;
     public float flickerPauseMin = 0.01f;
-    public float flickerPauseMax = 0.06f;
+    public float flickerPauseMax = 0.04f;
 
     [Header("Recover Phase")]
-    public float recoverDurationMin = 0.3f;
-    public float recoverDurationMax = 1.2f;
+    public float recoverDurationMin = 0.1f;
+    public float recoverDurationMax = 0.3f; // Quick recovery keeps it feeling alive
 
-    [Header("Color (optional)")]
-    public bool randomizeColor = false;
-    public Color minColor = Color.black;
-    public Color maxColor = Color.white;
+    [Header("Color")]
+    public bool randomizeColor = true;
+    public Color minColor = new Color(1f, 0.3f, 0f);       // Deep orange
+    public Color maxColor = new Color(1f, 0.85f, 0.3f);    // Bright warm yellow
+    [Tooltip("How long each colour transition takes (seconds)")]
+    public float colorTransitionDurationMin = 1.5f;
+    public float colorTransitionDurationMax = 3.5f;
+    [Tooltip("How long to hold a colour before picking a new one")]
+    public float colorHoldDurationMin = 2.0f;
+    public float colorHoldDurationMax = 5.0f;
 
     float[] baseIntensities;
     Color[] baseColors;
+    Color[] currentColors; // tracks the active colour per light for smooth handoff
 
     void Awake()
     {
@@ -60,10 +67,12 @@ public class HorrorLightController : MonoBehaviour
 
         baseIntensities = new float[lights.Length];
         baseColors = new Color[lights.Length];
+        currentColors = new Color[lights.Length];
         for (int i = 0; i < lights.Length; i++)
         {
             baseIntensities[i] = lights[i].intensity;
             baseColors[i] = lights[i].color;
+            currentColors[i] = lights[i].color;
         }
     }
 
@@ -74,18 +83,50 @@ public class HorrorLightController : MonoBehaviour
         {
             if (lights[i] == null) continue;
             StartCoroutine(LightLoop(i));
+            if (randomizeColor)
+                StartCoroutine(ColorLoop(i));
         }
     }
 
     void OnDisable()
     {
         StopAllCoroutines();
-        // restore base values
         for (int i = 0; i < lights.Length; i++)
         {
             if (lights[i] == null) continue;
             lights[i].intensity = baseIntensities[i];
             lights[i].color = baseColors[i];
+            currentColors[i] = baseColors[i];
+        }
+    }
+
+    // Colour changes on its own slow independent loop, completely separate from intensity
+    IEnumerator ColorLoop(int index)
+    {
+        Light currentLight = lights[index];
+        if (currentLight == null) yield break;
+
+        while (true)
+        {
+            // Hold current colour for a while before transitioning
+            yield return new WaitForSeconds(Random.Range(colorHoldDurationMin, colorHoldDurationMax));
+
+            Color startColor = currentColors[index];
+            Color targetColor = Color.Lerp(minColor, maxColor, Random.value);
+            float duration = Random.Range(colorTransitionDurationMin, colorTransitionDurationMax);
+            float t = 0f;
+
+            while (t < duration)
+            {
+                t += Time.deltaTime;
+                float p = Mathf.SmoothStep(0f, 1f, t / duration);
+                currentColors[index] = Color.Lerp(startColor, targetColor, p);
+                if (lights[index] != null)
+                    lights[index].color = currentColors[index];
+                yield return null;
+            }
+
+            currentColors[index] = targetColor;
         }
     }
 
@@ -126,14 +167,17 @@ public class HorrorLightController : MonoBehaviour
 
     IEnumerator OffPhase(int index)
     {
+        // For fire, "off" is just a brief dip, never darkness
+        float dipTarget = Mathf.Clamp(minIntensity, minIntensity, minIntensity + 0.1f);
+
         if (useHardOff && instantOff)
         {
             if (lights[index] != null)
-                lights[index].intensity = minIntensity;
+                lights[index].intensity = dipTarget;
         }
         else
         {
-            yield return SmoothSingle(index, minIntensity, Random.Range(fadeToOffMin, fadeToOffMax));
+            yield return SmoothSingle(index, dipTarget, Random.Range(fadeToOffMin, fadeToOffMax));
         }
 
         yield return new WaitForSeconds(Random.Range(offHoldMin, offHoldMax));
@@ -154,10 +198,8 @@ public class HorrorLightController : MonoBehaviour
             yield return SmoothSingle(index, pulseUpTarget, pulseUpDuration);
 
             float pulseDownDuration = Random.Range(flickerPulseDurationMin, flickerPulseDurationMax);
-            if (useHardOff)
-                yield return SmoothSingle(index, minIntensity, pulseDownDuration);
-            else
-                yield return SmoothSingle(index, Mathf.Clamp(minIntensity + 0.08f, minIntensity, maxIntensity), pulseDownDuration);
+            // Dip back to minIntensity (not zero) between pulses
+            yield return SmoothSingle(index, minIntensity, pulseDownDuration);
 
             yield return new WaitForSeconds(Random.Range(flickerPauseMin, flickerPauseMax));
         }
@@ -175,14 +217,10 @@ public class HorrorLightController : MonoBehaviour
         if (currentLight == null) yield break;
 
         float startIntensity = currentLight.intensity;
-        Color startColor = currentLight.color;
-        Color targetColor = randomizeColor ? Random.ColorHSV() : baseColors[index];
 
         if (duration <= 0f)
         {
             currentLight.intensity = targetIntensity;
-            if (randomizeColor)
-                currentLight.color = Color.Lerp(minColor, maxColor, Random.value);
             yield break;
         }
 
@@ -192,13 +230,9 @@ public class HorrorLightController : MonoBehaviour
             t += Time.deltaTime;
             float p = Mathf.SmoothStep(0f, 1f, t / duration);
             currentLight.intensity = Mathf.Lerp(startIntensity, targetIntensity, p);
-            if (randomizeColor)
-                currentLight.color = Color.Lerp(startColor, targetColor, p);
             yield return null;
         }
 
         currentLight.intensity = targetIntensity;
-        if (randomizeColor)
-            currentLight.color = targetColor;
     }
 }
