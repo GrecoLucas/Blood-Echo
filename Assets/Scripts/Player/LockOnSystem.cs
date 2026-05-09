@@ -26,13 +26,21 @@ public class LockOnSystem : MonoBehaviour
     private Transform currentTarget;
     private bool isLockedOn = false;
     private PlayerInteract playerInteract;
+    private Animator playerAnimator;
+    private StarterAssetsInputs playerInput;
     private Quaternion originalCameraTargetRotation;
     private StarterAssetsInputs _input;
 
     void Start()
     {
         if (playerTransform != null)
+        {
             playerInteract = playerTransform.GetComponent<PlayerInteract>();
+            playerAnimator = playerTransform.GetComponent<Animator>();
+            playerInput = playerTransform.GetComponent<StarterAssetsInputs>();
+
+        }
+        
 
         if (playerController == null && playerTransform != null)
             playerController = playerTransform.GetComponent<ThirdPersonController>();
@@ -144,6 +152,11 @@ public class LockOnSystem : MonoBehaviour
                     playerInteract.SetDirection(directionToTargetFromPlayer);
                 }
 
+                // Update Animator with movement input for strafe animations
+                if (playerAnimator != null && playerInput != null)
+                {
+                    playerAnimator.SetFloat("MoveX", playerInput.move.x);
+                    playerAnimator.SetFloat("MoveY", playerInput.move.y);}
                 // Vira o jogador para o inimigo (apenas no eixo Y)
                 Vector3 dirToEnemy = targetFocusPoint - playerTransform.position;
                 dirToEnemy.y = 0f;
@@ -196,14 +209,16 @@ public class LockOnSystem : MonoBehaviour
             {
                 currentTarget = nearest;
                 isLockedOn = true;
-
+                if (playerAnimator != null)
+                {
+                    playerAnimator.SetBool("LockedOn", true);
+                }
                 // Salva rotação no momento da ativação (não no Start)
                 if (cameraTarget != null)
                     originalCameraTargetRotation = cameraTarget.rotation;
 
                 if (playerController != null)
                 {
-                    playerController.IsLockedOn = true;
                     if (lockCameraWhileLockedOn)
                         playerController.LockCameraPosition = true;
                 }
@@ -280,20 +295,14 @@ public class LockOnSystem : MonoBehaviour
 
         isLockedOn = false;
         currentTarget = null;
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetBool("LockedOn", false);
+        }
 
         if (playerController != null)
         {
             playerController.LockCameraPosition = false;
-            playerController.OnLockOnCancelled(); // reseta IsLockedOn + sprint preso
-
-            // Sincroniza _cinemachineTargetYaw/Pitch com a rotação salva
-            // para evitar salto de câmera no frame seguinte
-            if (cameraTarget != null)
-            {
-                Vector3 savedEuler = originalCameraTargetRotation.eulerAngles;
-                float pitch = savedEuler.x > 180f ? savedEuler.x - 360f : savedEuler.x;
-                playerController.SetCameraRotation(savedEuler.y, pitch);
-            }
         }
 
         if (playerInteract != null)

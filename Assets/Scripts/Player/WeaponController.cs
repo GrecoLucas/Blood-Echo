@@ -46,7 +46,7 @@ public class WeaponController : MonoBehaviour
 
     private void Update()
     {
-        // Input System unificado (teclado F / gamepad L1)
+        // Input System unificado (teclado F / gamepad D-Pad Up)
         if (_input != null && _input.equipWeapon)
         {
             _input.equipWeapon = false; // Consome o input
