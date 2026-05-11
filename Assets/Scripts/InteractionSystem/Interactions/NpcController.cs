@@ -9,6 +9,8 @@ public class NpcController : MonoBehaviour, IInteractable
     public GameObject npcMenuCanvas; 
     public TextMeshProUGUI dialogueText;
     public NpcMenu npcMenu; 
+    [Header("Visual Effects")]
+    public GameObject potionInHand;
     private bool isDead = false;
     [Header("Dialogue Settings")]
     public float typingSpeed = 0.05f;
@@ -86,6 +88,11 @@ public class NpcController : MonoBehaviour, IInteractable
     {
         isCinematicRunning = true; // TRAVA O INPUT AQUI
         Inventory.Instance.RemoveGreenPotion(); 
+
+        if (potionInHand != null) 
+        {
+            potionInHand.SetActive(true);
+        }
 
         // 1. NPC começa a beber
         if (npcMenu != null) npcMenu.TriggerDrink(); 
