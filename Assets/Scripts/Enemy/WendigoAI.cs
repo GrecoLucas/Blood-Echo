@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Animator))]
 public class WendigoAI : MonoBehaviour
 {
-    public enum AIState { Patrolling, Screaming, Chasing }
+    public enum AIState { Patrolling, Screaming, Chasing, Attacking }
     public AIState currentState = AIState.Patrolling;
 
     [Header("Movement Speeds")]
@@ -26,15 +26,17 @@ public class WendigoAI : MonoBehaviour
     public float memoryTime = 5f;
     public float giveUpDistance = 25f;
 
-    [Header("Chase Distance Settings")]
-    public float maintainRadius = 3.0f;
+    [Header("Chase & Attack Settings")]
+    public float maintainRadius = 1.5f; // Diminuído para ele chegar mais perto
+    public float attackDistance = 2.0f; // Distância para iniciar o ataque
+    public float attackCooldown = 3.0f; // Tempo entre um combo e outro
+    public float comboDuration = 2.5f;  // Tempo que dura a sua animação Attack1 + Attack2 juntas
+    private bool canAttack = true;
 
     private NavMeshAgent agent;
     private Animator animator;
     private Transform playerTarget;
     private float timeSinceLastSawPlayer;
-    
-    // NOVO: Guarda as coordenadas de onde o jogador foi visto pela última vez
     private Vector3 lastKnownPosition;
 
     void Start()
@@ -65,22 +67,66 @@ public class WendigoAI : MonoBehaviour
             case AIState.Patrolling:
                 HandlePatrol(canSeePlayer);
                 break;
+            
             case AIState.Screaming:
                 FaceTarget(playerTarget.position);
                 break;
+            
             case AIState.Chasing:
                 HandleChase(canSeePlayer);
+                CheckForAttack(); // Verifica se está perto o suficiente para bater
                 
-                // Se parou, fica a olhar para o sítio onde está o jogador (ou onde acha que ele está)
                 if (agent.velocity.magnitude <= 0.1f)
                 {
                     FaceTarget(canSeePlayer ? playerTarget.position : lastKnownPosition);
                 }
                 break;
+                
+            case AIState.Attacking:
+                // Continua a olhar para o player enquanto faz o combo de ataques
+                FaceTarget(playerTarget.position);
+                break;
         }
 
         UpdateAnimations();
     }
+
+    // --- NOVA LÓGICA DE ATAQUE ---
+    void CheckForAttack()
+    {
+        if (!canAttack) return;
+
+        float distToActualPlayer = Vector3.Distance(transform.position, playerTarget.position);
+
+        if (distToActualPlayer <= attackDistance)
+        {
+            StartCoroutine(AttackRoutine());
+        }
+    }
+
+    IEnumerator AttackRoutine()
+    {
+        // 1. Muda o estado e para o monstro
+        currentState = AIState.Attacking;
+        agent.isStopped = true;
+        canAttack = false;
+
+        // 2. Aciona o Trigger que você criou no Animator
+        animator.SetTrigger("attack");
+
+        // 3. Espera o tempo das animações do combo terminarem
+        // Ajuste 'comboDuration' no Inspector de acordo com a duração das suas 2 animações
+        yield return new WaitForSeconds(comboDuration);
+
+        // 4. Volta a perseguir
+        agent.isStopped = false;
+        currentState = AIState.Chasing;
+
+        // 5. Espera o cooldown para poder atacar novamente (evita spam de ataques)
+        yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
+    }
+    // -----------------------------
 
     void HandlePatrol(bool canSeePlayer)
     {
@@ -106,10 +152,7 @@ public class WendigoAI : MonoBehaviour
 
         agent.isStopped = false;
         agent.speed = chaseSpeed;
-        
-        // Regista onde o jogador estava no momento do grito
         lastKnownPosition = playerTarget.position;
-        
         currentState = AIState.Chasing;
     }
 
@@ -119,21 +162,13 @@ public class WendigoAI : MonoBehaviour
 
         if (canSeePlayer)
         {
-            // --- ELE VÊ O JOGADOR ---
             timeSinceLastSawPlayer = 0;
-            
-            // Atualiza constantemente a última posição conhecida
             lastKnownPosition = playerTarget.position; 
-            
-            // Mantém a distância de segurança para não entrar dentro do jogador
             agent.stoppingDistance = maintainRadius; 
-            
-            // Segue ativamente
             agent.SetDestination(playerTarget.position); 
         }
         else
         {
-            // --- PERDEU O JOGADOR DE VISTA ---
             timeSinceLastSawPlayer += Time.deltaTime;
 
             if (timeSinceLastSawPlayer > memoryTime || distToActualPlayer > giveUpDistance)
@@ -142,10 +177,7 @@ public class WendigoAI : MonoBehaviour
                 return;
             }
             
-            // Como vai investigar um local vazio (onde tu sumiste), permitimos que ele chegue bem perto
             agent.stoppingDistance = 0.5f; 
-            
-            // Segue para a ÚLTIMA POSIÇÃO CONHECIDA, e não para onde o jogador está escondido agora
             agent.SetDestination(lastKnownPosition); 
         }
     }
@@ -160,37 +192,25 @@ public class WendigoAI : MonoBehaviour
 
     void UpdateAnimations()
     {
-        // A animação de grito continua isolada, mas a locomoção agora é fluida
-        if (currentState == AIState.Screaming)
+        // Se estiver a gritar ou a atacar, a velocidade nas pernas é 0
+        if (currentState == AIState.Screaming || currentState == AIState.Attacking)
         {
-            animator.SetFloat("Speed", 0f); // Para as pernas durante o grito
-            return; 
+            animator.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
+            return;
         }
-    
-        // Calcula a velocidade desejada no momento do Chase
+
         if (currentState == AIState.Chasing)
         {
             float dist = Vector3.Distance(transform.position, playerTarget.position);
-            
-            // Define a velocidade do agente baseada na distância
-            if (dist > maintainRadius + 1.5f) 
-            {
-                agent.speed = chaseSpeed;
-            }
-            else 
-            {
-                agent.speed = patrolSpeed;
-            }
+            agent.speed = (dist > maintainRadius + 1.5f) ? chaseSpeed : patrolSpeed;
         }
         else if (currentState == AIState.Patrolling)
         {
             agent.speed = patrolSpeed;
         }
-    
-        // A MÁGICA ACONTECE AQUI:
-        // Pega na velocidade real em que o agente se está a mover
+
+        // Mistura as animações de Locomotion (Blend Tree) suavemente
         float currentSpeed = agent.velocity.magnitude;
-    
         animator.SetFloat("Speed", currentSpeed, 0.1f, Time.deltaTime);
     }
 
