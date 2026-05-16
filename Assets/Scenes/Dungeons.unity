@@ -38407,6 +38407,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 91320340ef6e4c145a460165d98abe03, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1557974206}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 91320340ef6e4c145a460165d98abe03, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1557974210}
   m_SourcePrefab: {fileID: 100100000, guid: 91320340ef6e4c145a460165d98abe03, type: 3}
 --- !u!1 &1557974205 stripped
 GameObject:
@@ -38425,6 +38428,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87edc29647455444938ae831e640a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WendigoPatrol
+  currentState: 0
+  patrolSpeed: 2.5
+  chaseSpeed: 6
   patrolPoints:
   - {fileID: 1941030620}
   - {fileID: 1825970373}
@@ -38433,6 +38439,14 @@ MonoBehaviour:
   - {fileID: 1054066151}
   - {fileID: 535654209}
   waitTimeAtPoint: 2
+  viewRadius: 10
+  viewAngle: 90
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1
+  memoryTime: 8
+  giveUpDistance: 25
+  maintainRadius: 3
 --- !u!195 &1557974207
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -38455,6 +38469,29 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &1557974210
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557974205}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.3672085
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.68360424, z: 0}
 --- !u!43 &1568842457
 Mesh:
   m_ObjectHideFlags: 0
