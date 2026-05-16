@@ -158,48 +158,40 @@ public class WendigoAI : MonoBehaviour
         GotoNextPoint();
     }
 
-void UpdateAnimations()
+    void UpdateAnimations()
     {
-        bool isMoving = agent.velocity.magnitude > 0.1f || (agent.hasPath && agent.remainingDistance > agent.stoppingDistance);
-
-        if (currentState == AIState.Patrolling)
+        // A animação de grito continua isolada, mas a locomoção agora é fluida
+        if (currentState == AIState.Screaming)
         {
-            animator.SetBool("isWalking", isMoving);
-            animator.SetBool("isRunning", false);
+            animator.SetFloat("Speed", 0f); // Para as pernas durante o grito
+            return; 
+        }
+    
+        // Calcula a velocidade desejada no momento do Chase
+        if (currentState == AIState.Chasing)
+        {
+            float dist = Vector3.Distance(transform.position, playerTarget.position);
+            
+            // Define a velocidade do agente baseada na distância
+            if (dist > maintainRadius + 1.5f) 
+            {
+                agent.speed = chaseSpeed;
+            }
+            else 
+            {
+                agent.speed = patrolSpeed;
+            }
+        }
+        else if (currentState == AIState.Patrolling)
+        {
             agent.speed = patrolSpeed;
         }
-        else if (currentState == AIState.Screaming)
-        {
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isRunning", false);
-        }
-        else if (currentState == AIState.Chasing)
-        {
-            if (isMoving)
-            {
-                float dist = Vector3.Distance(transform.position, playerTarget.position);
-                
-                // 2. Se o jogador fugiu muito, ele CORRE. Se o jogador moveu-se só um pouco, ele ANDA.
-                if (dist > maintainRadius + 1.5f) 
-                {
-                    animator.SetBool("isRunning", true);
-                    animator.SetBool("isWalking", false);
-                    agent.speed = chaseSpeed; // Velocidade de corrida
-                }
-                else 
-                {
-                    animator.SetBool("isRunning", false);
-                    animator.SetBool("isWalking", true);
-                    agent.speed = patrolSpeed; // Velocidade de caminhada para reajustar a distância
-                }
-            }
-            else
-            {
-                // Parou na distância exata (maintainRadius)
-                animator.SetBool("isRunning", false);
-                animator.SetBool("isWalking", false);
-            }
-        }
+    
+        // A MÁGICA ACONTECE AQUI:
+        // Pega na velocidade real em que o agente se está a mover
+        float currentSpeed = agent.velocity.magnitude;
+    
+        animator.SetFloat("Speed", currentSpeed, 0.1f, Time.deltaTime);
     }
 
     void FaceTarget(Vector3 target)
