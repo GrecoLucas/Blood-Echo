@@ -199,6 +199,11 @@ public class EnemyStealth : MonoBehaviour
     {
         agent.speed = velocidadePerseguicao;
 
+        if (!PodeUsarAgente())
+        {
+            return;
+        }
+
         if (PodeVerPlayer())
         {
             // Continua a ver → atualiza destino
@@ -228,6 +233,11 @@ public class EnemyStealth : MonoBehaviour
     void UpdateReturn()
     {
         agent.speed = velocidadeAlerta;
+
+        if (!PodeUsarAgente())
+        {
+            return;
+        }
 
         // Ainda pode apanhar o player durante o alerta
         if (PodeVerPlayer())
@@ -273,7 +283,11 @@ public class EnemyStealth : MonoBehaviour
     {
         estadoAtual = Estado.Chase;
         fimAlerta   = Time.time + duracaoAlerta;
-        agent.isStopped = false;
+
+        if (PodeUsarAgente())
+        {
+            agent.isStopped = false;
+        }
     }
 
     void EntrarEmAlerta(Vector3 posicaoSom)
@@ -282,8 +296,12 @@ public class EnemyStealth : MonoBehaviour
         pontoInvestigacao     = posicaoSom;
         chegouAoInvestigar    = false;
         fimAlerta             = Time.time + duracaoAlerta + duracaoInvestigacao;
-        agent.isStopped       = false;
-        agent.SetDestination(pontoInvestigacao);
+
+        if (PodeUsarAgente())
+        {
+            agent.isStopped = false;
+            agent.SetDestination(pontoInvestigacao);
+        }
     }
 
     void EntrarEmReturn()
@@ -291,8 +309,12 @@ public class EnemyStealth : MonoBehaviour
         estadoAtual        = Estado.Return;
         chegouAoInvestigar = false;
         fimAlerta          = Time.time + duracaoAlerta;
-        agent.isStopped    = false;
-        agent.SetDestination(pontoInvestigacao);
+
+        if (PodeUsarAgente())
+        {
+            agent.isStopped = false;
+            agent.SetDestination(pontoInvestigacao);
+        }
     }
 
     void EntrarEmPatrol()
@@ -300,8 +322,12 @@ public class EnemyStealth : MonoBehaviour
         estadoAtual          = Estado.Patrol;
         patrulhaInicializada = false;
         emEsperaPatrulha     = false;
-        agent.isStopped      = false;
-        agent.speed          = velocidadePatrulha;
+
+        if (PodeUsarAgente())
+        {
+            agent.isStopped = false;
+            agent.speed     = velocidadePatrulha;
+        }
     }
 
 
@@ -397,6 +423,7 @@ public class EnemyStealth : MonoBehaviour
 
     void DefinirDestinoPatrulhaAtual()
     {
+        if (!PodeUsarAgente()) return;
         if (pontosPatrulha[indicePontoPatrulha] == null) return;
         agent.isStopped = false;
         agent.SetDestination(pontosPatrulha[indicePontoPatrulha].position);
@@ -417,6 +444,11 @@ public class EnemyStealth : MonoBehaviour
 
     void PararERotacionar()
     {
+        if (!PodeUsarAgente())
+        {
+            return;
+        }
+
         agent.isStopped = true;
         Vector3 dir = (player.position - transform.position).normalized;
         dir.y = 0;
@@ -441,9 +473,20 @@ public class EnemyStealth : MonoBehaviour
         transform.position   = posicaoInicial;
         transform.rotation   = rotacaoInicial;
         if (agent != null) agent.enabled = true;
+
+        if (agent != null && NavMesh.SamplePosition(posicaoInicial, out NavMeshHit hit, 2f, NavMesh.AllAreas))
+        {
+            agent.Warp(hit.position);
+        }
+
         patrulhaInicializada = false;
         emEsperaPatrulha     = false;
         EntrarEmPatrol();
+    }
+
+    bool PodeUsarAgente()
+    {
+        return agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh;
     }
 
     // Damage Dealer (chamado por Animation Events)
