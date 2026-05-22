@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 1414ccec31a609c4d90921c279969bec
+guid: fd7e80847e119574e8539770c05911b2
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: OBRAZ
-    second: {fileID: 2100000, guid: 139c893bc7607ab41b4140788c3d1845, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
