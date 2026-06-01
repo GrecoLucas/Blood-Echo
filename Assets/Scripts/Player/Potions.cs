@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using FMODUnity;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -14,6 +15,9 @@ public class Potions : MonoBehaviour
     public int potionCount = 4;
     [Header("Animator")]
     public Animator playerAnimator;
+
+    [Header("Sound")]
+    [SerializeField] private StudioEventEmitter healSoundEmitter;
 
     [Header("Referências da UI")]
     public GameObject potionNumberText;
@@ -34,6 +38,11 @@ public class Potions : MonoBehaviour
         if (playerAnimator == null)
         {
             playerAnimator = GetComponent<Animator>();
+        }
+
+        if (healSoundEmitter == null)
+        {
+            healSoundEmitter = GetComponent<StudioEventEmitter>();
         }
 
         if (potionNumberText != null)
@@ -79,6 +88,11 @@ public class Potions : MonoBehaviour
                 if (playerAnimator != null)
                 {
                     playerAnimator.SetTrigger(DrinkTrigger);
+                }
+
+                if (healSoundEmitter != null)
+                {
+                    healSoundEmitter.Play();
                 }
 
                 playerHealth.Heal(healAmount);

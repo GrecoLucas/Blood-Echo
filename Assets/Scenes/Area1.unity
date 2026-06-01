@@ -75572,6 +75572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 430118399}
   - component: {fileID: 430118400}
+  - component: {fileID: 430118401}
   m_Layer: 5
   m_Name: Potions
   m_TagString: Untagged
@@ -75621,12 +75622,44 @@ MonoBehaviour:
   maxPotions: 4
   potionCount: 4
   playerAnimator: {fileID: 1790604023}
+  healSoundEmitter: {fileID: 430118401}
   potionNumberText: {fileID: 1404245094}
   healingObject1: {fileID: 1767951176}
   healingObject2: {fileID: 1333835724}
   healingObject3: {fileID: 1691517583}
   healingObject4: {fileID: 138130434}
   emptyObject: {fileID: 1020283082}
+--- !u!114 &430118401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430118398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 929398487
+      Data2: 1173477244
+      Data3: -42102850
+      Data4: 486498101
+    Path: event:/Heal
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &432506960
 PrefabInstance:
   m_ObjectHideFlags: 0

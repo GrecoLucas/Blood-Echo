@@ -1,7 +1,7 @@
 using UnityEngine;
 using FMODUnity;
 
-public class PararSomCastelo : MonoBehaviour
+public class ForestSound : MonoBehaviour
 {
     [SerializeField] private StudioEventEmitter emissorDoTerreno;
 
