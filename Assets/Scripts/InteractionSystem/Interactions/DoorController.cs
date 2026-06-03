@@ -7,7 +7,7 @@ public class DoorController : MonoBehaviour, IInteractable
     public NavMeshLink navLink; // Arraste o NavMeshLink para cá no Inspector
     public float openAngle = 90f;
     public float speed = 3f;
-    public bool isLocked = true;
+    public bool isLocked;
 
     private bool isOpen = false;
     private Quaternion closedRot;
@@ -33,7 +33,9 @@ public class DoorController : MonoBehaviour, IInteractable
 
     void Update()
     {
-        if (isLocked) return;
+        if (isLocked){
+            Debug.Log("A porta está trancada!");
+            return;}
 
         Quaternion target = isOpen ? openRot : closedRot;
         doorMesh.rotation = Quaternion.Slerp(doorMesh.rotation, target, Time.deltaTime * speed);
@@ -42,7 +44,7 @@ public class DoorController : MonoBehaviour, IInteractable
     private void ToggleDoor()
     {
         isOpen = !isOpen; 
-        
+        Debug.Log(isOpen ? "Porta aberta!" : "Porta fechada!");
         if (isOpen && !_keyConsumed)
         {
             _keyConsumed = true;
