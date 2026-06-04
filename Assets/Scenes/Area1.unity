@@ -251597,6 +251597,13 @@ MonoBehaviour:
   greatswordInHand: {fileID: 1129620974}
   greatswordOnBack: {fileID: 987168871}
   playerDamageDealer: {fileID: 1129620978}
+  SwordSwingEvent:
+    Guid:
+      Data1: 75482066
+      Data2: 1095838571
+      Data3: 2098304675
+      Data4: -1844210157
+    Path: event:/Swing
 --- !u!114 &1790604009
 MonoBehaviour:
   m_ObjectHideFlags: 0

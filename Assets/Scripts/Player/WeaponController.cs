@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -12,7 +13,8 @@ public class WeaponController : MonoBehaviour
 
     [Header("Combat")]
     [SerializeField] private DamageDealer playerDamageDealer;
-
+    [Header("FMOD Audio")] 
+        public EventReference SwordSwingEvent;
     [Header("Animation")]
     private Animator _animator;
     private static readonly int ArmedHash = Animator.StringToHash("Armed");
@@ -146,6 +148,7 @@ public class WeaponController : MonoBehaviour
         if (playerDamageDealer != null)
         {
             playerDamageDealer.StartDealingDamage();
+            PlaySwordSwingSound();
         }
     }
 
@@ -181,5 +184,17 @@ public class WeaponController : MonoBehaviour
                 playerDamageDealer.owner = DamageDealer.DamageOwner.Player;
             }
         }
+    }
+    public void PlaySwordSwingSound()
+    {
+        if (SwordSwingEvent.IsNull) return;
+
+        FMOD.Studio.EventInstance swingInstance = RuntimeManager.CreateInstance(SwordSwingEvent);
+        
+        // Faz o som sair da posição atual do jogador
+        swingInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+        
+        swingInstance.start();
+        swingInstance.release();
     }
 }
