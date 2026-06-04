@@ -25352,6 +25352,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -27399,6 +27407,14 @@ PrefabInstance:
       value: Ground_01 (8)
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -28471,6 +28487,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -34472,6 +34496,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -36883,7 +36915,7 @@ GameObject:
   - component: {fileID: 185317892}
   - component: {fileID: 185317894}
   - component: {fileID: 185317893}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43590,7 +43622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1803369765183747517, guid: a0d8e7c7494d01b42bd133cf7781b8da, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2117760955182359514, guid: a0d8e7c7494d01b42bd133cf7781b8da, type: 3}
       propertyPath: m_Layer
@@ -50110,6 +50142,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -51191,6 +51231,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -51585,6 +51633,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -58292,6 +58348,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -68407,6 +68471,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -74428,6 +74500,14 @@ PrefabInstance:
       value: Ground_01
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -74860,6 +74940,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -75027,10 +75115,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 929398487
-      Data2: 1173477244
-      Data3: -42102850
-      Data4: 486498101
+      Data1: -2070678687
+      Data2: 1179007776
+      Data3: 655223961
+      Data4: -2026328651
     Path: event:/Heal
   Event: 
   EventPlayTrigger: 0
@@ -75209,6 +75297,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -76063,6 +76159,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -77763,6 +77867,14 @@ PrefabInstance:
       value: Ground_01 (5)
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -78682,6 +78794,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -82281,7 +82401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3037055531348760521, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3075935357332382582, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
@@ -82623,6 +82743,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -83586,7 +83714,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 566265357}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94067,6 +94195,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -94127,6 +94263,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -95435,6 +95579,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -95969,6 +96121,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -97555,6 +97715,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -99223,6 +99391,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -100602,7 +100778,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 755376276}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101437,7 +101613,7 @@ GameObject:
   - component: {fileID: 762833549}
   - component: {fileID: 762833551}
   - component: {fileID: 762833552}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HeathbarBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102874,6 +103050,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -103634,6 +103814,10 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -111622,7 +111806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3037055531348760521, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3075935357332382582, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
@@ -113037,7 +113221,7 @@ GameObject:
   - component: {fileID: 856423997}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -113152,11 +113336,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1024672985
-      Data2: 1173925331
-      Data3: 1940208818
-      Data4: 973055566
-    Path: event:/Ambient
+      Data1: -1718500264
+      Data2: 1282192632
+      Data3: 1723957917
+      Data4: 445758305
+    Path: event:/ForestAmbient
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -114611,6 +114795,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -123991,6 +124183,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -125502,6 +125702,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -125562,6 +125770,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -129331,6 +129547,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -135315,6 +135539,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -142073,6 +142305,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8067796994747886454, guid: 2774678d5cec9104ea6f5ff4169874b2, type: 3}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: FootstepEvent.Path
+      value: event:/FootSteps
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: FootstepAudioVolume
       value: 0.3
       objectReference: {fileID: 0}
@@ -142088,6 +142324,22 @@ PrefabInstance:
       propertyPath: playerWeaponTransform
       value: 
       objectReference: {fileID: 1129620975}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: FootstepEvent.Guid.Data1
+      value: -1976298005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: FootstepEvent.Guid.Data2
+      value: 1300746489
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: FootstepEvent.Guid.Data3
+      value: 1286475142
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: FootstepEvent.Guid.Data4
+      value: 612839097
+      objectReference: {fileID: 0}
     - target: {fileID: 4523139366846529165, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -170333,6 +170585,14 @@ PrefabInstance:
       value: Ground_01 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -170896,6 +171156,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -171397,6 +171665,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -171665,7 +171941,7 @@ GameObject:
   - component: {fileID: 1354528193}
   m_Layer: 0
   m_Name: Stairs (2)
-  m_TagString: Untagged
+  m_TagString: Castle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -177220,7 +177496,7 @@ GameObject:
   - component: {fileID: 1357202620}
   - component: {fileID: 1357202622}
   - component: {fileID: 1357202623}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: StaminabarBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177294,7 +177570,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 300
   m_WholeNumbers: 1
-  m_Value: 100
+  m_Value: 300
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -177323,6 +177599,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -183094,6 +183378,14 @@ PrefabInstance:
       value: Ground_01 (6)
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -183660,7 +183952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3037055531348760521, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3075935357332382582, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
@@ -184457,6 +184749,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -186197,7 +186497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1803369765183747517, guid: a0d8e7c7494d01b42bd133cf7781b8da, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2117760955182359514, guid: a0d8e7c7494d01b42bd133cf7781b8da, type: 3}
       propertyPath: m_Layer
@@ -195764,6 +196064,14 @@ PrefabInstance:
       value: Ground_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -205259,6 +205567,14 @@ PrefabInstance:
       value: Ground_01 (7)
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -210652,7 +210968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3037055531348760521, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3075935357332382582, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
@@ -227567,6 +227883,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -228920,7 +229244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1024855159418406972, guid: 7bfe001c528df96439ff846ff96cf148, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1286084147697837559, guid: 7bfe001c528df96439ff846ff96cf148, type: 3}
       propertyPath: m_Layer
@@ -229622,6 +229946,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -236215,6 +236547,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -251045,6 +251385,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -252328,8 +252676,16 @@ PrefabInstance:
       value: Ground_01 (6)
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -253876,7 +254232,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 600000000
   m_WholeNumbers: 1
-  m_Value: 100
+  m_Value: 2000
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -262909,6 +263265,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -272551,6 +272915,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -296512,6 +296884,14 @@ PrefabInstance:
       value: Ground_01 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -308062,7 +308442,7 @@ GameObject:
   - component: {fileID: 2035102231}
   - component: {fileID: 2035102230}
   - component: {fileID: 2035102229}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314626,6 +315006,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -317166,7 +317554,7 @@ GameObject:
   - component: {fileID: 2095732321}
   m_Layer: 0
   m_Name: Stairs
-  m_TagString: Untagged
+  m_TagString: Castle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321885,6 +322273,14 @@ PrefabInstance:
     - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: m_Name
       value: Ground_01 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916917378494744782, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
+      propertyPath: m_TagString
+      value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 4729723302331074421, guid: 98f5378049f9b5745a77677f581b32b1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

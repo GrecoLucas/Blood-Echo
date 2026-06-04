@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 3
   tags:
   - CinemachineTarget
+  - Castle
+  - Grass
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Castle
   - Water
   - UI
   - Enemies

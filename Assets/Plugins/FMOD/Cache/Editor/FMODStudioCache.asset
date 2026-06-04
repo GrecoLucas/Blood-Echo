@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7453530703387732020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ForestAmbient
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/ForestAmbient
+  Guid:
+    Data1: -1718500264
+    Data2: 1282192632
+    Data3: 1723957917
+    Data4: 445758305
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6720816358231265061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,6 +54,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-4174581921147369990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: FMOD/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639161880185678728
+  FileSizes:
+  - Name: 
+    Value: 924
+  Exists: 1
 --- !u!114 &-2563188975826653028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,7 +89,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639159985842960973
+  lastModified: 639161824223838703
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -58,24 +105,26 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EventCache
   EditorBanks:
-  - {fileID: 4934337663407262850}
-  - {fileID: 2633309793459175495}
-  - {fileID: -2563188975826653028}
+  - {fileID: -4174581921147369990}
+  - {fileID: 4905947999675981428}
   EditorEvents:
-  - {fileID: 5066625951841711016}
-  - {fileID: -6720816358231265061}
+  - {fileID: -7453530703387732020}
+  - {fileID: 6418124535122309646}
+  - {fileID: 7797959221790832228}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -2563188975826653028}
+  - {fileID: 4905947999675981428}
   StringsBanks:
-  - {fileID: 4934337663407262850}
+  - {fileID: -4174581921147369990}
   cacheVersion: 131859
-  cacheTime: 639159985842960973
+  cacheTime: 639161880185678728
   SerializableEventsDict:
-  - key: event:/Ambient
+  - key: event:/ForestAmbient
     index: 0
   - key: event:/Heal
     index: 1
+  - key: event:/FootSteps
+    index: 2
 --- !u!114 &2633309793459175495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +140,25 @@ MonoBehaviour:
   Path: FMOD/Desktop/Forest.bank
   Name: Forest
   StudioPath: bank:/Forest
-  lastModified: 639159985842934811
+  lastModified: 639161824223811188
+  FileSizes: []
+  Exists: 1
+--- !u!114 &4905947999675981428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: FMOD/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639161880185657862
   FileSizes: []
   Exists: 1
 --- !u!114 &4934337663407262850
@@ -109,7 +176,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639159985842960973
+  lastModified: 639161824223854638
   FileSizes:
   - Name: 
     Value: 864
@@ -138,6 +205,85 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5720746274076519726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FootSteps/StepSurface
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: StepSurface
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3008783792
+    data2: 1000247502
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &6418124535122309646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Heal
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Heal
+  Guid:
+    Data1: -2070678687
+    Data2: 1179007776
+    Data3: 655223961
+    Data4: -2026328651
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7797959221790832228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/FootSteps
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/FootSteps
+  Guid:
+    Data1: -1976298005
+    Data2: 1300746489
+    Data3: 1286475142
+    Data4: 612839097
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 5720746274076519726}
   MinDistance: 1
   MaxDistance: 20
   Length: 0

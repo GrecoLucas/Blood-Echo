@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
@@ -11,6 +12,8 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        [Header("FMOD Audio")]
+        public EventReference FootstepEvent;
         [Header("Parry Settings")]
         public float ParryWindowDuration = 0.3f; 
         private float _parryActiveTimer;
@@ -31,13 +34,6 @@ namespace StarterAssets
 
         [Tooltip("Acceleration and deceleration")]
         public float SpeedChangeRate = 10.0f;
-
-        public AudioSource AudioFootsteps;
-        public AudioSource LandingAudio;
-        public AudioSource AudioFoley;
-        public AudioClip LandingAudioClip;
-        public AudioClip[] FootstepAudioClips;
-        [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
 
         [Space(10)]
         [Tooltip("The height the player can jump")]
@@ -561,10 +557,38 @@ namespace StarterAssets
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
-                if (AudioFootsteps != null)
-                    AudioFootsteps.Play();
-                if (AudioFoley != null)
-                    AudioFoley.Play();
+                if (FootstepEvent.IsNull) return;
+
+                // Variáveis para controlar qual som tocar e SE deve tocar
+                float surfaceValue = 0f; 
+                bool shouldPlaySound = false; // Começa como falso (Default = sem som)
+
+                // Dispara o raio do pé do jogador para baixo
+                Vector3 rayStart = transform.position + (Vector3.up * 0.1f);
+                if (Physics.Raycast(rayStart, Vector3.down, out RaycastHit hit, 1.2f, GroundLayers))
+                {
+                    // Verifica exatamente em qual Tag o jogador pisou
+                    if (hit.collider.CompareTag("Castle"))
+                    {
+                        surfaceValue = 0.5f; // Valor da faixa verde do Castelo no FMOD
+                        shouldPlaySound = true; // Autoriza tocar o som
+                    }
+                    else if (hit.collider.CompareTag("Grass"))
+                    {
+                        surfaceValue = 0.1f; // Valor da faixa verde da Grama no FMOD
+                        shouldPlaySound = true; // Autoriza tocar o som
+                    }
+                }
+
+                // Só cria o som e manda pro FMOD se a tag for Grass ou Castle
+                if (shouldPlaySound)
+                {
+                    FMOD.Studio.EventInstance stepInstance = RuntimeManager.CreateInstance(FootstepEvent);
+                    stepInstance.setParameterByName("StepSurface", surfaceValue);
+                    stepInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+                    stepInstance.start();
+                    stepInstance.release(); // Libera da memória
+                }
             }
         }
 
@@ -572,8 +596,8 @@ namespace StarterAssets
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
-                if (LandingAudio != null)
-                    LandingAudio.Play();
+                //if (LandingAudio != null)
+                //    LandingAudio.Play();
             }
         }
     
