@@ -178634,7 +178634,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 300
   m_WholeNumbers: 1
-  m_Value: 300
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -256117,7 +256117,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 600000000
   m_WholeNumbers: 1
-  m_Value: 2000
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
