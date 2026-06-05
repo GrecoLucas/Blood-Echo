@@ -27,6 +27,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-7330986958433279455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BackGroundMusic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/BackGroundMusic
+  Guid:
+    Data1: 1633566463
+    Data2: 1294632167
+    Data3: -80756551
+    Data4: 795761873
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6720816358231265061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,10 +96,10 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639162007955179106
+  lastModified: 639162654524603513
   FileSizes:
   - Name: 
-    Value: 960
+    Value: 1006
   Exists: 1
 --- !u!114 &-2563188975826653028
 MonoBehaviour:
@@ -92,6 +119,33 @@ MonoBehaviour:
   lastModified: 639161824223838703
   FileSizes: []
   Exists: 1
+--- !u!114 &-2064130775413332610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Swing
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Swing
+  Guid:
+    Data1: -62225758
+    Data2: 1253223296
+    Data3: -532335964
+    Data4: 1012060232
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,14 +165,15 @@ MonoBehaviour:
   - {fileID: -7453530703387732020}
   - {fileID: 6418124535122309646}
   - {fileID: 7797959221790832228}
-  - {fileID: 2302882646404351829}
+  - {fileID: -7330986958433279455}
+  - {fileID: -2064130775413332610}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4905947999675981428}
   StringsBanks:
   - {fileID: -4174581921147369990}
   cacheVersion: 131859
-  cacheTime: 639162007955179106
+  cacheTime: 639162654524603513
   SerializableEventsDict:
   - key: event:/ForestAmbient
     index: 0
@@ -126,33 +181,10 @@ MonoBehaviour:
     index: 1
   - key: event:/FootSteps
     index: 2
---- !u!114 &2302882646404351829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Swing
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/Swing
-  Guid:
-    Data1: 75482066
-    Data2: 1095838571
-    Data3: 2098304675
-    Data4: -1844210157
-  Banks:
-  - {fileID: 4905947999675981428}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
+  - key: event:/BackGroundMusic
+    index: 3
+  - key: event:/Swing
+    index: 4
 --- !u!114 &2633309793459175495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +218,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639162007955151903
+  lastModified: 639162654524578331
   FileSizes: []
   Exists: 1
 --- !u!114 &4934337663407262850
