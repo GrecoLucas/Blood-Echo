@@ -64,8 +64,12 @@ public class BonfireController : MonoBehaviour, IInteractable
 
         if(GameManager.Instance != null)
         {
+            // Pega a posição e a rotação do seu Spawn Point
             Vector3 spawnPos = playerSp != null ? playerSp.position : transform.position;
-            GameManager.Instance.RestAtBonfire(spawnPos);
+            Quaternion spawnRot = playerSp != null ? playerSp.rotation : transform.rotation;
+            
+            // Envia as duas informações para o GameManager
+            GameManager.Instance.RestAtBonfire(spawnPos, spawnRot);
         }
 
         ShowMenu();
