@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using StarterAssets; // Importante para resetar a câmera e o mouse
+using StarterAssets; 
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Settings")]
     public Vector3 lastBonfirePosition = Vector3.zero;
+    // NOVA VARIÁVEL: Guarda a rotação da fogueira
+    public Quaternion lastBonfireRotation = Quaternion.identity; 
     public GameObject playerHealth;
     public GameObject PlayerPotions;
 
@@ -44,46 +46,49 @@ public class GameManager : MonoBehaviour
             Potions potionsScript = player.GetComponentInChildren<Potions>();
             if (potionsScript != null) PlayerPotions = potionsScript.gameObject;
 
-            // Forçamos o novo jogador a travar o mouse e ativar a câmera de look
             StarterAssetsInputs inputs = player.GetComponent<StarterAssetsInputs>();
             if (inputs != null)
             {
                 inputs.cursorLocked = true;
                 inputs.cursorInputForLook = true;
-                
-                // Forçamos o estado do cursor no Windows
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }
 
             if (lastBonfirePosition == Vector3.zero)
             {
-                // Procuramos na cena qual fogueira é a default
                 BonfireController[] bonfires = FindObjectsByType<BonfireController>(FindObjectsSortMode.None);
                 foreach (var b in bonfires)
                 {
                     if (b.isDefaultBonfire)
                     {
                         lastBonfirePosition = b.playerSp != null ? b.playerSp.position : b.transform.position;
+                        // SALVANDO A ROTAÇÃO DA FOGUEIRA DEFAULT
+                        lastBonfireRotation = b.playerSp != null ? b.playerSp.rotation : b.transform.rotation; 
                         break;
                     }
                 }
             }
 
-            // Teleporta o jogador se tivermos uma posição salva
             if (lastBonfirePosition != Vector3.zero)
             {
                 CharacterController cc = player.GetComponent<CharacterController>();
                 if (cc != null) cc.enabled = false; 
+                
                 player.transform.position = lastBonfirePosition;
+                // APLICANDO A ROTAÇÃO NO JOGADOR
+                player.transform.rotation = lastBonfireRotation; 
+                
                 if (cc != null) cc.enabled = true;
             }
         }
     }
 
-    public void RestAtBonfire(Vector3 position)
+    // ATUALIZADO: Agora recebe a posição e a rotação
+    public void RestAtBonfire(Vector3 position, Quaternion rotation) 
     {
         lastBonfirePosition = position;
+        lastBonfireRotation = rotation; // SALVA A ROTAÇÃO AQUI
         RestorePlayer();
     }
 
@@ -108,18 +113,17 @@ public class GameManager : MonoBehaviour
 
         if (player != null && lastBonfirePosition != Vector3.zero)
         {
-            // 1. Teleporte (Desativar CharacterController é essencial para funcionar)
             CharacterController cc = player.GetComponent<CharacterController>();
             if (cc != null) cc.enabled = false;
 
             player.transform.position = lastBonfirePosition;
+            // APLICANDO A ROTAÇÃO AO RENASCER
+            player.transform.rotation = lastBonfireRotation; 
 
             if (cc != null) cc.enabled = true;
 
-            // 2. Restaura Vida e Poções
             RestorePlayer();
 
-            // 3. Reativa os Inputs de Câmera/Mouse
             StarterAssetsInputs inputs = player.GetComponent<StarterAssetsInputs>();
             if (inputs != null)
             {
@@ -128,7 +132,6 @@ public class GameManager : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }
-
         }
     }
 }

@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639162007955179106
+  lastModified: 639162550368657366
   FileSizes:
   - Name: 
     Value: 960
@@ -118,7 +118,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -4174581921147369990}
   cacheVersion: 131859
-  cacheTime: 639162007955179106
+  cacheTime: 639162550368657366
   SerializableEventsDict:
   - key: event:/ForestAmbient
     index: 0
@@ -126,6 +126,8 @@ MonoBehaviour:
     index: 1
   - key: event:/FootSteps
     index: 2
+  - key: event:/Swing
+    index: 3
 --- !u!114 &2302882646404351829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +188,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639162007955151903
+  lastModified: 639162550368657366
   FileSizes: []
   Exists: 1
 --- !u!114 &4934337663407262850
