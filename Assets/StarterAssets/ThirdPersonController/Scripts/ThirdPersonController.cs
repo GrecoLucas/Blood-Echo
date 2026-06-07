@@ -14,6 +14,7 @@ namespace StarterAssets
     {
         [Header("FMOD Audio")]
         public EventReference FootstepEvent;
+        public EventReference ParryEvent;
         [Header("Parry Settings")]
         public float ParryWindowDuration = 0.3f; 
         private float _parryActiveTimer;
@@ -620,6 +621,10 @@ namespace StarterAssets
             if (parryVFXPrefab != null && parryVFXAnchor != null)
             {
                 GameObject vfx = Instantiate(parryVFXPrefab, parryVFXAnchor.position, parryVFXAnchor.rotation, parryVFXAnchor);
+                if (ParryEvent.IsNull == false)
+                {
+                    RuntimeManager.PlayOneShot(ParryEvent, transform.position);
+                }
                 Destroy(vfx, 2f); 
             }
         }
