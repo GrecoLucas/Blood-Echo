@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecebdb0d76150f4fa25f288a1daf668, type: 3}
   m_Name: PermStaminaIncreaseItem
   m_EditorClassIdentifier: Assembly-CSharp::StaminaPowerUp
-  amount: 10
-  powerUpType: 1
+  amount: 200

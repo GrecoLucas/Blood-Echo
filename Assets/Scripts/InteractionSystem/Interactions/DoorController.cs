@@ -34,7 +34,6 @@ public class DoorController : MonoBehaviour, IInteractable
     void Update()
     {
         if (isLocked){
-            Debug.Log("A porta está trancada!");
             return;}
 
         Quaternion target = isOpen ? openRot : closedRot;
@@ -65,14 +64,12 @@ public class DoorController : MonoBehaviour, IInteractable
     public void UnlockDoor()
     {
         isLocked = false; 
-        Debug.Log("Porta destrancada! Interaja para abrir.");
     }
 
     public void Interact(Interactor interactor)
     {
         if (isLocked)
         {
-            Debug.Log("A porta está trancada!");
             return;
         }
         ToggleDoor(); 

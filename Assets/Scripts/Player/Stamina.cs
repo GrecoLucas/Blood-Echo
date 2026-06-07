@@ -34,17 +34,17 @@ public class Stamina : MonoBehaviour
 
 		if (staminaSlider != null)
 		{
-			staminaSlider.maxValue = 300f;
+            // Usar a variável maxStamina em vez de um número fixo
+			staminaSlider.maxValue = maxStamina;
 			staminaSlider.value = currentStamina;
-			Debug.Log($"StaminaBarUI: Updated stamina bar. Current: {currentStamina}, Max: {maxStamina}, FillAmount: {staminaSlider.value}");
 		}
 		if (maxStaminaSlider != null)
         {
-            maxStaminaSlider.maxValue = 300f;
+            // Usar a variável maxStamina em vez de um número fixo
+            maxStaminaSlider.maxValue = maxStamina;
             maxStaminaSlider.value = maxStamina;
         }
 		UpdateUI();
-
 	}
 
 	private void OnValidate()
@@ -80,9 +80,7 @@ public class Stamina : MonoBehaviour
 
 		if (Time.time - lastDrainTime >= regenDelay && currentStamina < maxStamina)
 		{
-			Debug.Log($"{name} ({GetInstanceID()}): Regenerating stamina: {currentStamina}/{maxStamina}");
 			currentStamina = Mathf.Clamp(currentStamina + regenPerSecond * Time.deltaTime, 0f, maxStamina);
-			Debug.Log($"{name} ({GetInstanceID()}): Regenerated stamina: {currentStamina}/{maxStamina}");
 			UpdateUI();
 		}
 	}
@@ -120,22 +118,37 @@ public class Stamina : MonoBehaviour
 
 	private void UpdateUI()
 	{
-		if (staminaSlider != null)
-		{
-			//staminaSlider.maxValue = 300f;
-			staminaSlider.value = currentStamina;
-			//Debug.Log($"StaminaBarUI: Updated stamina bar. Current: {currentStamina}, Max: {maxStamina}, FillAmount: {staminaSlider.value}");
-		}
 
-		if (staminaText != null)
-		{
-			staminaText.text = $"{Mathf.CeilToInt(currentStamina)}/{Mathf.CeilToInt(maxStamina)}";
-		}
-		if (maxStaminaSlider != null)
-        {
-            //maxStaminaSlider.maxValue = 300f;
-            maxStaminaSlider.value = maxStamina;
-        }
+	    if (staminaSlider != null)
+	    {
+	        staminaSlider.maxValue = maxStamina;
+	        staminaSlider.value = currentStamina;
+
+	        RectTransform rt = staminaSlider.GetComponent<RectTransform>();
+	        if (rt != null)
+	        {
+	            // Força a alteração apenas da LARGURA (Axis.Horizontal)
+	            rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, maxStamina);
+	        }
+	    }
+
+	    if (maxStaminaSlider != null)
+	    {
+	        maxStaminaSlider.maxValue = maxStamina;
+	        maxStaminaSlider.value = maxStamina;
+
+	        RectTransform rtBg = maxStaminaSlider.GetComponent<RectTransform>();
+	        if (rtBg != null)
+	        {
+	            // Força a alteração da largura do fundo também
+	            rtBg.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, maxStamina);
+	        }
+	    }
+
+	    if (staminaText != null)
+	    {
+	        staminaText.text = $"{Mathf.CeilToInt(currentStamina)}/{Mathf.CeilToInt(maxStamina)}";
+	    }
 	}
 
 	private void TryAutoBind()
@@ -149,18 +162,14 @@ public class Stamina : MonoBehaviour
 			}
 		}
 	}
-	    public void IncreaseMaxStamina(float amount)
+	public void IncreaseMaxStamina(float amount)
     {
-			Debug.Log($"Increasing max stamina by {amount}. Current max: {maxStamina}");
-			float newMaxStamina = maxStamina + amount;
-			// currentStamina += amount; // heal the added amount too
-			
-			// Tell the UI to update
-			FindAnyObjectByType<StaminaBarUI>().UpdateStaminaBar(newMaxStamina);
-			//SetMaxStamina(newMaxStamina,true);
-			maxStamina = newMaxStamina;
-			Debug.Log($"New max stamina: {maxStamina}");
-			//UpdateUI();
-			
+        maxStamina += amount;
+        
+        currentStamina = maxStamina; 
+        
+        UpdateUI(); 
+        
+        Debug.Log($"Novo limite de Estamina: {maxStamina}");
     }
 }
