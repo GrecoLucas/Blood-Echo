@@ -79964,6 +79964,10 @@ PrefabInstance:
       value: event:/FootSteps
       objectReference: {fileID: 0}
     - target: {fileID: 8476621101326818925, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
+      propertyPath: GroundLayers.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476621101326818925, guid: c741aadd943edca47ac3d8b0f8776864, type: 3}
       propertyPath: cooldownAtaqueMelee
       value: 4
       objectReference: {fileID: 0}
@@ -94168,7 +94172,7 @@ PrefabInstance:
       objectReference: {fileID: 411595092}
     - target: {fileID: 2346675586235442995, guid: a1b74c3771984824ab7f083b10d35631, type: 3}
       propertyPath: isDefaultBonfire
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5820504326507924981, guid: a1b74c3771984824ab7f083b10d35631, type: 3}
       propertyPath: m_LocalScale.x
@@ -136600,7 +136604,6 @@ Transform:
   - {fileID: 1780796860}
   - {fileID: 1003844762}
   - {fileID: 674658860}
-  - {fileID: 1526098701}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1135740981
@@ -136655,7 +136658,7 @@ PrefabInstance:
       objectReference: {fileID: 411595092}
     - target: {fileID: 2346675586235442995, guid: a1b74c3771984824ab7f083b10d35631, type: 3}
       propertyPath: isDefaultBonfire
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5820504326507924981, guid: a1b74c3771984824ab7f083b10d35631, type: 3}
       propertyPath: m_LocalScale.x
@@ -142759,6 +142762,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8067796994747886454, guid: 2774678d5cec9104ea6f5ff4169874b2, type: 3}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: ParryEvent.Path
+      value: event:/ParrySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: FootstepEvent.Path
       value: event:/FootSteps
       objectReference: {fileID: 0}
@@ -142773,6 +142780,22 @@ PrefabInstance:
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: ParryWindowDuration
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: ParryEvent.Guid.Data1
+      value: 787877891
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: ParryEvent.Guid.Data2
+      value: 1180061756
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: ParryEvent.Guid.Data3
+      value: -892440171
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: ParryEvent.Guid.Data4
+      value: 1248273909
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: playerWeaponTransform
@@ -178992,7 +179015,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 300
   m_WholeNumbers: 1
-  m_Value: 300
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -186849,7 +186872,7 @@ GameObject:
   - component: {fileID: 1398265756}
   - component: {fileID: 1398265757}
   m_Layer: 0
-  m_Name: Entrance Haull
+  m_Name: Entrance Hall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186902,7 +186925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e51c364feeb1340b6514e1efe84871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZoneTrigger
-  zoneName: Entrance Haull
+  zoneName: Entrance Hall
 --- !u!65 &1398265757
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -205100,118 +205123,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9051238300485817969, guid: 2f6c4572e07a60b43b00e1c4f489a806, type: 3}
   m_PrefabInstance: {fileID: 1525847552}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1526098700
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1526098701}
-  - component: {fileID: 1526098704}
-  - component: {fileID: 1526098703}
-  - component: {fileID: 1526098702}
-  m_Layer: 0
-  m_Name: trone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1526098701
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526098700}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.2, y: 2.1, z: 207.22}
-  m_LocalScale: {x: 3.9939, y: 22.971823, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1135740980}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1526098702
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526098700}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1526098703
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526098700}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1526098704
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526098700}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1528008654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3901079552871556233, guid: 2e4d7331c39da44429486142204b3837, type: 3}
@@ -256480,7 +256391,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 600000000
   m_WholeNumbers: 1
-  m_Value: 2000
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
