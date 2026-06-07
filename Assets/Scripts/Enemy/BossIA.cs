@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using FMODUnity;
 
 public class BossAI : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class BossAI : MonoBehaviour
     public Transform player;
     public Animator animator;
     public DamageDealer damageDealer;
+
+    [Header("FMOD Audio")]
+    public EventReference FootstepEvent;
+
+    [Header("Ground Check")]
+    public LayerMask GroundLayers;
 
     [Header("Configurações de Detecção")]
     public float raioDeteccao = 15.0f;
@@ -217,5 +224,39 @@ public class BossAI : MonoBehaviour
         Gizmos.color = Color.yellow; Gizmos.DrawWireSphere(transform.position, raioDeteccao);
         Gizmos.color = Color.red; Gizmos.DrawWireSphere(transform.position, distanciaAtaqueMelee);
         Gizmos.color = Color.blue; Gizmos.DrawWireSphere(transform.position, rangeAttackDistance);
+    }
+    public void OnFootstep(AnimationEvent animationEvent)
+    {
+        if (animationEvent.animatorClipInfo.weight > 0.5f)
+        {
+            if (FootstepEvent.IsNull) return;
+
+            float surfaceValue = 0f;
+            bool shouldPlaySound = false;
+
+            Vector3 rayStart = transform.position + (Vector3.up * 0.1f);
+            if (Physics.Raycast(rayStart, Vector3.down, out RaycastHit hit, 1.2f, GroundLayers))
+            {
+                if (hit.collider.CompareTag("Castle"))
+                {
+                    surfaceValue = 0.5f;
+                    shouldPlaySound = true;
+                }
+                else if (hit.collider.CompareTag("Grass"))
+                {
+                    surfaceValue = 0.1f;
+                    shouldPlaySound = true;
+                }
+            }
+
+            if (shouldPlaySound)
+            {
+                FMOD.Studio.EventInstance stepInstance = RuntimeManager.CreateInstance(FootstepEvent);
+                stepInstance.setParameterByName("StepSurface", surfaceValue);
+                stepInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+                stepInstance.start();
+                stepInstance.release();
+            }
+        }
     }
 }
