@@ -96,10 +96,10 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639164557220672624
+  lastModified: 639166395400343109
   FileSizes:
   - Name: 
-    Value: 1048
+    Value: 1100
   Exists: 1
 --- !u!114 &-2563188975826653028
 MonoBehaviour:
@@ -146,6 +146,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-984168317665013712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BackGroundBossMusic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/BackGroundBossMusic
+  Guid:
+    Data1: 907238362
+    Data2: 1291669494
+    Data3: 1194902925
+    Data4: 1908740553
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,13 +195,14 @@ MonoBehaviour:
   - {fileID: -7330986958433279455}
   - {fileID: -2064130775413332610}
   - {fileID: 7948009238524822208}
+  - {fileID: -984168317665013712}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4905947999675981428}
   StringsBanks:
   - {fileID: -4174581921147369990}
   cacheVersion: 131859
-  cacheTime: 639164557220672624
+  cacheTime: 639166395400343109
   SerializableEventsDict:
   - key: event:/ForestAmbient
     index: 0
@@ -188,6 +216,8 @@ MonoBehaviour:
     index: 4
   - key: event:/ParrySound
     index: 5
+  - key: event:/BackGroundBossMusic
+    index: 6
 --- !u!114 &2633309793459175495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +251,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639164557220642553
+  lastModified: 639166395400328003
   FileSizes: []
   Exists: 1
 --- !u!114 &4934337663407262850

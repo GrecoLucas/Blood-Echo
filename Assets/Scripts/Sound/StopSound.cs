@@ -1,7 +1,7 @@
 using UnityEngine;
 using FMODUnity;
 
-public class ForestSound : MonoBehaviour
+public class BackGroundSound : MonoBehaviour
 {
     [SerializeField] private StudioEventEmitter emissorDoTerreno;
 
