@@ -9,47 +9,31 @@ using StarterAssets;
 public class Potions : MonoBehaviour
 {
     [Header("Configurações de Cura")]
-    public PlayerHealth playerHealth; 
-    public float healAmount = 50f;   
+    public PlayerHealth playerHealth;
+    public float healAmount = 50f;
     public int maxPotions = 4;
     public int potionCount = 4;
+
     [Header("Animator")]
     public Animator playerAnimator;
 
     [Header("Sound")]
     [SerializeField] private StudioEventEmitter healSoundEmitter;
 
-    [Header("Referências da UI")]
-    public GameObject potionNumberText;
-    public GameObject healingObject1;  
-    public GameObject healingObject2;
-    public GameObject healingObject3;  
-    public GameObject healingObject4;   
-    public GameObject emptyObject;    
-    private KeyCode useKey = KeyCode.H; 
-    private static readonly int DrinkTrigger = Animator.StringToHash("Drink");
+    [Header("UI references")]
+    public PotionsUI potionsUI; // drag the PotionsUI component here
 
-    TMP_Text potionNumberTMP;
-    UnityEngine.UI.Text potionNumberLegacy;
+    private KeyCode useKey = KeyCode.H;
+    private static readonly int DrinkTrigger = Animator.StringToHash("Drink");
     private StarterAssetsInputs _input;
 
     void Start()
     {
         if (playerAnimator == null)
-        {
             playerAnimator = GetComponent<Animator>();
-        }
 
         if (healSoundEmitter == null)
-        {
             healSoundEmitter = GetComponent<StudioEventEmitter>();
-        }
-
-        if (potionNumberText != null)
-        {
-            potionNumberTMP = potionNumberText.GetComponent<TMP_Text>();
-            potionNumberLegacy = potionNumberText.GetComponent<UnityEngine.UI.Text>();
-        }
 
         _input = GetComponent<StarterAssetsInputs>();
 
@@ -75,6 +59,7 @@ public class Potions : MonoBehaviour
         // Verifica se apertou a tecla e se ainda tem poção disponível
         if (healPressed && potionCount > 0)
         {
+            Debug.Log("Attempting to use potion: " + potionCount + " remaining");
             TryUsePotion();
         }
     }
@@ -86,14 +71,10 @@ public class Potions : MonoBehaviour
             if (playerHealth.currentHealth < playerHealth.maxHealth)
             {
                 if (playerAnimator != null)
-                {
                     playerAnimator.SetTrigger(DrinkTrigger);
-                }
 
                 if (healSoundEmitter != null)
-                {
                     healSoundEmitter.Play();
-                }
 
                 playerHealth.Heal(healAmount);
 
@@ -107,12 +88,8 @@ public class Potions : MonoBehaviour
 
     void UpdatePotionVisual()
     {
-        if (healingObject1 != null) healingObject1.SetActive(potionCount >= 4);
-        if (healingObject2 != null) healingObject2.SetActive(potionCount == 3);
-        if (healingObject3 != null) healingObject3.SetActive(potionCount == 2);
-        if (healingObject4 != null) healingObject4.SetActive(potionCount == 1);
-        if (emptyObject != null) emptyObject.SetActive(potionCount <= 0);
-        if (potionNumberTMP != null) {potionNumberTMP.text = potionCount.ToString();}
+        if (potionsUI != null)
+            potionsUI.UpdateVisual(potionCount, maxPotions);
     }
 
     public void RestorePotions()
