@@ -7,8 +7,9 @@ public class Inventory : MonoBehaviour
     public List<PowerUpEffect> items = new List<PowerUpEffect>();
     private bool hasHeavyAttack;
     public bool HasHeavyAttack => hasHeavyAttack;
-    private bool hasKey;
-    public bool HasKey => hasKey;
+    private int keyCount;
+    public int KeyCount => keyCount;
+    public bool HasKey => keyCount > 0;
     private bool hasMeat;
     public bool HasMeat => hasMeat;
     private bool hasGreenPotion;
@@ -27,13 +28,15 @@ public class Inventory : MonoBehaviour
     }
     public void AddKey()
     {
-        hasKey = true;
+        keyCount++;
         
     }
     public void RemoveKey()
     {
-        hasKey = false;
-        
+        if (keyCount > 0)
+        {
+            keyCount--;
+        }
     }
 
     public void AddItem(PowerUpEffect item)
