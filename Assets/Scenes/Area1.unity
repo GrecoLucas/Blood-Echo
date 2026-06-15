@@ -191021,7 +191021,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 90.92035, y: -253.20001}
-  m_SizeDelta: {x: 100, y: 560}
+  m_SizeDelta: {x: 100000, y: 560}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1357202622
 MonoBehaviour:
@@ -191068,9 +191068,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 100000
   m_WholeNumbers: 1
-  m_Value: 100
+  m_Value: 100000
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -272751,7 +272751,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 90.920105, y: -253.20001}
-  m_SizeDelta: {x: 100, y: 560}
+  m_SizeDelta: {x: 100000, y: 560}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1830375653
 MonoBehaviour:
@@ -272765,8 +272765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741b25fae2a880c4bba8e5d74af2ef6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stamina
-  maxStamina: 100
-  currentStamina: 100
+  maxStamina: 100000
+  currentStamina: 100000
   drainPerSecond: 15
   regenPerSecond: 30
   regenDelay: 0.5
@@ -272819,9 +272819,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 100000
   m_WholeNumbers: 1
-  m_Value: 100
+  m_Value: 100000
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

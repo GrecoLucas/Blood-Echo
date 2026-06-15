@@ -11,10 +11,25 @@ public class ZoneDisplayManager : MonoBehaviour
 
     private Coroutine activeFade;
 
-    private void Awake() => Instance = this;
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
 
     public void ShowZoneName(string name)
     {
+        if (zoneText == null)
+        {
+            Debug.LogWarning("ZoneDisplayManager está sem zoneText atribuído no Inspector.");
+            return;
+        }
+
         if (activeFade != null) StopCoroutine(activeFade);
         activeFade = StartCoroutine(FadeSequence(name));
     }
