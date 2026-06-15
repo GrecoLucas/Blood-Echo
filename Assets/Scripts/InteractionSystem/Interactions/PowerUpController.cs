@@ -3,7 +3,7 @@ using UnityEngine;
 public class PowerUpController : MonoBehaviour, IInteractable
 {
     public Transform powerUpMesh;
-    public PowerUpEffect powerUpEffect; // Enum para definir o tipo de power-up
+    public PowerUpEffect powerUpEffect;
     public bool CanInteract()
     {
         return true;
@@ -12,8 +12,13 @@ public class PowerUpController : MonoBehaviour, IInteractable
     public void Interact(Interactor interactor)
     {
         Debug.Log("Power-up coletado!");
-        Destroy(gameObject); 
+         
         powerUpEffect.ApplyEffect(interactor.gameObject); 
+
+        if (PowerUpUI.Instance != null)
+            PowerUpUI.Instance.ShowPowerUp(powerUpEffect);
+        
+        Destroy(gameObject);
     }
     
 }
