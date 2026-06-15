@@ -1,0 +1,46 @@
+:root {
+}
+
+.root-container-full {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.map-container {
+    width: 50%;
+    height: 90%;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("project://database/Assets/images/game_map.png?fileID=21300000&guid=ac88e82084cb0354eab46f4ea033bda4&type=3#game_map");
+    -unity-background-scale-mode: scale-to-fit;
+    aspect-ratio: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-container {
+    background-size: 10px 10px;
+    justify-content: center;
+    width: 10px;
+    height: 10px;
+    align-items: stretch;
+}
+
+.player-arrow {
+    background-size: 10px 10px;
+    background-image: url("project://database/Assets/images/player_arrow.png?fileID=21300000&guid=88a978955338b814a9a182983138f5f7&type=3#player_arrow");
+    width: 10px;
+    height: 10px;
+}

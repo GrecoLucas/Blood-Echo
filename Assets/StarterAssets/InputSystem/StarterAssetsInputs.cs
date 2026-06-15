@@ -19,6 +19,7 @@ namespace StarterAssets
 		public bool heavyAttack;
 		public bool heal;
 		public bool lockOn;
+		public bool map;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -85,6 +86,11 @@ namespace StarterAssets
 		{
 			LockOnInput(value.isPressed);
 		}
+
+		public void OnMap(InputValue value)
+		{
+			MapInput(value.isPressed);
+		}
 #endif
 
 
@@ -143,6 +149,10 @@ namespace StarterAssets
 			lockOn = newLockOnState;
 		}
 
+		public void MapInput(bool newMapState)
+		{
+			map = newMapState;
+		}
 		private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);

@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/MapStyles.uss?fileID=7433441132597879392&amp;guid=e57abe7974176f244a85043a7c17ef94&amp;type=3#MapStyles"/>
+    <ui:VisualElement name="container" class="root-container-full" style="flex-grow: 1;">
+        <ui:VisualElement name="Map" class="map-container" style="flex-grow: 1;">
+            <ui:VisualElement name="Image" class="map-img" style="flex-grow: 1; width: 100%;">
+                <ui:VisualElement name="Player" class="player-container" style="flex-grow: 1; position: absolute; rotate: 90deg; translate: -383px -40px;">
+                    <ui:VisualElement name="Arrow" class="player-arrow" style="flex-grow: 1; justify-content: center; width: 9px;"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
