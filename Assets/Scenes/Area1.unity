@@ -103755,7 +103755,6 @@ GameObject:
   - component: {fileID: 688725068}
   - component: {fileID: 688725069}
   - component: {fileID: 688725070}
-  - component: {fileID: 688725071}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -103874,19 +103873,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b64b4af40164f6a4ab88e68ad6b2bc30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!114 &688725071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 688725064}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 928ccd623048bf74b8babe700012abb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  dungeonSpawnPosition: {x: 1.1, y: 0, z: -2.8}
 --- !u!1001 &689351404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -270445,6 +270431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSpawner
   dungeonSpawnPosition: {x: 0, y: 0, z: 0}
+  area1ReturnPosition: {x: -18, y: 10, z: 22}
 --- !u!1001 &1791220201
 PrefabInstance:
   m_ObjectHideFlags: 0

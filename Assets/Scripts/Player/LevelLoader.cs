@@ -16,7 +16,16 @@ public class LevelLoader : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         if(other.tag == "LevelChange"){
-            SceneManager.LoadScene("Dungeons");
+            if(SceneManager.GetActiveScene().name == "Dungeons"){
+                other.gameObject.SetActive(false);
+                PlayerSpawner.returningFromDungeon = true;
+                SceneManager.LoadScene("Area1");
+            }
+            else
+            {
+                other.gameObject.SetActive(false);
+                SceneManager.LoadScene("Dungeons");
+            }
         }
     }
 }
