@@ -100494,8 +100494,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2070925441746177671, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 650274455}
   m_SourcePrefab: {fileID: 100100000, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
+--- !u!1 &650274454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2070925441746177671, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
+  m_PrefabInstance: {fileID: 650274453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &650274455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650274454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b64b4af40164f6a4ab88e68ad6b2bc30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
 --- !u!4 &650421550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4425768411978368759, guid: 7a5e6e148be2b0b44b0258733231d4b7, type: 3}
@@ -103734,6 +103754,8 @@ GameObject:
   - component: {fileID: 688725067}
   - component: {fileID: 688725068}
   - component: {fileID: 688725069}
+  - component: {fileID: 688725070}
+  - component: {fileID: 688725071}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -103840,6 +103862,31 @@ MonoBehaviour:
   playerAnimator: {fileID: 1790604023}
   healSoundEmitter: {fileID: 430118401}
   potionsUI: {fileID: 430118402}
+--- !u!114 &688725070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688725064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b64b4af40164f6a4ab88e68ad6b2bc30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!114 &688725071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688725064}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928ccd623048bf74b8babe700012abb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  dungeonSpawnPosition: {x: 1.1, y: 0, z: -2.8}
 --- !u!1001 &689351404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121114,6 +121161,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 854811776}
+    - targetCorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 854811777}
   m_SourcePrefab: {fileID: 100100000, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
 --- !u!1 &838172906 stripped
 GameObject:
@@ -121881,6 +121931,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
+--- !u!114 &854811777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838172906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b64b4af40164f6a4ab88e68ad6b2bc30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
 --- !u!1001 &856067147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -154828,6 +154890,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1790604031}
+    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1790604032}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
 --- !u!114 &1204707423 stripped
 MonoBehaviour:
@@ -270367,6 +270432,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 590e28ee5aa63394297086722bb0ee86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelLoader
+--- !u!114 &1790604032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790603995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928ccd623048bf74b8babe700012abb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSpawner
+  dungeonSpawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &1791220201
 PrefabInstance:
   m_ObjectHideFlags: 0
