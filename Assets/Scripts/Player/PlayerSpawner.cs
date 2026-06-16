@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerSpawner : MonoBehaviour
 {
     [SerializeField] private Vector3 dungeonSpawnPosition = new Vector3(0, 0, 0);
-    [SerializeField] private Vector3 area1ReturnPosition = new Vector3(-18, 0, 222);
+    [SerializeField] private Vector3 area1ReturnPosition = new Vector3(-18, 0, 22);
     public static bool returningFromDungeon = false;    
     void OnEnable()
     {
