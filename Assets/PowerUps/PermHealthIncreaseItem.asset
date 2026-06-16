@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93cd25b796deb6b44906456efd12abea, type: 3}
   m_Name: PermHealthIncreaseItem
   m_EditorClassIdentifier: Assembly-CSharp::HealthPowerUp
+  icon: {fileID: 21300000, guid: 5d9ba4e7d0964044ea54abe409d81dfd, type: 3}
+  powerUpName: Vitality Shard
+  powerUpDescription: A fragment of ancient power. Permanently increases your maximum
+    health.
   amount: 100
   powerUpType: 2

@@ -96,6 +96,12 @@ public class EnemyStealth : MonoBehaviour
         if (agent == null) agent = GetComponent<NavMeshAgent>();
         agent.speed = velocidadePatrulha;
     }
+        public void OnFootstep()
+    {
+        // Seu código para acionar o som do passo aqui.
+        // Exemplo de chamada FMOD:
+        // FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Inimigos/Passo", transform.position);
+    }
 
     void Update()
     {
