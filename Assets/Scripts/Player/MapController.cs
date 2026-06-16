@@ -19,6 +19,21 @@ public class MapController : MonoBehaviour
     private bool _isOpen = false;
     private StarterAssetsInputs _input;
 
+    public void Setup(UIDocument document, GameObject playerObject)
+    {
+        mapDocument = document;
+        player = playerObject;
+
+        _input = GetComponent<StarterAssetsInputs>();
+
+        if (mapDocument != null)
+        {
+            _root = mapDocument.rootVisualElement;
+            _root.style.display = DisplayStyle.None;
+            _playerRepresentation = _root.Q<VisualElement>("Player");
+        }
+    }
+
     void Start()
     {
         _root = mapDocument.rootVisualElement;
