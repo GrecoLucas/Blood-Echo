@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+
 public class PlayerSpawner : MonoBehaviour
 {
     [SerializeField] private Vector3 dungeonSpawnPosition = new Vector3(0, 0, 0);
     [SerializeField] private Vector3 area1ReturnPosition = new Vector3(-18, 0, 22);
     [SerializeField] private MapController mapController;
-
     public static bool returningFromDungeon = false;    
     void OnEnable()
     {
