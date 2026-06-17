@@ -150602,7 +150602,6 @@ GameObject:
   - component: {fileID: 1183342533}
   - component: {fileID: 1183342532}
   - component: {fileID: 1183342531}
-  - component: {fileID: 1183342534}
   m_Layer: 5
   m_Name: PowerupCanvas
   m_TagString: Untagged
@@ -150695,18 +150694,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1183342534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1183342529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b64b4af40164f6a4ab88e68ad6b2bc30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
 --- !u!1001 &1183550837
 PrefabInstance:
   m_ObjectHideFlags: 0
