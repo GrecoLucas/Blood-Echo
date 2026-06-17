@@ -2,6 +2,7 @@ using StarterAssets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using FMODUnity; // IMPORTANTE: Adicionado o namespace do FMOD
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PauseMenu : MonoBehaviour
     [Header("Interface")]
     public GameObject pausePanel;
     public GameObject controlsPanel;
+    public GameObject hudPanel; // NOVO: Arraste o seu Canvas ou Painel de Vida/Stamina para cá no Inspector
+    
     public Button resumeButton;
     public Button mainMenuButton;
     public Button controlsButton;
@@ -21,12 +24,18 @@ public class PauseMenu : MonoBehaviour
 
     private bool _isPaused = false;
 
+    // NOVO: Referência para o controle global de áudio do FMOD
+    private FMOD.Studio.Bus masterBus; 
+
     void Awake()
     {
         if (Instance == null) Instance = this;
 
-        if (pausePanel != null) pausePanel.SetActive(false);
+        // NOVO: Inicializa a referência do Bus principal do FMOD (Controla todos os sons).
+        // Nota: Se quiser pausar APENAS a música, mude "bus:/" para o nome do seu bus de música, ex: "bus:/Music"
+        masterBus = RuntimeManager.GetBus("bus:/");
 
+        if (pausePanel != null) pausePanel.SetActive(false);
         if (controlsPanel != null) controlsPanel.SetActive(false);
 
         if (resumeButton != null)
@@ -65,7 +74,7 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             if (!_isPaused) Pause();
-            
+            else Resume(); // NOVO: Permite despausar apertando 'P' novamente
         }
     }
 
@@ -79,6 +88,13 @@ public class PauseMenu : MonoBehaviour
 
         _isPaused = true;
         pausePanel.SetActive(true);
+        
+        // NOVO: Esconde a barra de vida/stamina
+        if (hudPanel != null) hudPanel.SetActive(false);
+
+        // NOVO: Pausa todo o áudio do FMOD
+        masterBus.setPaused(true);
+
         Time.timeScale = 0f;
 
         if (playerInputs == null) playerInputs = FindFirstObjectByType<StarterAssetsInputs>();
@@ -101,6 +117,12 @@ public class PauseMenu : MonoBehaviour
             pausePanel.SetActive(false);
             controlsPanel.SetActive(false);
         } 
+
+        // NOVO: Mostra novamente a barra de vida/stamina
+        if (hudPanel != null) hudPanel.SetActive(true);
+
+        // NOVO: Despausa o áudio do FMOD
+        masterBus.setPaused(false);
 
         Time.timeScale = 1f;
 
