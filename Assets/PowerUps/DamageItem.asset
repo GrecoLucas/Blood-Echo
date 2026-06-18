@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b63c69b3d089946adbdd7379ebb816, type: 3}
   m_Name: DamageItem
   m_EditorClassIdentifier: Assembly-CSharp::DamagePowerUp
+  icon: {fileID: 0}
+  powerUpName: Bloodrage Extract
+  powerUpDescription: A dark, boiling extract that fills you with an insatiable fury.
+    Consume it to temporarily unleash devastating attacks.
   DamageIncrease: 30
