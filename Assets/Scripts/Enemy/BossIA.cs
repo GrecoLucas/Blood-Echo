@@ -13,6 +13,7 @@ public class BossAI : MonoBehaviour
 
     [Header("FMOD Audio")]
     public EventReference FootstepEvent;
+    public EventReference SwordSwingEvent;
 
     [Header("Ground Check")]
     public LayerMask GroundLayers;
@@ -186,7 +187,21 @@ public class BossAI : MonoBehaviour
         if (agent != null) agent.enabled = true;
     }
 
-    public void StartDealingDamage() { if(damageDealer != null) damageDealer.StartDealingDamage(); }
+    public void StartDealingDamage() 
+    { 
+        if(damageDealer != null) damageDealer.StartDealingDamage(); 
+        PlaySwordSwingSound();
+    }
+
+    public void PlaySwordSwingSound()
+    {
+        if (SwordSwingEvent.IsNull) return;
+
+        FMOD.Studio.EventInstance swingInstance = RuntimeManager.CreateInstance(SwordSwingEvent);
+        swingInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+        swingInstance.start();
+        swingInstance.release();
+    }
     public void EndDealingDamage() { if(damageDealer != null) damageDealer.EndDealingDamage(); }
     public void OnStun(float duration)
     {

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using FMODUnity;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
     public Animator animator;
     public DamageDealer damageDealer;
+
+    [Header("FMOD Audio")]
+    public EventReference SwordSwingEvent;
 
     [Header("Configurações de Detecção")]
     [Tooltip("Distância que o inimigo consegue ver o jogador")]
@@ -216,6 +220,17 @@ public class EnemyAI : MonoBehaviour
     public void StartDealingDamage() 
     {
         if(damageDealer != null) damageDealer.StartDealingDamage();
+        PlaySwordSwingSound();
+    }
+    
+    public void PlaySwordSwingSound()
+    {
+        if (SwordSwingEvent.IsNull) return;
+
+        FMOD.Studio.EventInstance swingInstance = RuntimeManager.CreateInstance(SwordSwingEvent);
+        swingInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+        swingInstance.start();
+        swingInstance.release();
     }
     
     public void EndDealingDamage() 

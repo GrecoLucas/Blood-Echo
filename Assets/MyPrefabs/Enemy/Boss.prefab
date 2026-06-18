@@ -2339,6 +2339,13 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  SwordSwingEvent:
+    Guid:
+      Data1: -62225758
+      Data2: 1253223296
+      Data3: -532335964
+      Data4: 1012060232
+    Path: event:/Swing
   GroundLayers:
     serializedVersion: 2
     m_Bits: 0

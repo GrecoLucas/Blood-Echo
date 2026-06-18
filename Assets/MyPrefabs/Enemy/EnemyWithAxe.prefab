@@ -2547,6 +2547,13 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 898865592648467006}
   damageDealer: {fileID: 7382740871385427043}
+  SwordSwingEvent:
+    Guid:
+      Data1: -62225758
+      Data2: 1253223296
+      Data3: -532335964
+      Data4: 1012060232
+    Path: event:/Swing
   raioDeteccao: 30
   distanciaAtaque: 2
   cooldownAtaque: 1.5
