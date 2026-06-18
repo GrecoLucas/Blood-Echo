@@ -148126,16 +148126,16 @@ MonoBehaviour:
   player: {fileID: 612532283}
   animator: {fileID: 1158454980}
   damageDealer: {fileID: 1444827330}
-  distanciaVisao: 10
-  anguloVisao: 90
+  distanciaVisao: 30
+  anguloVisao: 130
   layerObstaculo:
     serializedVersion: 2
     m_Bits: 1
-  raioAudicao: 6
+  raioAudicao: 15
   distanciaAtaque: 2
   cooldownAtaque: 1.5
-  duracaoAlerta: 5
-  duracaoInvestigacao: 4
+  duracaoAlerta: 10
+  duracaoInvestigacao: 5
   distanciaChegadaInvestigacao: 0.8
   velocidadePatrulha: 2
   velocidadeAlerta: 3.5
@@ -234445,16 +234445,16 @@ MonoBehaviour:
   player: {fileID: 612532283}
   animator: {fileID: 1564212459}
   damageDealer: {fileID: 541964335}
-  distanciaVisao: 10
-  anguloVisao: 90
+  distanciaVisao: 30
+  anguloVisao: 130
   layerObstaculo:
     serializedVersion: 2
     m_Bits: 0
-  raioAudicao: 6
+  raioAudicao: 15
   distanciaAtaque: 2
   cooldownAtaque: 1.5
-  duracaoAlerta: 5
-  duracaoInvestigacao: 4
+  duracaoAlerta: 10
+  duracaoInvestigacao: 5
   distanciaChegadaInvestigacao: 0.8
   velocidadePatrulha: 2
   velocidadeAlerta: 3.5

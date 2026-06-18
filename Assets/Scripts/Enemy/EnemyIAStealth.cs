@@ -363,26 +363,29 @@ public class EnemyStealth : MonoBehaviour
 
     bool PodeOuvirPlayer()
     {
-        return Vector3.Distance(transform.position, player.position) <= raioAudicao;
+        // Só ouve passivamente se o jogador estiver muito perto (ex: 2 unidades de distância).
+        // Para sons à distância, usamos o NotifySound (acionado por passos/ataques).
+        return Vector3.Distance(transform.position, player.position) <= 2.0f;
     }
 
 
-    public void NotifySound(Vector3 posicaoSom, float raioSom)
+    public void NotifySound(Vector3 posicaoSom, float intensidadeSom)
     {
         if (estadoAtual == Estado.Chase) return; // já está em perseguição, ignora
         float dist = Vector3.Distance(transform.position, posicaoSom);
-        if (dist <= raioSom)
+        // O inimigo ouve o som se estiver dentro do seu raio de audição (ajustado pela intensidade)
+        if (dist <= raioAudicao * intensidadeSom)
         {
             EntrarEmAlerta(posicaoSom);
         }
     }
 
-    /// Alerta todos os inimigos EnemyStealth num raio.
-    public static void AlertNearby(Vector3 posicaoSom, float raioSom)
+    /// Alerta todos os inimigos EnemyStealth num raio com base na intensidade do som.
+    public static void AlertNearby(Vector3 posicaoSom, float intensidadeSom)
     {
         foreach (EnemyStealth e in FindObjectsOfType<EnemyStealth>())
         {
-            e.NotifySound(posicaoSom, raioSom);
+            e.NotifySound(posicaoSom, intensidadeSom);
         }
     }
 

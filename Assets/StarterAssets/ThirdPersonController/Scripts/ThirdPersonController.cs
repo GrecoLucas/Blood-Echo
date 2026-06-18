@@ -329,6 +329,7 @@ namespace StarterAssets
                     heavyAttackTimer = HeavyAttackCooldown;
                     _isAttacking = true;
                     _attackFallbackTimer = AttackFallbackDuration;
+                    EnemyStealth.AlertNearby(transform.position, 2.0f); // Ataque pesado faz muito barulho
                 }
                 return;
             }
@@ -340,6 +341,7 @@ namespace StarterAssets
                 _weaponController.TriggerAttack();
                 _isAttacking = true;
                 _attackFallbackTimer = AttackFallbackDuration;
+                EnemyStealth.AlertNearby(transform.position, 1.5f); // Ataque leve faz barulho médio
             }
         }
 
@@ -560,6 +562,11 @@ namespace StarterAssets
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
+                // Notifica a IA Stealth sobre o som do passo
+                // Passo normal tem intensidade 1.0f, sprint tem intensidade 1.5f
+                float intensidade = (_input != null && _input.sprint) ? 1.5f : 1.0f;
+                EnemyStealth.AlertNearby(transform.position, intensidade);
+
                 if (FootstepEvent.IsNull) return;
 
                 // Variáveis para controlar qual som tocar e SE deve tocar
