@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using StarterAssets;
+using FMODUnity;
+
 public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth = 100f;
@@ -8,6 +10,10 @@ public class PlayerHealth : MonoBehaviour
     public Slider healthSlider; // Arraste seu Heathbar aqui
     public Slider maxHealthSlider;
     public GameOverMenu gameOverMenu;
+    
+    [Header("Audio (FMOD)")]
+    public EventReference takeDamageSound;
+    
     private ThirdPersonController _controller;    
     private bool isDead;
 
@@ -44,6 +50,13 @@ public class PlayerHealth : MonoBehaviour
         }
 
         Debug.Log($"Player took {amount} damage!");
+
+        // Toca o som de dano se estiver configurado
+        if (!takeDamageSound.IsNull)
+        {
+            RuntimeManager.PlayOneShot(takeDamageSound, transform.position);
+        }
+
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 

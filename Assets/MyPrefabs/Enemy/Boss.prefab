@@ -1134,6 +1134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  canBeParried: 0
+  stunDuration: 2
   hitSparkPrefab: {fileID: 0}
   damage: 10
   owner: 0
@@ -2284,6 +2286,13 @@ MonoBehaviour:
   currentHealth: 50
   destroyOnDeath: 1
   destroyDelay: 1.5
+  takeDamageSound:
+    Guid:
+      Data1: -499204146
+      Data2: 1232205920
+      Data3: -687028084
+      Data4: 1699050132
+    Path: event:/HitSound
 --- !u!136 &4879910340173627856
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2323,6 +2332,16 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 0}
   damageDealer: {fileID: 0}
+  FootstepEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  GroundLayers:
+    serializedVersion: 2
+    m_Bits: 0
   raioDeteccao: 15
   distanciaAtaqueMelee: 2.5
   cooldownAtaqueMelee: 1.5

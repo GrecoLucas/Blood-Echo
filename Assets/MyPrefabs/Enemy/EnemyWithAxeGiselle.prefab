@@ -447,6 +447,13 @@ MonoBehaviour:
   currentHealth: 50
   destroyOnDeath: 1
   destroyDelay: 1.5
+  takeDamageSound:
+    Guid:
+      Data1: -499204146
+      Data2: 1232205920
+      Data3: -687028084
+      Data4: 1699050132
+    Path: event:/HitSound
 --- !u!136 &4713753869100804548
 CapsuleCollider:
   m_ObjectHideFlags: 0

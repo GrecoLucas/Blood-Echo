@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using FMODUnity;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class EnemyHealth : MonoBehaviour
     public float currentHealth;
     public bool destroyOnDeath = true;
     public float destroyDelay = 1.5f;
+
+    [Header("Audio (FMOD)")]
+    public EventReference takeDamageSound;
 
     private bool isDead;
     private Animator animator;
@@ -27,6 +31,12 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float amount)
     {
         if (isDead) return;
+
+        // Toca o som de dano se estiver configurado
+        if (!takeDamageSound.IsNull)
+        {
+            RuntimeManager.PlayOneShot(takeDamageSound, transform.position);
+        }
 
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);

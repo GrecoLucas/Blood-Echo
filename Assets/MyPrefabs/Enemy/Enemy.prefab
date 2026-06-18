@@ -1045,6 +1045,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  canBeParried: 0
+  stunDuration: 2
   hitSparkPrefab: {fileID: 0}
   damage: 10
   owner: 0
@@ -3097,6 +3099,13 @@ MonoBehaviour:
   currentHealth: 50
   destroyOnDeath: 1
   destroyDelay: 1.5
+  takeDamageSound:
+    Guid:
+      Data1: -499204146
+      Data2: 1232205920
+      Data3: -687028084
+      Data4: 1699050132
+    Path: event:/HitSound
 --- !u!114 &1897931655730797702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3109,6 +3118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  canBeParried: 0
+  stunDuration: 2
   hitSparkPrefab: {fileID: 0}
   damage: 10
   owner: 0
@@ -3567,6 +3578,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthBar
   slider: {fileID: 5955098763226715903}
   enemyHealth: {fileID: 2871825299593186515}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &8391907793587562845
 GameObject:
   m_ObjectHideFlags: 0

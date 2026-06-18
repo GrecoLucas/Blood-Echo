@@ -270399,6 +270399,13 @@ MonoBehaviour:
   healthSlider: {fileID: 1340652731}
   maxHealthSlider: {fileID: 762833551}
   gameOverMenu: {fileID: 1539421747}
+  takeDamageSound:
+    Guid:
+      Data1: -499204146
+      Data2: 1232205920
+      Data3: -687028084
+      Data4: 1699050132
+    Path: event:/HitSound
 --- !u!54 &1790604010
 Rigidbody:
   m_ObjectHideFlags: 0
