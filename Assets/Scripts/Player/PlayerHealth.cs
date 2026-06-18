@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     
     [Header("Audio (FMOD)")]
     public EventReference takeDamageSound;
+    public EventReference deathSound;
     
     private ThirdPersonController _controller;    
     private bool isDead;
@@ -87,6 +88,11 @@ public class PlayerHealth : MonoBehaviour
 private void Die()
 {
     Debug.Log("O Jogador Morreu!");
+
+    if (!deathSound.IsNull)
+    {
+        RuntimeManager.PlayOneShot(deathSound, transform.position);
+    }
 
     // Em vez de usar a variável 'gameOverMenu' que pode estar nula,
     // usamos o Singleton que criamos anteriormente.

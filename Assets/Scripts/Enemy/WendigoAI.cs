@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using FMODUnity;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Animator))]
@@ -8,6 +9,9 @@ public class WendigoAI : MonoBehaviour
 {
     public enum AIState { Patrolling, Screaming, Chasing, Attacking }
     public AIState currentState = AIState.Patrolling;
+
+    [Header("Audio (FMOD)")]
+    public EventReference screamSound;
 
     [Header("Movement Speeds")]
     public float patrolSpeed = 2.5f;
@@ -251,5 +255,13 @@ public class WendigoAI : MonoBehaviour
         yield return new WaitForSeconds(waitTimeAtPoint);
         if(currentState == AIState.Patrolling) GotoNextPoint();
         isWaiting = false;
+    }
+
+    public void PlayScreamSound()
+    {
+        if (!screamSound.IsNull)
+        {
+            RuntimeManager.PlayOneShot(screamSound, transform.position);
+        }
     }
 }

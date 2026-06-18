@@ -123,11 +123,38 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639174168355868881
+  lastModified: 639174202499267823
   FileSizes:
   - Name: 
-    Value: 1190
+    Value: 1366
   Exists: 1
+--- !u!114 &-3981884110307684136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/WendigoScream
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/WendigoScream
+  Guid:
+    Data1: -1631149177
+    Data2: 1145655235
+    Data3: 1815381147
+    Data4: 652574948
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2563188975826653028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +227,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-135436437953123959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BodyDrop
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/BodyDrop
+  Guid:
+    Data1: -499601284
+    Data2: 1087397910
+    Data3: -269904474
+    Data4: -168864154
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,13 +279,17 @@ MonoBehaviour:
   - {fileID: -984168317665013712}
   - {fileID: -6799901324177031420}
   - {fileID: 319782156985544129}
+  - {fileID: -135436437953123959}
+  - {fileID: 7325316259659413087}
+  - {fileID: -3981884110307684136}
+  - {fileID: 4910699797151455766}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4905947999675981428}
   StringsBanks:
   - {fileID: -4174581921147369990}
   cacheVersion: 131859
-  cacheTime: 639174168355868881
+  cacheTime: 639174202499267823
   SerializableEventsDict:
   - key: event:/ForestAmbient
     index: 0
@@ -251,6 +309,14 @@ MonoBehaviour:
     index: 7
   - key: event:/HitSound
     index: 8
+  - key: event:/BodyDrop
+    index: 9
+  - key: event:/Death
+    index: 10
+  - key: event:/WendigoScream
+    index: 11
+  - key: event:/BodyRoll
+    index: 12
 --- !u!114 &319782156985544129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,9 +377,36 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639174168355850449
+  lastModified: 639174202499253520
   FileSizes: []
   Exists: 1
+--- !u!114 &4910699797151455766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BodyRoll
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/BodyRoll
+  Guid:
+    Data1: -216182853
+    Data2: 1319815941
+    Data3: 1137390526
+    Data4: -1724377270
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4934337663407262850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +496,33 @@ MonoBehaviour:
     Data2: 1179007776
     Data3: 655223961
     Data4: -2026328651
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7325316259659413087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Death
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Death
+  Guid:
+    Data1: -1644487804
+    Data2: 1325716364
+    Data3: -2122594380
+    Data4: 1716302674
   Banks:
   - {fileID: 4905947999675981428}
   IsStream: 0

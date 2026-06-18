@@ -45832,6 +45832,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WendigoPatrol
   currentState: 0
+  screamSound:
+    Guid:
+      Data1: -1631149177
+      Data2: 1145655235
+      Data3: 1815381147
+      Data4: 652574948
+    Path: event:/WendigoScream
   patrolSpeed: 2.5
   chaseSpeed: 6
   patrolPoints:

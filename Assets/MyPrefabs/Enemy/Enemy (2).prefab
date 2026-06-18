@@ -3201,6 +3201,13 @@ MonoBehaviour:
       Data3: -687028084
       Data4: 1699050132
     Path: event:/HitSound
+  fallToGroundSound:
+    Guid:
+      Data1: -499601284
+      Data2: 1087397910
+      Data3: -269904474
+      Data4: -168864154
+    Path: event:/BodyDrop
 --- !u!114 &5698980901195910931
 MonoBehaviour:
   m_ObjectHideFlags: 0

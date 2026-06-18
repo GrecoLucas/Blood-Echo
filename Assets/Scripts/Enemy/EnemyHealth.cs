@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
 
     [Header("Audio (FMOD)")]
     public EventReference takeDamageSound;
+    public EventReference fallToGroundSound;
 
     private bool isDead;
     private Animator animator;
@@ -73,5 +74,13 @@ public class EnemyHealth : MonoBehaviour
             // Destrói após a animação terminar
             if (destroyOnDeath)
                 Destroy(gameObject, destroyDelay);
+    }
+
+    public void PlayFallToGroundSound()
+    {
+        if (!fallToGroundSound.IsNull)
+        {
+            RuntimeManager.PlayOneShot(fallToGroundSound, transform.position);
+        }
     }
 }

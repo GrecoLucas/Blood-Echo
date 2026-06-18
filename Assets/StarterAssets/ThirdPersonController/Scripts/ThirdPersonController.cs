@@ -15,6 +15,7 @@ namespace StarterAssets
         [Header("FMOD Audio")]
         public EventReference FootstepEvent;
         public EventReference ParryEvent;
+        public EventReference DodgeRollEvent;
         [Header("Parry Settings")]
         public float ParryWindowDuration = 0.3f; 
         private float _parryActiveTimer;
@@ -278,6 +279,7 @@ namespace StarterAssets
 
                 _animator.CrossFadeInFixedTime(dodgeStateHash, 0.05f, 0, 0.0f);
                 _isDodging = true;
+                PlayDodgeRollSound();
                 _dodgeTimer = DodgeDuration;
                 _nextDodgeTime = Time.time + DodgeCooldown;
 
@@ -627,6 +629,15 @@ namespace StarterAssets
                 }
                 Destroy(vfx, 2f); 
             }
+        }
+        private void PlayDodgeRollSound()
+        {
+            if (DodgeRollEvent.IsNull) return;
+
+            FMOD.Studio.EventInstance dodgeInstance = RuntimeManager.CreateInstance(DodgeRollEvent);
+            dodgeInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+            dodgeInstance.start();
+            dodgeInstance.release();
         }
     }
 }

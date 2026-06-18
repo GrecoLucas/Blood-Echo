@@ -153632,6 +153632,10 @@ PrefabInstance:
       value: event:/FootSteps
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: DodgeRollEvent.Path
+      value: event:/BodyRoll
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: FootstepAudioVolume
       value: 0.3
       objectReference: {fileID: 0}
@@ -153678,6 +153682,22 @@ PrefabInstance:
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: FootstepEvent.Guid.Data4
       value: 612839097
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: DodgeRollEvent.Guid.Data1
+      value: -216182853
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: DodgeRollEvent.Guid.Data2
+      value: 1319815941
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: DodgeRollEvent.Guid.Data3
+      value: 1137390526
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: DodgeRollEvent.Guid.Data4
+      value: -1724377270
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918491, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: m_SlopeLimit
@@ -270406,6 +270426,13 @@ MonoBehaviour:
       Data3: -687028084
       Data4: 1699050132
     Path: event:/HitSound
+  deathSound:
+    Guid:
+      Data1: -1644487804
+      Data2: 1325716364
+      Data3: -2122594380
+      Data4: 1716302674
+    Path: event:/Death
 --- !u!54 &1790604010
 Rigidbody:
   m_ObjectHideFlags: 0
