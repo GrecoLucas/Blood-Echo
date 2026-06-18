@@ -36,9 +36,23 @@ public class MapController : MonoBehaviour
 
     void Start()
     {
-        _root = mapDocument.rootVisualElement;
-        _root.style.display = DisplayStyle.None;
-        _playerRepresentation = _root.Q<VisualElement>("Player");
+        // Verifica se o mapDocument existe antes de tentar acessá-lo
+        if (mapDocument != null)
+        {
+            _root = mapDocument.rootVisualElement;
+            
+            // Verifica se o visual tree (UXML) foi devidamente carregado
+            if (_root != null)
+            {
+                _root.style.display = DisplayStyle.None;
+                _playerRepresentation = _root.Q<VisualElement>("Player");
+            }
+            else
+            {
+                Debug.LogWarning("O MapDocument foi atribuído, mas não possui um arquivo de interface carregado.");
+            }
+        }
+        
         _input = GetComponent<StarterAssetsInputs>();
     }
 

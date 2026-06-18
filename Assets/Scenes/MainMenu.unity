@@ -357,6 +357,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
   controlsPanel: {fileID: 1592011261}
+  musicEvent:
+    Guid:
+      Data1: -1464852949
+      Data2: 1120853953
+      Data3: -307330404
+      Data4: 933747196
+    Path: event:/MenuMusic
 --- !u!4 &296885835
 Transform:
   m_ObjectHideFlags: 0
