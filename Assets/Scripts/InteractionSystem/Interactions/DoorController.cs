@@ -19,8 +19,11 @@ public class DoorController : MonoBehaviour, IInteractable
         return true;
     }
 
+    private bool wasLocked;
+
     void Start()
     {
+        wasLocked = isLocked;
         closedRot = doorMesh.rotation;
         openRot = Quaternion.Euler(doorMesh.eulerAngles + new Vector3(0, openAngle, 0));
         
@@ -44,13 +47,13 @@ public class DoorController : MonoBehaviour, IInteractable
     {
         isOpen = !isOpen; 
         Debug.Log(isOpen ? "Porta aberta!" : "Porta fechada!");
-        if (isOpen && !_keyConsumed)
+        if (isOpen && wasLocked && !_keyConsumed)
         {
             _keyConsumed = true;
             var inventory = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Inventory>();
             if (inventory != null)
                 inventory.RemoveKey();
-            Debug.Log("Porta aberta! Chave adicionada ao inventário.");
+            Debug.Log("Porta aberta! Chave removida do inventário.");
         }
 
         // O NavMeshLink agora funciona estritamente baseado no abrir/fechar
@@ -70,7 +73,17 @@ public class DoorController : MonoBehaviour, IInteractable
     {
         if (isLocked)
         {
-            return;
+            var inventory = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Inventory>();
+            if (inventory != null && inventory.HasKey)
+            {
+                UnlockDoor();
+                Debug.Log("Porta destrancada usando a chave!");
+            }
+            else
+            {
+                Debug.Log("A porta está trancada.");
+                return;
+            }
         }
         ToggleDoor(); 
     }

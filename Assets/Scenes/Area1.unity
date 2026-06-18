@@ -173570,7 +173570,7 @@ PrefabInstance:
       objectReference: {fileID: 411595092}
     - target: {fileID: 7530094599482637185, guid: 9537804b5f94dc349b019fcf42d3ca2e, type: 3}
       propertyPath: noteContent
-      value: Maybe i should parry (press B in the exactly moment to parry)
+      value: Maybe i should parry (press V in the exactly moment to parry)
       objectReference: {fileID: 0}
     - target: {fileID: 7530094599482637185, guid: 9537804b5f94dc349b019fcf42d3ca2e, type: 3}
       propertyPath: playerController
