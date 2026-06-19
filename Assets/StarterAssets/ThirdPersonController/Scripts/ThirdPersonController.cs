@@ -229,6 +229,7 @@ namespace StarterAssets
             
             if (parryInput && _weaponController != null && _weaponController.IsArmed)
             {
+                if (_isDodging || !Grounded) return; // FIX: Não faz parry no ar ou rolando
                 _isAttacking = false; // Interrompe o ataque atual para dar o parry
                 _animator.SetTrigger(_animIDParry);
                 _parryActiveTimer = ParryWindowDuration;
@@ -262,6 +263,9 @@ namespace StarterAssets
         {
             if (!_hasAnimator || _isDodging) return;
             if (Time.time < _nextDodgeTime) return;
+
+            // FIX: Não permite rolar se não estiver no chão, se estiver atacando ou defendendo
+            if (!Grounded || _isAttacking || IsParrying) return;
 
             // Usa o Input System unificado (teclado R / gamepad R1)
             if (_input.dodge)
@@ -319,6 +323,9 @@ namespace StarterAssets
 
             // Só permite atacar se o WeaponController reportar que está armado
             if (_weaponController == null || !_weaponController.IsArmed) return;
+
+            // FIX: Não permite atacar no ar, durante o rolamento ou parry
+            if (!Grounded || _isDodging || IsParrying) return;
 
             // Ataque pesado (R2 no gamepad / Mouse+Ctrl no teclado)
             if (_input.heavyAttack)
@@ -426,8 +433,8 @@ namespace StarterAssets
                 return;
             }
 
-            // Trava movimento horizontal durante ataque para evitar deslizamento
-            if (_isAttacking)
+            // Trava movimento horizontal durante ataque e parry para evitar deslizamento
+            if (_isAttacking || IsParrying)
             {
                 _controller.Move(new Vector3(0f, _verticalVelocity, 0f) * Time.deltaTime);
                 return;
@@ -498,17 +505,22 @@ namespace StarterAssets
                 {
                     _verticalVelocity = -2f;
                 }
-
+                // Jump
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
-                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-
-                    if (_hasAnimator)
+                    // FIX: Não permite pular durante o rolamento, ataque ou parry
+                    if (!_isDodging && !_isAttacking && !IsParrying)
                     {
-                        _animator.SetBool(_animIDJump, true);
+                        // the square root of H * -2 * G = how much velocity to reach desired height
+                        _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+
+                        // update animator if using character
+                        if (_hasAnimator)
+                        {
+                            _animator.SetBool(_animIDJump, true);
+                        }
                     }
                 }
-
                 if (_jumpTimeoutDelta >= 0.0f)
                 {
                     _jumpTimeoutDelta -= Time.deltaTime;

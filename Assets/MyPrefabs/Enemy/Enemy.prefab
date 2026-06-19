@@ -3134,7 +3134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
   canBeParried: 0
   stunDuration: 2
-  hitSparkPrefab: {fileID: 0}
+  hitSparkPrefab: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
   damage: 10
   owner: 0
 --- !u!136 &8235268417770818480
