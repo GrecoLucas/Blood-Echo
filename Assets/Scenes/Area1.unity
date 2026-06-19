@@ -52681,6 +52681,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d319766e9fb73b42922f2dad1025fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpController
+  pickupSoundEvent:
+    Guid:
+      Data1: 1001006774
+      Data2: 1235595831
+      Data3: -852003150
+      Data4: 1304812723
+    Path: event:/PickUpPowerUp
   powerUpMesh: {fileID: 1290814295}
   powerUpEffect: {fileID: 11400000, guid: 91394c6b70cec4c499615b15b00ed31d, type: 2}
 --- !u!65 &231475640
@@ -61806,6 +61813,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d319766e9fb73b42922f2dad1025fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpController
+  pickupSoundEvent:
+    Guid:
+      Data1: 1001006774
+      Data2: 1235595831
+      Data3: -852003150
+      Data4: 1304812723
+    Path: event:/PickUpPowerUp
   powerUpMesh: {fileID: 1941668152}
   powerUpEffect: {fileID: 11400000, guid: dc53ddbe742652546b5b0fbab9a7f1f5, type: 2}
 --- !u!65 &319799403
@@ -69787,6 +69801,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d319766e9fb73b42922f2dad1025fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpController
+  pickupSoundEvent:
+    Guid:
+      Data1: 1001006774
+      Data2: 1235595831
+      Data3: -852003150
+      Data4: 1304812723
+    Path: event:/PickUpPowerUp
   powerUpMesh: {fileID: 30219248}
   powerUpEffect: {fileID: 11400000, guid: dc53ddbe742652546b5b0fbab9a7f1f5, type: 2}
 --- !u!65 &367936717
@@ -83542,6 +83563,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d319766e9fb73b42922f2dad1025fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpController
+  pickupSoundEvent:
+    Guid:
+      Data1: 1001006774
+      Data2: 1235595831
+      Data3: -852003150
+      Data4: 1304812723
+    Path: event:/PickUpPowerUp
   powerUpMesh: {fileID: 439272827}
   powerUpEffect: {fileID: 11400000, guid: 1f857d899fc9d374381bad29494b1df7, type: 2}
 --- !u!65 &494203551
@@ -101219,7 +101247,7 @@ PrefabInstance:
       objectReference: {fileID: 411595092}
     - target: {fileID: 2346675586235442995, guid: a1b74c3771984824ab7f083b10d35631, type: 3}
       propertyPath: isDefaultBonfire
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5820504326507924981, guid: a1b74c3771984824ab7f083b10d35631, type: 3}
       propertyPath: m_LocalScale.x
@@ -122682,7 +122710,7 @@ PrefabInstance:
       objectReference: {fileID: 411595092}
     - target: {fileID: 2346675586235442995, guid: a1b74c3771984824ab7f083b10d35631, type: 3}
       propertyPath: isDefaultBonfire
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2516882777088240050, guid: a1b74c3771984824ab7f083b10d35631, type: 3}
       propertyPath: m_Layer
@@ -196225,6 +196253,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d319766e9fb73b42922f2dad1025fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpController
+  pickupSoundEvent:
+    Guid:
+      Data1: 1001006774
+      Data2: 1235595831
+      Data3: -852003150
+      Data4: 1304812723
+    Path: event:/PickUpPowerUp
   powerUpMesh: {fileID: 1553937482}
   powerUpEffect: {fileID: 11400000, guid: 2d9542193e1c2f84ba5b491da67065fa, type: 2}
 --- !u!65 &1361806287
@@ -202880,6 +202915,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.2042671, z: 2.3445354}
   m_Center: {x: -2.0392649e-16, y: 0.10213357, z: 0.04828556}
+--- !u!114 &1428764064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428764058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f38c03a5855e1341afa7b0c07db4ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BarrelSound
+  rollSoundEvent:
+    Guid:
+      Data1: -586584662
+      Data2: 1202311406
+      Data3: 481104259
+      Data4: 373928577
+    Path: event:/BarrelRolling
 --- !u!4 &1428894916 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4425768411978368759, guid: 7a5e6e148be2b0b44b0258733231d4b7, type: 3}
@@ -205683,6 +205737,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 54958f8aad7ebbc4684c4ae1e283fea1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1428764063}
+    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 54958f8aad7ebbc4684c4ae1e283fea1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1428764064}
   m_SourcePrefab: {fileID: -5645937942226959685, guid: 54958f8aad7ebbc4684c4ae1e283fea1, type: 3}
 --- !u!1 &1460087052
 GameObject:
@@ -272816,6 +272873,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d319766e9fb73b42922f2dad1025fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpController
+  pickupSoundEvent:
+    Guid:
+      Data1: 1001006774
+      Data2: 1235595831
+      Data3: -852003150
+      Data4: 1304812723
+    Path: event:/PickUpPowerUp
   powerUpMesh: {fileID: 160386091}
   powerUpEffect: {fileID: 11400000, guid: f2256eec411231a429c1dcf807aaf63e, type: 2}
 --- !u!65 &1833800948
@@ -326560,6 +326624,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d319766e9fb73b42922f2dad1025fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpController
+  pickupSoundEvent:
+    Guid:
+      Data1: 1001006774
+      Data2: 1235595831
+      Data3: -852003150
+      Data4: 1304812723
+    Path: event:/PickUpPowerUp
   powerUpMesh: {fileID: 1565261684}
   powerUpEffect: {fileID: 11400000, guid: cf07466b5ec1a8941b5b9b391eac9db9, type: 2}
 --- !u!65 &2013237182
