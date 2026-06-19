@@ -16,4 +16,4 @@ MonoBehaviour:
   powerUpName: Endurance Crystal
   powerUpDescription: A pulsing crystal humming with boundless energy. Absorb its
     power to permanently increase your stamina.
-  amount: 200
+  amount: 40

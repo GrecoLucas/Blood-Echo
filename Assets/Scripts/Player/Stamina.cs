@@ -57,26 +57,8 @@ public class Stamina : MonoBehaviour
 
 	private void Update()
 	{
-		// Detecta sprint via Input System (gamepad Circle) ou Input antigo (LeftShift/Fire3)
-		bool sprinting = false;
-		if (_input != null)
-		{
-			sprinting = _input.sprint;
-		}
-		else
-		{
-			sprinting = useFire3Input
-				? Input.GetAxis("Fire3") == 1f || Input.GetKey(KeyCode.LeftShift)
-				: Input.GetKey(KeyCode.LeftShift);
-		}
-
-		if (sprinting && currentStamina > 0f)
-		{
-			currentStamina = Mathf.Clamp(currentStamina - drainPerSecond * Time.deltaTime, 0f, maxStamina);
-			lastDrainTime = Time.time;
-			UpdateUI();
-			return;
-		}
+		// A pedido do usuário: correr (sprint) não gasta mais stamina. 
+        // Apenas o regenDelay continua funcionando (após um rolamento, ele espera antes de regenerar).
 
 		if (Time.time - lastDrainTime >= regenDelay && currentStamina < maxStamina)
 		{
