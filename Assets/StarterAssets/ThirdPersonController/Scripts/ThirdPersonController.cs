@@ -16,6 +16,7 @@ namespace StarterAssets
         public EventReference FootstepEvent;
         public EventReference ParryEvent;
         public EventReference DodgeRollEvent;
+        public EventReference LandSoundEvent;
         [Header("Parry Settings")]
         public float ParryWindowDuration = 0.3f; 
         private float _parryActiveTimer;
@@ -606,8 +607,8 @@ namespace StarterAssets
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
-                //if (LandingAudio != null)
-                //    LandingAudio.Play();
+                if (LandSoundEvent.IsNull == false)
+                    PlayLandSound();
             }
         }
     
@@ -637,6 +638,16 @@ namespace StarterAssets
                 Destroy(vfx, 2f); 
             }
         }
+        public void PlayLandSound()
+        {
+            if (LandSoundEvent.IsNull) return;
+
+            FMOD.Studio.EventInstance landInstance = RuntimeManager.CreateInstance(LandSoundEvent);
+            landInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+            landInstance.start();
+            landInstance.release();
+        }
+
         private void PlayDodgeRollSound()
         {
             if (DodgeRollEvent.IsNull) return;

@@ -46938,6 +46938,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7382740871385427043, guid: a0d8e7c7494d01b42bd133cf7781b8da, type: 3}
+      propertyPath: hitSparkPrefab
+      value: 
+      objectReference: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
     - target: {fileID: 7408868291170442741, guid: a0d8e7c7494d01b42bd133cf7781b8da, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -88080,7 +88084,7 @@ PrefabInstance:
     - target: {fileID: 1897931655730797702, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: hitSparkPrefab
       value: 
-      objectReference: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
+      objectReference: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
     - target: {fileID: 1898087564080536194, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -88260,7 +88264,7 @@ PrefabInstance:
     - target: {fileID: 5166974003694012948, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: hitSparkPrefab
       value: 
-      objectReference: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
+      objectReference: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
     - target: {fileID: 5187569483713777684, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -120710,7 +120714,7 @@ PrefabInstance:
     - target: {fileID: 1897931655730797702, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: hitSparkPrefab
       value: 
-      objectReference: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
+      objectReference: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
     - target: {fileID: 1898087564080536194, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -120914,7 +120918,7 @@ PrefabInstance:
     - target: {fileID: 5166974003694012948, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: hitSparkPrefab
       value: 
-      objectReference: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
+      objectReference: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
     - target: {fileID: 5187569483713777684, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -146004,7 +146008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
   canBeParried: 0
   stunDuration: 2
-  hitSparkPrefab: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
+  hitSparkPrefab: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
   damage: 20
   owner: 1
 --- !u!1001 &1129696353
@@ -153663,6 +153667,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: JumpEvent.Path
+      value: event:/BodyRoll
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: parryVFXAnchor
       value: 
       objectReference: {fileID: 1401159719}
@@ -153691,8 +153699,28 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: LandSoundEvent.Path
+      value: event:/PlayerLand
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: ParryWindowDuration
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: JumpEvent.Guid.Data1
+      value: -216182853
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: JumpEvent.Guid.Data2
+      value: 1319815941
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: JumpEvent.Guid.Data3
+      value: 1137390526
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: JumpEvent.Guid.Data4
+      value: -1724377270
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: ParryEvent.Guid.Data1
@@ -153745,6 +153773,22 @@ PrefabInstance:
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: DodgeRollEvent.Guid.Data4
       value: -1724377270
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: LandSoundEvent.Guid.Data1
+      value: 479378364
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: LandSoundEvent.Guid.Data2
+      value: 1152250279
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: LandSoundEvent.Guid.Data3
+      value: 1771312056
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: LandSoundEvent.Guid.Data4
+      value: -1778365798
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918491, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: m_SlopeLimit
@@ -174544,7 +174588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
   canBeParried: 1
   stunDuration: 0.8
-  hitSparkPrefab: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
+  hitSparkPrefab: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
   damage: 25
   owner: 0
 --- !u!1001 &1279281046
@@ -197874,7 +197918,7 @@ PrefabInstance:
     - target: {fileID: 1897931655730797702, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: hitSparkPrefab
       value: 
-      objectReference: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
+      objectReference: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
     - target: {fileID: 1898087564080536194, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -198090,7 +198134,7 @@ PrefabInstance:
     - target: {fileID: 5166974003694012948, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: hitSparkPrefab
       value: 
-      objectReference: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
+      objectReference: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
     - target: {fileID: 5187569483713777684, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -201210,6 +201254,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7382740871385427043, guid: a0d8e7c7494d01b42bd133cf7781b8da, type: 3}
+      propertyPath: hitSparkPrefab
+      value: 
+      objectReference: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
     - target: {fileID: 7408868291170442741, guid: a0d8e7c7494d01b42bd133cf7781b8da, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -213488,6 +213536,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.06414609
       objectReference: {fileID: 0}
+    - target: {fileID: 7526367022388339009, guid: 1a220f6955f4c4c4882ba74506eebd25, type: 3}
+      propertyPath: hitSparkPrefab
+      value: 
+      objectReference: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
     - target: {fileID: 7812146463355022986, guid: 1a220f6955f4c4c4882ba74506eebd25, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00000017881393
@@ -228280,7 +228332,7 @@ PrefabInstance:
     - target: {fileID: 1897931655730797702, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: hitSparkPrefab
       value: 
-      objectReference: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
+      objectReference: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
     - target: {fileID: 1898087564080536194, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -228480,7 +228532,7 @@ PrefabInstance:
     - target: {fileID: 5166974003694012948, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: hitSparkPrefab
       value: 
-      objectReference: {fileID: 5788453774008765468, guid: 651f9d7edebc4904b8720b90b5e531d3, type: 3}
+      objectReference: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
     - target: {fileID: 5187569483713777684, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -247420,6 +247472,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5166974003694012948, guid: 7bfe001c528df96439ff846ff96cf148, type: 3}
+      propertyPath: hitSparkPrefab
+      value: 
+      objectReference: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
     - target: {fileID: 5187569483713777684, guid: 7bfe001c528df96439ff846ff96cf148, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -247436,6 +247492,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5698980901195910931, guid: 7bfe001c528df96439ff846ff96cf148, type: 3}
+      propertyPath: hitSparkPrefab
+      value: 
+      objectReference: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
     - target: {fileID: 5808390797534426744, guid: 7bfe001c528df96439ff846ff96cf148, type: 3}
       propertyPath: m_Layer
       value: 6

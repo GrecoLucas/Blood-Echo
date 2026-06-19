@@ -54,6 +54,8 @@ public class GameOverMenu : MonoBehaviour
 
     public void TryAgain()
     {
+        FMODUnity.RuntimeManager.GetBus("bus:/").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
         // 1. Volta o tempo ao normal
         Time.timeScale = 1f;
     

@@ -27,7 +27,7 @@ public class BarrelSound : MonoBehaviour
 
         // Verifica se o barril está se movendo (velocidade maior que um valor bem pequeno)
         // e garante que ele não parou por causa do TravaBarril (isKinematic)
-        bool isMoving = rb.velocity.magnitude > 0.1f && !rb.isKinematic;
+        bool isMoving = rb.linearVelocity.magnitude > 0.1f && !rb.isKinematic;
 
         if (isMoving && !isPlaying)
         {

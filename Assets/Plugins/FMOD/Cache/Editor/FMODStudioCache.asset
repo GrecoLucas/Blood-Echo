@@ -189,6 +189,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 30
   Length: 0
+--- !u!114 &-5120395015563973339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PlayerLand
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/PlayerLand
+  Guid:
+    Data1: 479378364
+    Data2: 1152250279
+    Data3: 1771312056
+    Data4: -1778365798
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4656724663528039913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,10 +258,10 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639174665910255517
+  lastModified: 639174685211480735
   FileSizes:
   - Name: 
-    Value: 1634
+    Value: 1674
   Exists: 1
 --- !u!114 &-3981884110307684136
 MonoBehaviour:
@@ -396,13 +423,14 @@ MonoBehaviour:
   - {fileID: 8619765225252071637}
   - {fileID: -6219126923667245602}
   - {fileID: -9017480688075471299}
+  - {fileID: -5120395015563973339}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4905947999675981428}
   StringsBanks:
   - {fileID: -4174581921147369990}
   cacheVersion: 131859
-  cacheTime: 639174665910255517
+  cacheTime: 639174685211480735
   SerializableEventsDict:
   - key: event:/ForestAmbient
     index: 0
@@ -440,6 +468,8 @@ MonoBehaviour:
     index: 16
   - key: event:/SpecialAttack
     index: 17
+  - key: event:/PlayerLand
+    index: 18
 --- !u!114 &319782156985544129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,7 +530,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639174665910230424
+  lastModified: 639174685211438211
   FileSizes: []
   Exists: 1
 --- !u!114 &4910699797151455766
