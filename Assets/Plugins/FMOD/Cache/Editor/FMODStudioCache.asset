@@ -258,10 +258,10 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639174685211480735
+  lastModified: 639174746643216098
   FileSizes:
   - Name: 
-    Value: 1674
+    Value: 1720
   Exists: 1
 --- !u!114 &-3981884110307684136
 MonoBehaviour:
@@ -424,13 +424,14 @@ MonoBehaviour:
   - {fileID: -6219126923667245602}
   - {fileID: -9017480688075471299}
   - {fileID: -5120395015563973339}
+  - {fileID: 1324000051884744389}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4905947999675981428}
   StringsBanks:
   - {fileID: -4174581921147369990}
   cacheVersion: 131859
-  cacheTime: 639174685211480735
+  cacheTime: 639174746643216098
   SerializableEventsDict:
   - key: event:/ForestAmbient
     index: 0
@@ -470,6 +471,8 @@ MonoBehaviour:
     index: 17
   - key: event:/PlayerLand
     index: 18
+  - key: event:/EnemysFootsteps
+    index: 19
 --- !u!114 &319782156985544129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,6 +491,33 @@ MonoBehaviour:
     Data2: 1232205920
     Data3: -687028084
     Data4: 1699050132
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1324000051884744389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EnemysFootsteps
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/EnemysFootsteps
+  Guid:
+    Data1: -697017429
+    Data2: 1304954788
+    Data3: -1521994313
+    Data4: -603858041
   Banks:
   - {fileID: 4905947999675981428}
   IsStream: 0
@@ -530,7 +560,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639174685211438211
+  lastModified: 639174746643186124
   FileSizes: []
   Exists: 1
 --- !u!114 &4910699797151455766
