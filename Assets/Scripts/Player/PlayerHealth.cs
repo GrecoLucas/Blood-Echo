@@ -89,6 +89,9 @@ private void Die()
 {
     Debug.Log("O Jogador Morreu!");
 
+    // Interrompe todos os sons atuais no jogo imediatamente
+    RuntimeManager.GetBus("bus:/").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
     if (!deathSound.IsNull)
     {
         RuntimeManager.PlayOneShot(deathSound, transform.position);

@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9017480688075471299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SpecialAttack
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SpecialAttack
+  Guid:
+    Data1: 1275462111
+    Data2: 1240030466
+    Data3: -1167918688
+    Data4: -1947455134
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-7453530703387732020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +135,87 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6219126923667245602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PickUpPowerUp
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/PickUpPowerUp
+  Guid:
+    Data1: 1001006774
+    Data2: 1235595831
+    Data3: -852003150
+    Data4: 1304812723
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5208470643134383245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MagicSpell
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MagicSpell
+  Guid:
+    Data1: -805086595
+    Data2: 1233263854
+    Data3: 409825700
+    Data4: 202533506
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 30
+  Length: 0
+--- !u!114 &-4656724663528039913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/FirePlace
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/FirePlace
+  Guid:
+    Data1: 2005031584
+    Data2: 1266677166
+    Data3: -1961592924
+    Data4: -845312630
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4174581921147369990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,10 +231,10 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639174221526189611
+  lastModified: 639174656708587351
   FileSizes:
   - Name: 
-    Value: 1366
+    Value: 1634
   Exists: 1
 --- !u!114 &-3981884110307684136
 MonoBehaviour:
@@ -283,13 +391,18 @@ MonoBehaviour:
   - {fileID: 7325316259659413087}
   - {fileID: -3981884110307684136}
   - {fileID: 4910699797151455766}
+  - {fileID: -5208470643134383245}
+  - {fileID: -4656724663528039913}
+  - {fileID: 8619765225252071637}
+  - {fileID: -6219126923667245602}
+  - {fileID: -9017480688075471299}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4905947999675981428}
   StringsBanks:
   - {fileID: -4174581921147369990}
   cacheVersion: 131859
-  cacheTime: 639174221526189611
+  cacheTime: 639174656708587351
   SerializableEventsDict:
   - key: event:/ForestAmbient
     index: 0
@@ -317,6 +430,16 @@ MonoBehaviour:
     index: 11
   - key: event:/BodyRoll
     index: 12
+  - key: event:/MagicSpell
+    index: 13
+  - key: event:/FirePlace
+    index: 14
+  - key: event:/BarrelRolling
+    index: 15
+  - key: event:/PickUpPowerUp
+    index: 16
+  - key: event:/SpecialAttack
+    index: 17
 --- !u!114 &319782156985544129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +500,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639174221526189611
+  lastModified: 639174656708563046
   FileSizes: []
   Exists: 1
 --- !u!114 &4910699797151455766
@@ -578,6 +701,33 @@ MonoBehaviour:
     Data2: 1180061756
     Data3: -892440171
     Data4: 1248273909
+  Banks:
+  - {fileID: 4905947999675981428}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8619765225252071637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BarrelRolling
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/BarrelRolling
+  Guid:
+    Data1: -586584662
+    Data2: 1202311406
+    Data3: 481104259
+    Data4: 373928577
   Banks:
   - {fileID: 4905947999675981428}
   IsStream: 0

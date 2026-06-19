@@ -14,7 +14,8 @@ public class WeaponController : MonoBehaviour
     [Header("Combat")]
     [SerializeField] private DamageDealer playerDamageDealer;
     [Header("FMOD Audio")] 
-        public EventReference SwordSwingEvent;
+    public EventReference SwordSwingEvent;
+    public EventReference HeavySwordSwingEvent;
     [Header("Animation")]
     private Animator _animator;
     private static readonly int ArmedHash = Animator.StringToHash("Armed");
@@ -131,6 +132,7 @@ public class WeaponController : MonoBehaviour
         if (playerDamageDealer != null)
         {
             playerDamageDealer.StartDealingHeavyDamage();
+            PlayHeavySwordSwingSound();
         }
     }
         // Chamado via Animation Event no ataque do player
@@ -196,5 +198,17 @@ public class WeaponController : MonoBehaviour
         
         swingInstance.start();
         swingInstance.release();
+    }
+
+    public void PlayHeavySwordSwingSound()
+    {
+        if (HeavySwordSwingEvent.IsNull) return;
+
+        FMOD.Studio.EventInstance heavySwingInstance = RuntimeManager.CreateInstance(HeavySwordSwingEvent);
+        
+        heavySwingInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+        
+        heavySwingInstance.start();
+        heavySwingInstance.release();
     }
 }

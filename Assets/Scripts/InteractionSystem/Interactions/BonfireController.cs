@@ -1,5 +1,6 @@
 using UnityEngine;
 using StarterAssets; // <- Adicionado para conseguirmos "conversar" com o controle do personagem
+using FMODUnity;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -16,6 +17,11 @@ public class BonfireController : MonoBehaviour, IInteractable
     [Header("Bonfire VFX")]
     public GameObject fireObject;
     public bool isDefaultBonfire = false; // Marque como TRUE apenas na fogueira inicial da fase
+    
+    [Header("FMOD Audio")]
+    public EventReference bonfireSoundEvent;
+    private FMOD.Studio.EventInstance bonfireSoundInstance;
+
     [Header("Spawn Point")]
     public Transform playerSp;
     private void ShowMenu(){
@@ -80,11 +86,30 @@ public class BonfireController : MonoBehaviour, IInteractable
         BonfireController[] allBonfires = FindObjectsByType<BonfireController>(FindObjectsSortMode.None);
         foreach (var b in allBonfires)
         {
-            if (b.fireObject != null) b.fireObject.SetActive(false);
+            b.SetFireState(false);
         }
 
         // Ativa apenas o fogo desta
-        if (fireObject != null) fireObject.SetActive(true);
+        SetFireState(true);
+    }
+    
+    public void SetFireState(bool isOn)
+    {
+        if (fireObject != null) fireObject.SetActive(isOn);
+        
+        if (isOn)
+        {
+            FMOD.Studio.PLAYBACK_STATE playbackState;
+            bonfireSoundInstance.getPlaybackState(out playbackState);
+            if (playbackState != FMOD.Studio.PLAYBACK_STATE.PLAYING)
+            {
+                bonfireSoundInstance.start();
+            }
+        }
+        else
+        {
+            bonfireSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
     }
     // Update is called once per frame
     void Update()
@@ -117,6 +142,12 @@ public class BonfireController : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        if (!bonfireSoundEvent.IsNull)
+        {
+            bonfireSoundInstance = RuntimeManager.CreateInstance(bonfireSoundEvent);
+            RuntimeManager.AttachInstanceToGameObject(bonfireSoundInstance, transform, GetComponent<Rigidbody>());
+        }
+
         if (GameManager.Instance != null)
         {
             if (GameManager.Instance.lastBonfirePosition != Vector3.zero)
@@ -126,27 +157,30 @@ public class BonfireController : MonoBehaviour, IInteractable
                 // Se a distância for muito pequena (quase zero), é a mesma fogueira
                 if (distancia < 0.1f)
                 {
-                    if (fireObject != null) fireObject.SetActive(true);
+                    SetFireState(true);
                     return; // Encontramos a ativa, não precisamos checar o 'isDefault'
                 }
                 else
                 {
                     // Se o GameManager já tem uma posição salva e não é esta, apagamos o fogo
-                    if (fireObject != null) fireObject.SetActive(false);
+                    SetFireState(false);
                     return;
                 }
             }
         }
 
         // usamos a lógica da fogueira default que você já tinha
-        if (fireObject != null)
-        {
-            fireObject.SetActive(isDefaultBonfire);
-        }
+        SetFireState(isDefaultBonfire);
 
         if (isDefaultBonfire && GameManager.Instance != null && playerSp != null)
         {
             GameManager.Instance.lastBonfirePosition = playerSp.position;
         }
+    }
+
+    private void OnDestroy()
+    {
+        bonfireSoundInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        bonfireSoundInstance.release();
     }
 }

@@ -10662,6 +10662,13 @@ MonoBehaviour:
   closeKey: 9
   fireObject: {fileID: 4825042874850358180}
   isDefaultBonfire: 0
+  bonfireSoundEvent:
+    Guid:
+      Data1: 2005031584
+      Data2: 1266677166
+      Data3: -1961592924
+      Data4: -845312630
+    Path: event:/FirePlace
   playerSp: {fileID: 8487681268992612118}
 --- !u!1 &7240398778890207157
 GameObject:

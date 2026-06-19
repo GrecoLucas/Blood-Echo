@@ -14,6 +14,7 @@ public class BossAI : MonoBehaviour
     [Header("FMOD Audio")]
     public EventReference FootstepEvent;
     public EventReference SwordSwingEvent;
+    public EventReference MagicCastEvent;
 
     [Header("Ground Check")]
     public LayerMask GroundLayers;
@@ -155,6 +156,11 @@ public class BossAI : MonoBehaviour
 
         if (projectilePrefab != null && shootPoint != null)
         {
+            if (!MagicCastEvent.IsNull)
+            {
+                RuntimeManager.PlayOneShot(MagicCastEvent, shootPoint.position);
+            }
+
             GameObject projectileObj = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
             EnemyProjectile projectile = projectileObj.GetComponent<EnemyProjectile>();
             if (projectile != null)

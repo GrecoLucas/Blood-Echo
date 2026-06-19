@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Settings")]
     public Vector3 lastBonfirePosition = Vector3.zero;
-    // NOVA VARIÁVEL: Guarda a rotação da fogueira
     public Quaternion lastBonfireRotation = Quaternion.identity; 
     public GameObject playerHealth;
     public GameObject PlayerPotions;
@@ -63,7 +62,6 @@ public class GameManager : MonoBehaviour
                     if (b.isDefaultBonfire)
                     {
                         lastBonfirePosition = b.playerSp != null ? b.playerSp.position : b.transform.position;
-                        // SALVANDO A ROTAÇÃO DA FOGUEIRA DEFAULT
                         lastBonfireRotation = b.playerSp != null ? b.playerSp.rotation : b.transform.rotation; 
                         break;
                     }
@@ -84,11 +82,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // ATUALIZADO: Agora recebe a posição e a rotação
     public void RestAtBonfire(Vector3 position, Quaternion rotation) 
     {
         lastBonfirePosition = position;
-        lastBonfireRotation = rotation; // SALVA A ROTAÇÃO AQUI
+        lastBonfireRotation = rotation; 
         RestorePlayer();
     }
 
