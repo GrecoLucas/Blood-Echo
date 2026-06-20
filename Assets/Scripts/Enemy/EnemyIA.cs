@@ -42,6 +42,18 @@ public class EnemyAI : MonoBehaviour
         posicaoInicial = transform.position;
         rotacaoInicial = transform.rotation;
         if (agent == null) agent = GetComponent<NavMeshAgent>();
+        if (player == null)
+        {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                player = playerObj.transform;
+            }
+            else
+            {
+                Debug.LogWarning("Player não encontrado na scene!");
+            }
+        }
     }
 
     public void OnFootstep()
@@ -52,7 +64,18 @@ public class EnemyAI : MonoBehaviour
     }
     void Update()
     {
-        if (player == null) return;
+        if (player == null)
+        {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                player = playerObj.transform;
+            }
+            else
+            {
+                return; // ainda não há player, não faz nada este frame
+            }
+        }
 
         // Verifica se o jogador tem o script de vida e se está morto
         PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
