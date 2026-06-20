@@ -270542,8 +270542,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MapController
   mapDocument: {fileID: 0}
   player: {fileID: 0}
-  mapCenter: {x: 0, y: 0, z: 0}
-  mapMultiplier: 7
+  mapCenter: {x: 6, y: 0, z: 47}
+  mapMultiplier: 5.5
 --- !u!1001 &1791220201
 PrefabInstance:
   m_ObjectHideFlags: 0
