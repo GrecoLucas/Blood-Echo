@@ -191,6 +191,14 @@ public class BossAI : MonoBehaviour
         transform.position = posicaoInicial;
         transform.rotation = rotacaoInicial;
         if (agent != null) agent.enabled = true;
+        if (animator != null)
+        {
+            animator.ResetTrigger("Attack1");
+            animator.ResetTrigger("Attack2");
+            animator.ResetTrigger("RangeAttack");
+            animator.Play("Idle", 0, 0f);
+            animator.SetFloat("Speed", 0f);
+        }
     }
 
     public void StartDealingDamage() 
