@@ -268,5 +268,11 @@ public class EnemyAI : MonoBehaviour
         if (agent != null) agent.enabled = true;
         patrulhaInicializada = false;
         emEsperaPatrulha = false;
+        if (animator != null)
+        {
+            animator.ResetTrigger("Attack1");
+            animator.Play("Idle", 0, 0f);
+            animator.SetFloat("Speed", 0f);
+        }
     }
 }
