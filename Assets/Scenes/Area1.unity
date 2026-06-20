@@ -203207,7 +203207,7 @@ MonoBehaviour:
   navLink: {fileID: 1986468103}
   openAngle: 90
   speed: 3
-  isLocked: 0
+  isLocked: 1
 --- !u!1001 &1432410752
 PrefabInstance:
   m_ObjectHideFlags: 0
