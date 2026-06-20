@@ -3,7 +3,6 @@ using Unity.AI.Navigation; // Necessário para acessar o NavMeshLink[cite: 11]
 
 public class DoorController : MonoBehaviour, IInteractable
 {
-    public Transform doorMesh;
     public NavMeshLink navLink; // Arraste o NavMeshLink para cá no Inspector
     public float openAngle = 90f;
     public float speed = 3f;
@@ -24,8 +23,8 @@ public class DoorController : MonoBehaviour, IInteractable
     void Start()
     {
         wasLocked = isLocked;
-        closedRot = doorMesh.rotation;
-        openRot = Quaternion.Euler(doorMesh.eulerAngles + new Vector3(0, openAngle, 0));
+        closedRot = transform.rotation;
+        openRot = Quaternion.Euler(transform.eulerAngles + new Vector3(0, openAngle, 0));
         
         // Garante que o link comece desativado, pois a porta inicia fechada
         if (navLink != null)
@@ -40,7 +39,7 @@ public class DoorController : MonoBehaviour, IInteractable
             return;}
 
         Quaternion target = isOpen ? openRot : closedRot;
-        doorMesh.rotation = Quaternion.Slerp(doorMesh.rotation, target, Time.deltaTime * speed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * speed);
     }
 
     private void ToggleDoor()
@@ -73,18 +72,11 @@ public class DoorController : MonoBehaviour, IInteractable
     {
         if (isLocked)
         {
-            var inventory = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Inventory>();
-            if (inventory != null && inventory.HasKey)
-            {
-                UnlockDoor();
-                Debug.Log("Porta destrancada usando a chave!");
-            }
-            else
-            {
-                Debug.Log("A porta está trancada.");
-                return;
-            }
+            // DOOR LOCKED - Do nothing
         }
-        ToggleDoor(); 
+        else {
+            ToggleDoor(); 
+        }
+        
     }
 }

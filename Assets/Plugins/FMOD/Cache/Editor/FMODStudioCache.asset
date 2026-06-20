@@ -151,7 +151,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639174963166902396
+  lastModified: 639175682023832315
   FileSizes: []
   Exists: 1
 --- !u!114 &-5295885006217627659
@@ -277,7 +277,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 8112118036283771901}
   cacheVersion: 131859
-  cacheTime: 639174963166922447
+  cacheTime: 639175682023832315
   SerializableEventsDict:
   - key: event:/ParrySound
     index: 0
@@ -628,7 +628,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639174963166922447
+  lastModified: 639175682023832315
   FileSizes:
   - Name: 
     Value: 1720
