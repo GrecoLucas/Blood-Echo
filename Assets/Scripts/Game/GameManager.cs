@@ -119,6 +119,31 @@ public class GameManager : MonoBehaviour
 
             if (cc != null) cc.enabled = true;
 
+            // --- NOVO: Forçar a música de ambiente a recomeçar ---
+            BackGroundSound[] bgSounds = FindObjectsByType<BackGroundSound>(FindObjectsSortMode.None);
+            foreach (var bg in bgSounds)
+            {
+                Collider col = bg.GetComponent<Collider>();
+                if (col != null && col.bounds.Contains(player.transform.position))
+                {
+                    // Finge que o jogador acabou de entrar no trigger para forçar o Play()
+                    bg.SendMessage("OnTriggerEnter", player.GetComponent<Collider>(), SendMessageOptions.DontRequireReceiver);
+                }
+            }
+
+            // --- NOVO: Forçar o som da fogueira atual a recomeçar ---
+            BonfireController[] bonfires = FindObjectsByType<BonfireController>(FindObjectsSortMode.None);
+            foreach (var b in bonfires)
+            {
+                // Se a posição de respawn da fogueira for igual à nossa lastBonfirePosition
+                if (b.playerSp != null && Vector3.Distance(b.playerSp.position, lastBonfirePosition) < 0.1f)
+                {
+                    b.SetFireState(true);
+                    break;
+                }
+            }
+            // -----------------------------------------------------
+
             RestorePlayer();
 
             StarterAssetsInputs inputs = player.GetComponent<StarterAssetsInputs>();

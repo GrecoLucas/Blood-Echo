@@ -89,8 +89,8 @@ private void Die()
 {
     Debug.Log("O Jogador Morreu!");
 
-    // Interrompe todos os sons atuais no jogo imediatamente
-    RuntimeManager.GetBus("bus:/").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    // Para todos os sons para impedir que ataques antigos toquem atrasados no respawn
+    FMODUnity.RuntimeManager.GetBus("bus:/").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
     if (!deathSound.IsNull)
     {

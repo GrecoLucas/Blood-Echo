@@ -54,6 +54,7 @@ public class GameOverMenu : MonoBehaviour
 
     public void TryAgain()
     {
+        // Limpa o bus para não termos sons bugados da vida anterior
         FMODUnity.RuntimeManager.GetBus("bus:/").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
         // 1. Volta o tempo ao normal
