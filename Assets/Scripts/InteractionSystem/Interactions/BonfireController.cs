@@ -150,7 +150,7 @@ public class BonfireController : MonoBehaviour, IInteractable
 
         if (GameManager.Instance != null)
         {
-            if (GameManager.Instance.lastBonfirePosition != Vector3.zero)
+            if (GameManager.Instance.lastBonfirePosition != Vector3.zero && GameManager.Instance.lastBonfireScene == UnityEngine.SceneManagement.SceneManager.GetActiveScene().name)
             {
                 float distancia = Vector3.Distance(GameManager.Instance.lastBonfirePosition, playerSp.position);
 
@@ -167,6 +167,11 @@ public class BonfireController : MonoBehaviour, IInteractable
                     return;
                 }
             }
+            else if (GameManager.Instance.lastBonfirePosition != Vector3.zero && GameManager.Instance.lastBonfireScene != UnityEngine.SceneManagement.SceneManager.GetActiveScene().name)
+            {
+                SetFireState(false);
+                return;
+            }
         }
 
         // usamos a lógica da fogueira default que você já tinha
@@ -175,6 +180,7 @@ public class BonfireController : MonoBehaviour, IInteractable
         if (isDefaultBonfire && GameManager.Instance != null && playerSp != null)
         {
             GameManager.Instance.lastBonfirePosition = playerSp.position;
+            GameManager.Instance.lastBonfireScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         }
     }
 

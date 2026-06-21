@@ -16,4 +16,4 @@ MonoBehaviour:
   powerUpName: Bloodrage Extract
   powerUpDescription: A dark, boiling extract that fills you with an insatiable fury.
     Consume it to temporarily unleash devastating attacks.
-  DamageIncrease: 30
+  DamageIncrease: 5

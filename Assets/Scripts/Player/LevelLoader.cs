@@ -24,6 +24,7 @@ public class LevelLoader : MonoBehaviour
             else
             {
                 other.gameObject.SetActive(false);
+                PlayerSpawner.enteringDungeon = true;
                 SceneManager.LoadScene("Dungeons");
             }
         }

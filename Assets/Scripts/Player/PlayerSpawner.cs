@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using System.Collections;
 
 public class PlayerSpawner : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerSpawner : MonoBehaviour
     [SerializeField] private MapController mapController;
     [SerializeField] private FogOfWarUI fogOfWarUI;
     public static bool returningFromDungeon = false;    
+    public static bool enteringDungeon = false;
+
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -31,12 +34,17 @@ public class PlayerSpawner : MonoBehaviour
             fogOfWarUI.Setup(mapDocument, gameObject);
             mapController.enabled = true;
 
-            if (cc != null) cc.enabled = false;
+            if (enteringDungeon)
+            {
+                if (cc != null) cc.enabled = false;
 
-            Debug.Log("A mover player para: " + dungeonSpawnPosition);
-            transform.position = dungeonSpawnPosition;
-            Debug.Log("Posição atual do player: " + transform.position);
-            if (cc != null) cc.enabled = true;
+                Debug.Log("A mover player para: " + dungeonSpawnPosition);
+                transform.position = dungeonSpawnPosition;
+                Debug.Log("Posição atual do player: " + transform.position);
+                if (cc != null) cc.enabled = true;
+
+                StartCoroutine(ResetEnteringFlag());
+            }
         }
         if (scene.name == "Area1" && returningFromDungeon)
         {
@@ -46,8 +54,20 @@ public class PlayerSpawner : MonoBehaviour
             Debug.Log("Posição depois: " + transform.position);
             if (cc != null) cc.enabled = true;
 
-            returningFromDungeon = false;
             mapController.enabled = false;
+            StartCoroutine(ResetReturningFlag());
         }
+    }
+
+    private IEnumerator ResetEnteringFlag()
+    {
+        yield return new WaitForEndOfFrame();
+        enteringDungeon = false;
+    }
+
+    private IEnumerator ResetReturningFlag()
+    {
+        yield return new WaitForEndOfFrame();
+        returningFromDungeon = false;
     }
 }
