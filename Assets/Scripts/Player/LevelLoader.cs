@@ -16,6 +16,9 @@ public class LevelLoader : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         if(other.tag == "LevelChange"){
+            // Para todos os sons atuais com fade out antes de trocar de cena
+            FMODUnity.RuntimeManager.GetBus("bus:/").stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
             if(SceneManager.GetActiveScene().name == "Dungeons"){
                 other.gameObject.SetActive(false);
                 PlayerSpawner.returningFromDungeon = true;
