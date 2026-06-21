@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93cd25b796deb6b44906456efd12abea, type: 3}
   m_Name: HealthItem
   m_EditorClassIdentifier: Assembly-CSharp::HealthPowerUp
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f0ff055b8119cb04a816a74ec927ab1c, type: 3}
   powerUpName: Crimson Vial
-  powerUpDescription: A small vial filled with a thick, crimson liquid. Drink it to
-    quickly mend your wounds and restore lost vitality.
+  powerUpDescription: A small vial filled with a thick, crimson liquid. Drink it
+    to quickly mend your wounds and restore lost vitality.
   amount: 10
   powerUpType: 0
-  isHealing: 1
