@@ -270556,8 +270556,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FogOfWarUI
   mapDocument: {fileID: 0}
   player: {fileID: 0}
-  textureWidth: 96
-  textureHeight: 58
+  textureWidth: 810
+  textureHeight: 445
   worldWidth: 106
   worldHeight: 56
   mapCenter: {x: 6, y: 0, z: 47}
