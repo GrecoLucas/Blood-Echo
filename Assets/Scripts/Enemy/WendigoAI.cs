@@ -78,7 +78,12 @@ public class WendigoAI : MonoBehaviour
 
     void Update()
     {
-        if (playerTarget == null) return;
+        if (playerTarget == null)
+        {
+            GameObject p = GameObject.FindGameObjectWithTag("Player");
+            if (p != null) playerTarget = p.transform;
+            else return;
+        }
 
         bool canSeePlayer = CheckFieldOfView();
 

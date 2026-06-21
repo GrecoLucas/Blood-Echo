@@ -105,7 +105,12 @@ public class EnemyStealth : MonoBehaviour
 
     void Update()
     {
-        if (player == null) return;
+        if (player == null)
+        {
+            GameObject p = GameObject.FindGameObjectWithTag("Player");
+            if (p != null) player = p.transform;
+            else return;
+        }
 
         // Verificar se o player morreu 
         PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();

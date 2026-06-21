@@ -51,7 +51,14 @@ public class BossAI : MonoBehaviour
     void Update()
     {
         if (isStunned) return;
-        if (player == null) return;
+        
+        if (player == null)
+        {
+            GameObject p = GameObject.FindGameObjectWithTag("Player");
+            if (p != null) player = p.transform;
+            else return;
+        }
+
         // Se o boss estiver morto, não faz nada
         EnemyHealth myHealth = GetComponent<EnemyHealth>();
         if (myHealth != null && myHealth.IsDead) return;
