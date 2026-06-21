@@ -11,6 +11,7 @@ public class NpcController : MonoBehaviour, IInteractable
     public NpcMenu npcMenu; 
     [Header("Visual Effects")]
     public GameObject potionInHand;
+    public GameObject key;
     private bool isDead = false;
     [Header("Dialogue Settings")]
     public float typingSpeed = 0.05f;
@@ -111,7 +112,7 @@ public class NpcController : MonoBehaviour, IInteractable
         isDead = true; // NPC agora é considerado morto
 
         yield return new WaitForSeconds(3f);
-        Inventory.Instance.AddKey();
+        key.SetActive(true); // A chave aparece no chão
         npcMenuCanvas.SetActive(false);
         this.enabled = false;
     }
