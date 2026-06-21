@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [Header("Player Settings")]
     public Vector3 lastBonfirePosition = Vector3.zero;
     public Quaternion lastBonfireRotation = Quaternion.identity; 
+    public string lastBonfireScene = "";
+    public bool isRespawning = false;
     public GameObject playerHealth;
     public GameObject PlayerPotions;
 
@@ -54,7 +56,7 @@ public class GameManager : MonoBehaviour
                 Cursor.visible = false;
             }
 
-            if (lastBonfirePosition == Vector3.zero)
+            if (lastBonfirePosition == Vector3.zero || string.IsNullOrEmpty(lastBonfireScene))
             {
                 BonfireController[] bonfires = FindObjectsByType<BonfireController>(FindObjectsSortMode.None);
                 foreach (var b in bonfires)
@@ -63,22 +65,33 @@ public class GameManager : MonoBehaviour
                     {
                         lastBonfirePosition = b.playerSp != null ? b.playerSp.position : b.transform.position;
                         lastBonfireRotation = b.playerSp != null ? b.playerSp.rotation : b.transform.rotation; 
+                        lastBonfireScene = scene.name;
                         break;
                     }
                 }
             }
 
-            if (lastBonfirePosition != Vector3.zero)
+            if (lastBonfirePosition != Vector3.zero && lastBonfireScene == scene.name)
             {
-                CharacterController cc = player.GetComponent<CharacterController>();
-                if (cc != null) cc.enabled = false; 
-                
-                player.transform.position = lastBonfirePosition;
-                // APLICANDO A ROTAÇÃO NO JOGADOR
-                player.transform.rotation = lastBonfireRotation; 
-                
-                if (cc != null) cc.enabled = true;
+                if ((scene.name == "Area1" && PlayerSpawner.returningFromDungeon) ||
+                    (scene.name == "Dungeons" && PlayerSpawner.enteringDungeon))
+                {
+                    // Do nothing, PlayerSpawner will position the player
+                }
+                else
+                {
+                    CharacterController cc = player.GetComponent<CharacterController>();
+                    if (cc != null) cc.enabled = false; 
+                    
+                    player.transform.position = lastBonfirePosition;
+                    // APLICANDO A ROTAÇÃO NO JOGADOR
+                    player.transform.rotation = lastBonfireRotation; 
+                    
+                    if (cc != null) cc.enabled = true;
+                }
             }
+            
+            isRespawning = false;
         }
     }
 
@@ -86,6 +99,7 @@ public class GameManager : MonoBehaviour
     {
         lastBonfirePosition = position;
         lastBonfireRotation = rotation; 
+        lastBonfireScene = SceneManager.GetActiveScene().name;
         RestorePlayer();
     }
 
@@ -110,6 +124,14 @@ public class GameManager : MonoBehaviour
 
         if (player != null && lastBonfirePosition != Vector3.zero)
         {
+            if (!string.IsNullOrEmpty(lastBonfireScene) && SceneManager.GetActiveScene().name != lastBonfireScene)
+            {
+                isRespawning = true;
+                RestorePlayer();
+                SceneManager.LoadScene(lastBonfireScene);
+                return;
+            }
+
             CharacterController cc = player.GetComponent<CharacterController>();
             if (cc != null) cc.enabled = false;
 
