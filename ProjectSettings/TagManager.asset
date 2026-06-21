@@ -9,6 +9,7 @@ TagManager:
   - Grass
   - BarrilPuzzle
   - LevelChange
+  - DungeonNote
   layers:
   - Default
   - TransparentFX

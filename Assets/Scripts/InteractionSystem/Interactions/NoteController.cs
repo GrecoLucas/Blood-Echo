@@ -21,6 +21,22 @@ public class NoteController : MonoBehaviour, IInteractable
         return true;
     }
 
+    public void Setup(GameObject player)
+    {
+        if (player != null)
+        {
+            playerController = player.GetComponent<StarterAssets.ThirdPersonController>();
+            if (playerController == null)
+            {
+                Debug.LogWarning("NoteController: Player does not have a ThirdPersonController component!");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("NoteController: Player reference is null in Setup!");
+        }
+    }
+
     private void ShowNote(){
         // Show the note UI
         noteTextComponent.text = noteContent;

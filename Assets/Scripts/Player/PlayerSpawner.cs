@@ -34,6 +34,17 @@ public class PlayerSpawner : MonoBehaviour
             fogOfWarUI.Setup(mapDocument, gameObject);
             mapController.enabled = true;
 
+            // Find all dungeon notes and set them up with the player reference
+            GameObject[] dungeonNotes = GameObject.FindGameObjectsWithTag("DungeonNote");
+            foreach (GameObject note in dungeonNotes)
+            {
+                NoteController noteController = note.GetComponent<NoteController>();
+                if (noteController != null)
+                    noteController.Setup(gameObject);
+                else
+                    Debug.LogWarning("DungeonNote object '" + note.name + "' is missing a NoteController component!");
+            }
+            
             if (enteringDungeon)
             {
                 if (cc != null) cc.enabled = false;
