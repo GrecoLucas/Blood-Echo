@@ -27228,6 +27228,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 11.359123, y: 11.686974, z: 4.6388245}
   m_Center: {x: -1.6282616, y: 5.343487, z: -62.69095}
+--- !u!114 &109263887 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7526367022388339009, guid: 1a220f6955f4c4c4882ba74506eebd25, type: 3}
+  m_PrefabInstance: {fileID: 353711047}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3087beb4e81715445beff3efbd4c15e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
 --- !u!1001 &109646482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69118,10 +69129,14 @@ PrefabInstance:
       value: 0.14791933
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 7945896442951420958, guid: 1a220f6955f4c4c4882ba74506eebd25, type: 3}
+    - {fileID: 0}
+    - {fileID: 141273945202645094, guid: 1a220f6955f4c4c4882ba74506eebd25, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6706127138470410505, guid: 1a220f6955f4c4c4882ba74506eebd25, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1057511690}
   m_SourcePrefab: {fileID: 100100000, guid: 1a220f6955f4c4c4882ba74506eebd25, type: 3}
 --- !u!4 &353711048 stripped
 Transform:
@@ -140946,6 +140961,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7627498853995055813, guid: 8580caaa51b0a4a4096eed36d777a036, type: 3}
   m_PrefabInstance: {fileID: 1056752043}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1057511684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6706127138470410505, guid: 1a220f6955f4c4c4882ba74506eebd25, type: 3}
+  m_PrefabInstance: {fileID: 353711047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &1057511688 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 6778705230145267737, guid: 1a220f6955f4c4c4882ba74506eebd25, type: 3}
+  m_PrefabInstance: {fileID: 353711047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1057511689 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 898865592648467006, guid: 1a220f6955f4c4c4882ba74506eebd25, type: 3}
+  m_PrefabInstance: {fileID: 353711047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1057511690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057511684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18e06f436ad6eb4d97c71a2a0572135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyStealth
+  agent: {fileID: 1057511688}
+  player: {fileID: 612532283}
+  animator: {fileID: 1057511689}
+  damageDealer: {fileID: 109263887}
+  distanciaVisao: 30
+  anguloVisao: 130
+  layerObstaculo:
+    serializedVersion: 2
+    m_Bits: 1
+  raioAudicao: 15
+  distanciaAtaque: 2
+  cooldownAtaque: 1.5
+  duracaoAlerta: 10
+  duracaoInvestigacao: 5
+  distanciaChegadaInvestigacao: 0.8
+  velocidadePatrulha: 2
+  velocidadeAlerta: 3.5
+  velocidadePerseguicao: 5
+  pontosPatrulha:
+  - {fileID: 2108583898}
+  - {fileID: 1280705516}
+  - {fileID: 815848046}
+  tempoEsperaPatrulha: 2
+  distanciaChegadaPatrulha: 0.5
 --- !u!1 &1058746710
 GameObject:
   m_ObjectHideFlags: 0
