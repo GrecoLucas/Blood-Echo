@@ -134,7 +134,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 7393404303930393573}
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 8
   Length: 0
 --- !u!114 &-5393529472464167786
 MonoBehaviour:
@@ -151,7 +151,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639174963166902396
+  lastModified: 639176516198586489
   FileSizes: []
   Exists: 1
 --- !u!114 &-5295885006217627659
@@ -271,13 +271,14 @@ MonoBehaviour:
   - {fileID: 4359508508294130366}
   - {fileID: -6086082376956469465}
   - {fileID: 4533745063579788697}
+  - {fileID: 4804359627630126277}
   EditorParameters: []
   MasterBanks:
   - {fileID: -5393529472464167786}
   StringsBanks:
   - {fileID: 8112118036283771901}
   cacheVersion: 131859
-  cacheTime: 639174963166922447
+  cacheTime: 639176516198627197
   SerializableEventsDict:
   - key: event:/ParrySound
     index: 0
@@ -319,6 +320,8 @@ MonoBehaviour:
     index: 18
   - key: event:/BackGroundMusic
     index: 19
+  - key: event:/WendigoIdle
+    index: 20
 --- !u!114 &2953200173843712042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,6 +456,33 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+  Length: 0
+--- !u!114 &4804359627630126277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/WendigoIdle
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/WendigoIdle
+  Guid:
+    Data1: 2123045190
+    Data2: 1212003856
+    Data3: 610339738
+    Data4: -1919057236
+  Banks:
+  - {fileID: -5393529472464167786}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 15
   Length: 0
 --- !u!114 &5516314064560174018
 MonoBehaviour:
@@ -628,10 +658,10 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639174963166922447
+  lastModified: 639176516198627197
   FileSizes:
   - Name: 
-    Value: 1720
+    Value: 1766
   Exists: 1
 --- !u!114 &8683464672788404274
 MonoBehaviour:

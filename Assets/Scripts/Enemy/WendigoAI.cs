@@ -12,6 +12,11 @@ public class WendigoAI : MonoBehaviour
 
     [Header("Audio (FMOD)")]
     public EventReference screamSound;
+    public EventReference idleSoundEvent; // O loop idle
+    public EventReference footstepEvent;  // O som de passos
+
+    [Header("Ground Check (For Footsteps)")]
+    public LayerMask groundLayers;
 
     [Header("Movement Speeds")]
     public float patrolSpeed = 2.5f;
@@ -22,6 +27,8 @@ public class WendigoAI : MonoBehaviour
     public float waitTimeAtPoint = 2f;
     private int currentPointIndex = 0;
     private bool isWaiting = false;
+    private float stuckTimer = 0f;
+    private Vector3 positionLastFrame;
 
     [Header("Detection Settings")]
     public float viewRadius = 15f;
@@ -43,8 +50,17 @@ public class WendigoAI : MonoBehaviour
     private float timeSinceLastSawPlayer;
     private Vector3 lastKnownPosition;
 
+    private FMOD.Studio.EventInstance idleInstance;
+
     void Start()
     {
+        if (!idleSoundEvent.IsNull)
+        {
+            idleInstance = RuntimeManager.CreateInstance(idleSoundEvent);
+            RuntimeManager.AttachInstanceToGameObject(idleInstance, transform, GetComponent<Rigidbody>());
+            idleInstance.start();
+        }
+
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
 
@@ -143,7 +159,29 @@ public class WendigoAI : MonoBehaviour
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance && !isWaiting)
         {
             StartCoroutine(WaitAndGoToNextPoint());
+            stuckTimer = 0f;
+            return;
         }
+
+        if (!isWaiting && !agent.pathPending)
+        {
+            float speedThisFrame = (transform.position - positionLastFrame).magnitude / Time.deltaTime;
+            
+            if (speedThisFrame < 0.2f || agent.pathStatus == NavMeshPathStatus.PathPartial || agent.pathStatus == NavMeshPathStatus.PathInvalid)
+            {
+                stuckTimer += Time.deltaTime;
+                if (stuckTimer >= 2f)
+                {
+                    stuckTimer = 0f;
+                    GotoNextPoint();
+                }
+            }
+            else
+            {
+                stuckTimer = 0f;
+            }
+        }
+        positionLastFrame = transform.position;
     }
 
     IEnumerator ScreamThenChase()
@@ -263,5 +301,19 @@ public class WendigoAI : MonoBehaviour
         {
             RuntimeManager.PlayOneShot(screamSound, transform.position);
         }
+    }
+
+    void OnDestroy()
+    {
+        if (idleInstance.isValid())
+        {
+            idleInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            idleInstance.release();
+        }
+    }
+
+    private void OnFootstep(AnimationEvent animationEvent)
+    {
+       // better if do nothing for the monster
     }
 }

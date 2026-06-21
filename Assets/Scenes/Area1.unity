@@ -199002,6 +199002,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   lastBonfirePosition: {x: 0, y: 0, z: 0}
   lastBonfireRotation: {x: 0, y: 0, z: 0, w: 1}
+  lastBonfireScene: 
+  isRespawning: 0
   playerHealth: {fileID: 1790603995}
   PlayerPotions: {fileID: 430118398}
 --- !u!4 &1387210049
