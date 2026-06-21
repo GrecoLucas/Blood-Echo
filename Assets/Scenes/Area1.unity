@@ -104573,7 +104573,6 @@ GameObject:
   - component: {fileID: 688725066}
   - component: {fileID: 688725067}
   - component: {fileID: 688725068}
-  - component: {fileID: 688725069}
   - component: {fileID: 688725070}
   m_Layer: 0
   m_Name: Player
@@ -104662,25 +104661,6 @@ MonoBehaviour:
   pitchOffsetFar: 1
   lockCameraWhileLockedOn: 1
   lockOnIndicator: {fileID: 981791906}
---- !u!114 &688725069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 688725064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d691b8be86c0374fb9afc8850259114, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Potions
-  playerHealth: {fileID: 1790604009}
-  healAmount: 25
-  maxPotions: 4
-  potionCount: 4
-  playerAnimator: {fileID: 1790604023}
-  healSoundEmitter: {fileID: 430118401}
-  potionsUI: {fileID: 430118402}
 --- !u!114 &688725070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122264,7 +122244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7778428154050130886, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7836038302733524170, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
@@ -157307,6 +157287,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1790604037}
+    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1790604038}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
 --- !u!114 &1204707423 stripped
 MonoBehaviour:
@@ -216593,7 +216576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6400061355047997874, guid: 1a220f6955f4c4c4882ba74506eebd25, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6483120180242829174, guid: 1a220f6955f4c4c4882ba74506eebd25, type: 3}
       propertyPath: m_LocalPosition.x
@@ -216657,7 +216640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6706127138470410505, guid: 1a220f6955f4c4c4882ba74506eebd25, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6706783160500963346, guid: 1a220f6955f4c4c4882ba74506eebd25, type: 3}
       propertyPath: m_LocalPosition.x
@@ -231951,7 +231934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7778428154050130886, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7836038302733524170, guid: fc8ac76d3e5c80f4fa96f124a1a567f4, type: 3}
       propertyPath: m_Layer
@@ -250652,7 +250635,7 @@ PrefabInstance:
       objectReference: {fileID: 622367899}
     - target: {fileID: 3707050708676747873, guid: 7bfe001c528df96439ff846ff96cf148, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3897919860362281506, guid: 7bfe001c528df96439ff846ff96cf148, type: 3}
       propertyPath: m_Layer
@@ -274012,6 +273995,25 @@ MonoBehaviour:
   worldHeight: 56
   mapCenter: {x: 6, y: 0, z: 47}
   revealRadius: 7.2
+--- !u!114 &1790604038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790603995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d691b8be86c0374fb9afc8850259114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Potions
+  playerHealth: {fileID: 1790604009}
+  healAmount: 25
+  maxPotions: 4
+  potionCount: 4
+  playerAnimator: {fileID: 1790604023}
+  healSoundEmitter: {fileID: 430118401}
+  potionsUI: {fileID: 430118402}
 --- !u!1001 &1791220201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -332135,7 +332137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2038764736
 Transform:
   m_ObjectHideFlags: 0
