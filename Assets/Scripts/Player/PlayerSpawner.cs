@@ -7,6 +7,7 @@ public class PlayerSpawner : MonoBehaviour
     [SerializeField] private Vector3 dungeonSpawnPosition = new Vector3(0, 0, 0);
     [SerializeField] private Vector3 area1ReturnPosition = new Vector3(-18, 0, 22);
     [SerializeField] private MapController mapController;
+    [SerializeField] private FogOfWarUI fogOfWarUI;
     public static bool returningFromDungeon = false;    
     void OnEnable()
     {
@@ -27,6 +28,7 @@ public class PlayerSpawner : MonoBehaviour
         {
             UIDocument mapDocument = FindObjectOfType<UIDocument>();
             mapController.Setup(mapDocument, gameObject);
+            fogOfWarUI.Setup(mapDocument, gameObject);
             mapController.enabled = true;
 
             if (cc != null) cc.enabled = false;

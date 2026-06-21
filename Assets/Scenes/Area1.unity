@@ -632,7 +632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c62dd796937cc429f300b7e74f9b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorController
-  doorMesh: {fileID: 11979792}
   navLink: {fileID: 1402172596}
   openAngle: 90
   speed: 3
@@ -142949,7 +142948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c62dd796937cc429f300b7e74f9b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorController
-  doorMesh: {fileID: 1084342359}
   navLink: {fileID: 731422839}
   openAngle: 90
   speed: 3
@@ -155021,6 +155019,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1790604036}
+    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1790604037}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
 --- !u!114 &1204707423 stripped
 MonoBehaviour:
@@ -175713,7 +175714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c62dd796937cc429f300b7e74f9b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorController
-  doorMesh: {fileID: 1296193973}
   navLink: {fileID: 999672277}
   openAngle: 90
   speed: 3
@@ -183494,7 +183494,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c62dd796937cc429f300b7e74f9b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorController
-  doorMesh: {fileID: 1327728955}
   navLink: {fileID: 326259031}
   openAngle: 90
   speed: 3
@@ -203203,7 +203202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c62dd796937cc429f300b7e74f9b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorController
-  doorMesh: {fileID: 1431340731}
   navLink: {fileID: 1986468103}
   openAngle: 90
   speed: 3
@@ -255431,7 +255429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c62dd796937cc429f300b7e74f9b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorController
-  doorMesh: {fileID: 1669139024}
   navLink: {fileID: 999083873}
   openAngle: 90
   speed: 3
@@ -270528,6 +270525,7 @@ MonoBehaviour:
   dungeonSpawnPosition: {x: 0, y: 0, z: 0}
   area1ReturnPosition: {x: -18, y: 1, z: 22}
   mapController: {fileID: 1790604036}
+  fogOfWarUI: {fileID: 1790604037}
 --- !u!114 &1790604036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270544,6 +270542,26 @@ MonoBehaviour:
   player: {fileID: 0}
   mapCenter: {x: 6, y: 0, z: 47}
   mapMultiplier: 5.5
+--- !u!114 &1790604037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790603995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b05aedda29caa940adf878d61f7266f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FogOfWarUI
+  mapDocument: {fileID: 0}
+  player: {fileID: 0}
+  textureWidth: 96
+  textureHeight: 58
+  worldWidth: 106
+  worldHeight: 56
+  mapCenter: {x: 6, y: 0, z: 47}
+  revealRadius: 7.2
 --- !u!1001 &1791220201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -291727,7 +291745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c62dd796937cc429f300b7e74f9b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorController
-  doorMesh: {fileID: 1912915959}
   navLink: {fileID: 1855354527}
   openAngle: 90
   speed: 3
