@@ -68,6 +68,7 @@ public class PlayerSpawner : MonoBehaviour
             mapController.enabled = false;
             StartCoroutine(ResetReturningFlag());
         }
+        StartCoroutine(SceneFader.Instance.FadeIn());
     }
 
     private IEnumerator ResetEnteringFlag()
